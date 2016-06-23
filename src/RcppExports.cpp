@@ -5,13 +5,614 @@
 
 using namespace Rcpp;
 
-// rcpp_hello
-List rcpp_hello();
-RcppExport SEXP isoRelate_rcpp_hello() {
+// roundDecimal
+double roundDecimal(double number, int digits);
+RcppExport SEXP IsoRelate_roundDecimal(SEXP numberSEXP, SEXP digitsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
-    __result = Rcpp::wrap(rcpp_hello());
+    Rcpp::traits::input_parameter< double >::type number(numberSEXP);
+    Rcpp::traits::input_parameter< int >::type digits(digitsSEXP);
+    __result = Rcpp::wrap(roundDecimal(number, digits));
+    return __result;
+END_RCPP
+}
+// emissionProbHH
+double emissionProbHH(double pop_allele_freq, int genotype_1, int genotype_2, int ibd);
+RcppExport SEXP IsoRelate_emissionProbHH(SEXP pop_allele_freqSEXP, SEXP genotype_1SEXP, SEXP genotype_2SEXP, SEXP ibdSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< double >::type pop_allele_freq(pop_allele_freqSEXP);
+    Rcpp::traits::input_parameter< int >::type genotype_1(genotype_1SEXP);
+    Rcpp::traits::input_parameter< int >::type genotype_2(genotype_2SEXP);
+    Rcpp::traits::input_parameter< int >::type ibd(ibdSEXP);
+    __result = Rcpp::wrap(emissionProbHH(pop_allele_freq, genotype_1, genotype_2, ibd));
+    return __result;
+END_RCPP
+}
+// emissionProbHD
+double emissionProbHD(double pop_allele_freq, int genotype_1, int genotype_2, int ibd, int male_column, int female_column);
+RcppExport SEXP IsoRelate_emissionProbHD(SEXP pop_allele_freqSEXP, SEXP genotype_1SEXP, SEXP genotype_2SEXP, SEXP ibdSEXP, SEXP male_columnSEXP, SEXP female_columnSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< double >::type pop_allele_freq(pop_allele_freqSEXP);
+    Rcpp::traits::input_parameter< int >::type genotype_1(genotype_1SEXP);
+    Rcpp::traits::input_parameter< int >::type genotype_2(genotype_2SEXP);
+    Rcpp::traits::input_parameter< int >::type ibd(ibdSEXP);
+    Rcpp::traits::input_parameter< int >::type male_column(male_columnSEXP);
+    Rcpp::traits::input_parameter< int >::type female_column(female_columnSEXP);
+    __result = Rcpp::wrap(emissionProbHD(pop_allele_freq, genotype_1, genotype_2, ibd, male_column, female_column));
+    return __result;
+END_RCPP
+}
+// emissionProbDD
+double emissionProbDD(double pop_allele_freq, int genotype_1, int genotype_2, int ibd);
+RcppExport SEXP IsoRelate_emissionProbDD(SEXP pop_allele_freqSEXP, SEXP genotype_1SEXP, SEXP genotype_2SEXP, SEXP ibdSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< double >::type pop_allele_freq(pop_allele_freqSEXP);
+    Rcpp::traits::input_parameter< int >::type genotype_1(genotype_1SEXP);
+    Rcpp::traits::input_parameter< int >::type genotype_2(genotype_2SEXP);
+    Rcpp::traits::input_parameter< int >::type ibd(ibdSEXP);
+    __result = Rcpp::wrap(emissionProbDD(pop_allele_freq, genotype_1, genotype_2, ibd));
+    return __result;
+END_RCPP
+}
+// transitionProbHH
+double transitionProbHH(double omega_0, int meiosis, double dist_cM, int ibd_current, int ibd_previous);
+RcppExport SEXP IsoRelate_transitionProbHH(SEXP omega_0SEXP, SEXP meiosisSEXP, SEXP dist_cMSEXP, SEXP ibd_currentSEXP, SEXP ibd_previousSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< double >::type omega_0(omega_0SEXP);
+    Rcpp::traits::input_parameter< int >::type meiosis(meiosisSEXP);
+    Rcpp::traits::input_parameter< double >::type dist_cM(dist_cMSEXP);
+    Rcpp::traits::input_parameter< int >::type ibd_current(ibd_currentSEXP);
+    Rcpp::traits::input_parameter< int >::type ibd_previous(ibd_previousSEXP);
+    __result = Rcpp::wrap(transitionProbHH(omega_0, meiosis, dist_cM, ibd_current, ibd_previous));
+    return __result;
+END_RCPP
+}
+// transitionProbHD
+double transitionProbHD(double omega_0, int meiosis, double dist_cM, int ibd_current, int ibd_previous);
+RcppExport SEXP IsoRelate_transitionProbHD(SEXP omega_0SEXP, SEXP meiosisSEXP, SEXP dist_cMSEXP, SEXP ibd_currentSEXP, SEXP ibd_previousSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< double >::type omega_0(omega_0SEXP);
+    Rcpp::traits::input_parameter< int >::type meiosis(meiosisSEXP);
+    Rcpp::traits::input_parameter< double >::type dist_cM(dist_cMSEXP);
+    Rcpp::traits::input_parameter< int >::type ibd_current(ibd_currentSEXP);
+    Rcpp::traits::input_parameter< int >::type ibd_previous(ibd_previousSEXP);
+    __result = Rcpp::wrap(transitionProbHD(omega_0, meiosis, dist_cM, ibd_current, ibd_previous));
+    return __result;
+END_RCPP
+}
+// transitionProbDD
+double transitionProbDD(double omega_0, double omega_1, double omega_2, int meiosis, double dist_cM, int ibd_current, int ibd_previous);
+RcppExport SEXP IsoRelate_transitionProbDD(SEXP omega_0SEXP, SEXP omega_1SEXP, SEXP omega_2SEXP, SEXP meiosisSEXP, SEXP dist_cMSEXP, SEXP ibd_currentSEXP, SEXP ibd_previousSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< double >::type omega_0(omega_0SEXP);
+    Rcpp::traits::input_parameter< double >::type omega_1(omega_1SEXP);
+    Rcpp::traits::input_parameter< double >::type omega_2(omega_2SEXP);
+    Rcpp::traits::input_parameter< int >::type meiosis(meiosisSEXP);
+    Rcpp::traits::input_parameter< double >::type dist_cM(dist_cMSEXP);
+    Rcpp::traits::input_parameter< int >::type ibd_current(ibd_currentSEXP);
+    Rcpp::traits::input_parameter< int >::type ibd_previous(ibd_previousSEXP);
+    __result = Rcpp::wrap(transitionProbDD(omega_0, omega_1, omega_2, meiosis, dist_cM, ibd_current, ibd_previous));
+    return __result;
+END_RCPP
+}
+// genotypeErrorH
+double genotypeErrorH(int truth, int observed, double error);
+RcppExport SEXP IsoRelate_genotypeErrorH(SEXP truthSEXP, SEXP observedSEXP, SEXP errorSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< int >::type truth(truthSEXP);
+    Rcpp::traits::input_parameter< int >::type observed(observedSEXP);
+    Rcpp::traits::input_parameter< double >::type error(errorSEXP);
+    __result = Rcpp::wrap(genotypeErrorH(truth, observed, error));
+    return __result;
+END_RCPP
+}
+// genotypeErrorD
+double genotypeErrorD(int truth, int observed, double error);
+RcppExport SEXP IsoRelate_genotypeErrorD(SEXP truthSEXP, SEXP observedSEXP, SEXP errorSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< int >::type truth(truthSEXP);
+    Rcpp::traits::input_parameter< int >::type observed(observedSEXP);
+    Rcpp::traits::input_parameter< double >::type error(errorSEXP);
+    __result = Rcpp::wrap(genotypeErrorD(truth, observed, error));
+    return __result;
+END_RCPP
+}
+// trueGenotypes
+IntegerMatrix trueGenotypes(int gender_1, int gender_2);
+RcppExport SEXP IsoRelate_trueGenotypes(SEXP gender_1SEXP, SEXP gender_2SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< int >::type gender_1(gender_1SEXP);
+    Rcpp::traits::input_parameter< int >::type gender_2(gender_2SEXP);
+    __result = Rcpp::wrap(trueGenotypes(gender_1, gender_2));
+    return __result;
+END_RCPP
+}
+// emissionProbMissingGeno
+double emissionProbMissingGeno(double pop_allele_freq, int genotype_1, int genotype_2, double error, int gender_1, int gender_2, int ibd_j);
+RcppExport SEXP IsoRelate_emissionProbMissingGeno(SEXP pop_allele_freqSEXP, SEXP genotype_1SEXP, SEXP genotype_2SEXP, SEXP errorSEXP, SEXP gender_1SEXP, SEXP gender_2SEXP, SEXP ibd_jSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< double >::type pop_allele_freq(pop_allele_freqSEXP);
+    Rcpp::traits::input_parameter< int >::type genotype_1(genotype_1SEXP);
+    Rcpp::traits::input_parameter< int >::type genotype_2(genotype_2SEXP);
+    Rcpp::traits::input_parameter< double >::type error(errorSEXP);
+    Rcpp::traits::input_parameter< int >::type gender_1(gender_1SEXP);
+    Rcpp::traits::input_parameter< int >::type gender_2(gender_2SEXP);
+    Rcpp::traits::input_parameter< int >::type ibd_j(ibd_jSEXP);
+    __result = Rcpp::wrap(emissionProbMissingGeno(pop_allele_freq, genotype_1, genotype_2, error, gender_1, gender_2, ibd_j));
+    return __result;
+END_RCPP
+}
+// calculateAlpha
+NumericMatrix calculateAlpha(const int number_states, NumericVector initial_prob, int meiosis, const int number_snps, IntegerMatrix genotypes, NumericVector pop_allele_freqs, NumericVector positions_cM, double error, int gender_1, int gender_2);
+RcppExport SEXP IsoRelate_calculateAlpha(SEXP number_statesSEXP, SEXP initial_probSEXP, SEXP meiosisSEXP, SEXP number_snpsSEXP, SEXP genotypesSEXP, SEXP pop_allele_freqsSEXP, SEXP positions_cMSEXP, SEXP errorSEXP, SEXP gender_1SEXP, SEXP gender_2SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< const int >::type number_states(number_statesSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type initial_prob(initial_probSEXP);
+    Rcpp::traits::input_parameter< int >::type meiosis(meiosisSEXP);
+    Rcpp::traits::input_parameter< const int >::type number_snps(number_snpsSEXP);
+    Rcpp::traits::input_parameter< IntegerMatrix >::type genotypes(genotypesSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type pop_allele_freqs(pop_allele_freqsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type positions_cM(positions_cMSEXP);
+    Rcpp::traits::input_parameter< double >::type error(errorSEXP);
+    Rcpp::traits::input_parameter< int >::type gender_1(gender_1SEXP);
+    Rcpp::traits::input_parameter< int >::type gender_2(gender_2SEXP);
+    __result = Rcpp::wrap(calculateAlpha(number_states, initial_prob, meiosis, number_snps, genotypes, pop_allele_freqs, positions_cM, error, gender_1, gender_2));
+    return __result;
+END_RCPP
+}
+// calculateScale
+NumericVector calculateScale(const int number_states, NumericVector initial_prob, int meiosis, const int number_snps, IntegerMatrix genotypes, NumericVector pop_allele_freqs, NumericVector positions_cM, double error, int gender_1, int gender_2);
+RcppExport SEXP IsoRelate_calculateScale(SEXP number_statesSEXP, SEXP initial_probSEXP, SEXP meiosisSEXP, SEXP number_snpsSEXP, SEXP genotypesSEXP, SEXP pop_allele_freqsSEXP, SEXP positions_cMSEXP, SEXP errorSEXP, SEXP gender_1SEXP, SEXP gender_2SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< const int >::type number_states(number_statesSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type initial_prob(initial_probSEXP);
+    Rcpp::traits::input_parameter< int >::type meiosis(meiosisSEXP);
+    Rcpp::traits::input_parameter< const int >::type number_snps(number_snpsSEXP);
+    Rcpp::traits::input_parameter< IntegerMatrix >::type genotypes(genotypesSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type pop_allele_freqs(pop_allele_freqsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type positions_cM(positions_cMSEXP);
+    Rcpp::traits::input_parameter< double >::type error(errorSEXP);
+    Rcpp::traits::input_parameter< int >::type gender_1(gender_1SEXP);
+    Rcpp::traits::input_parameter< int >::type gender_2(gender_2SEXP);
+    __result = Rcpp::wrap(calculateScale(number_states, initial_prob, meiosis, number_snps, genotypes, pop_allele_freqs, positions_cM, error, gender_1, gender_2));
+    return __result;
+END_RCPP
+}
+// calculateBeta
+NumericMatrix calculateBeta(const int number_states, NumericVector initial_prob, int meiosis, const int number_snps, IntegerMatrix genotypes, NumericVector pop_allele_freqs, NumericVector positions_cM, NumericVector scale, double error, int gender_1, int gender_2);
+RcppExport SEXP IsoRelate_calculateBeta(SEXP number_statesSEXP, SEXP initial_probSEXP, SEXP meiosisSEXP, SEXP number_snpsSEXP, SEXP genotypesSEXP, SEXP pop_allele_freqsSEXP, SEXP positions_cMSEXP, SEXP scaleSEXP, SEXP errorSEXP, SEXP gender_1SEXP, SEXP gender_2SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< const int >::type number_states(number_statesSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type initial_prob(initial_probSEXP);
+    Rcpp::traits::input_parameter< int >::type meiosis(meiosisSEXP);
+    Rcpp::traits::input_parameter< const int >::type number_snps(number_snpsSEXP);
+    Rcpp::traits::input_parameter< IntegerMatrix >::type genotypes(genotypesSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type pop_allele_freqs(pop_allele_freqsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type positions_cM(positions_cMSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type scale(scaleSEXP);
+    Rcpp::traits::input_parameter< double >::type error(errorSEXP);
+    Rcpp::traits::input_parameter< int >::type gender_1(gender_1SEXP);
+    Rcpp::traits::input_parameter< int >::type gender_2(gender_2SEXP);
+    __result = Rcpp::wrap(calculateBeta(number_states, initial_prob, meiosis, number_snps, genotypes, pop_allele_freqs, positions_cM, scale, error, gender_1, gender_2));
+    return __result;
+END_RCPP
+}
+// calculateViterbi
+IntegerVector calculateViterbi(const int number_states, NumericVector initial_prob, int meiosis, const int number_snps, IntegerMatrix genotypes, NumericVector pop_allele_freqs, NumericVector positions_cM, double error, int gender_1, int gender_2);
+RcppExport SEXP IsoRelate_calculateViterbi(SEXP number_statesSEXP, SEXP initial_probSEXP, SEXP meiosisSEXP, SEXP number_snpsSEXP, SEXP genotypesSEXP, SEXP pop_allele_freqsSEXP, SEXP positions_cMSEXP, SEXP errorSEXP, SEXP gender_1SEXP, SEXP gender_2SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< const int >::type number_states(number_statesSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type initial_prob(initial_probSEXP);
+    Rcpp::traits::input_parameter< int >::type meiosis(meiosisSEXP);
+    Rcpp::traits::input_parameter< const int >::type number_snps(number_snpsSEXP);
+    Rcpp::traits::input_parameter< IntegerMatrix >::type genotypes(genotypesSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type pop_allele_freqs(pop_allele_freqsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type positions_cM(positions_cMSEXP);
+    Rcpp::traits::input_parameter< double >::type error(errorSEXP);
+    Rcpp::traits::input_parameter< int >::type gender_1(gender_1SEXP);
+    Rcpp::traits::input_parameter< int >::type gender_2(gender_2SEXP);
+    __result = Rcpp::wrap(calculateViterbi(number_states, initial_prob, meiosis, number_snps, genotypes, pop_allele_freqs, positions_cM, error, gender_1, gender_2));
+    return __result;
+END_RCPP
+}
+// calculateGamma
+NumericMatrix calculateGamma(const int number_states, NumericVector initial_prob, int meiosis, const int number_snps, IntegerMatrix genotypes, NumericVector pop_allele_freqs, NumericVector positions_cM, double error, int gender_1, int gender_2);
+RcppExport SEXP IsoRelate_calculateGamma(SEXP number_statesSEXP, SEXP initial_probSEXP, SEXP meiosisSEXP, SEXP number_snpsSEXP, SEXP genotypesSEXP, SEXP pop_allele_freqsSEXP, SEXP positions_cMSEXP, SEXP errorSEXP, SEXP gender_1SEXP, SEXP gender_2SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< const int >::type number_states(number_statesSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type initial_prob(initial_probSEXP);
+    Rcpp::traits::input_parameter< int >::type meiosis(meiosisSEXP);
+    Rcpp::traits::input_parameter< const int >::type number_snps(number_snpsSEXP);
+    Rcpp::traits::input_parameter< IntegerMatrix >::type genotypes(genotypesSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type pop_allele_freqs(pop_allele_freqsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type positions_cM(positions_cMSEXP);
+    Rcpp::traits::input_parameter< double >::type error(errorSEXP);
+    Rcpp::traits::input_parameter< int >::type gender_1(gender_1SEXP);
+    Rcpp::traits::input_parameter< int >::type gender_2(gender_2SEXP);
+    __result = Rcpp::wrap(calculateGamma(number_states, initial_prob, meiosis, number_snps, genotypes, pop_allele_freqs, positions_cM, error, gender_1, gender_2));
+    return __result;
+END_RCPP
+}
+// calculateLogLikelihood
+double calculateLogLikelihood(const int number_states, NumericVector initial_prob, int meiosis, const int number_snps, IntegerMatrix genotypes, NumericVector pop_allele_freqs, NumericVector positions_cM, double error, int gender_1, int gender_2);
+RcppExport SEXP IsoRelate_calculateLogLikelihood(SEXP number_statesSEXP, SEXP initial_probSEXP, SEXP meiosisSEXP, SEXP number_snpsSEXP, SEXP genotypesSEXP, SEXP pop_allele_freqsSEXP, SEXP positions_cMSEXP, SEXP errorSEXP, SEXP gender_1SEXP, SEXP gender_2SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< const int >::type number_states(number_statesSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type initial_prob(initial_probSEXP);
+    Rcpp::traits::input_parameter< int >::type meiosis(meiosisSEXP);
+    Rcpp::traits::input_parameter< const int >::type number_snps(number_snpsSEXP);
+    Rcpp::traits::input_parameter< IntegerMatrix >::type genotypes(genotypesSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type pop_allele_freqs(pop_allele_freqsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type positions_cM(positions_cMSEXP);
+    Rcpp::traits::input_parameter< double >::type error(errorSEXP);
+    Rcpp::traits::input_parameter< int >::type gender_1(gender_1SEXP);
+    Rcpp::traits::input_parameter< int >::type gender_2(gender_2SEXP);
+    __result = Rcpp::wrap(calculateLogLikelihood(number_states, initial_prob, meiosis, number_snps, genotypes, pop_allele_freqs, positions_cM, error, gender_1, gender_2));
+    return __result;
+END_RCPP
+}
+// bVectorHH
+IntegerVector bVectorHH(IntegerMatrix genotypes);
+RcppExport SEXP IsoRelate_bVectorHH(SEXP genotypesSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< IntegerMatrix >::type genotypes(genotypesSEXP);
+    __result = Rcpp::wrap(bVectorHH(genotypes));
+    return __result;
+END_RCPP
+}
+// AmatrixHH
+NumericMatrix AmatrixHH(NumericVector pop_allele_freqs, IntegerMatrix genotypes);
+RcppExport SEXP IsoRelate_AmatrixHH(SEXP pop_allele_freqsSEXP, SEXP genotypesSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericVector >::type pop_allele_freqs(pop_allele_freqsSEXP);
+    Rcpp::traits::input_parameter< IntegerMatrix >::type genotypes(genotypesSEXP);
+    __result = Rcpp::wrap(AmatrixHH(pop_allele_freqs, genotypes));
+    return __result;
+END_RCPP
+}
+// bVectorHD
+IntegerVector bVectorHD(IntegerMatrix genotypes);
+RcppExport SEXP IsoRelate_bVectorHD(SEXP genotypesSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< IntegerMatrix >::type genotypes(genotypesSEXP);
+    __result = Rcpp::wrap(bVectorHD(genotypes));
+    return __result;
+END_RCPP
+}
+// AmatrixHD
+NumericMatrix AmatrixHD(NumericVector pop_allele_freqs, IntegerMatrix genotypes);
+RcppExport SEXP IsoRelate_AmatrixHD(SEXP pop_allele_freqsSEXP, SEXP genotypesSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericVector >::type pop_allele_freqs(pop_allele_freqsSEXP);
+    Rcpp::traits::input_parameter< IntegerMatrix >::type genotypes(genotypesSEXP);
+    __result = Rcpp::wrap(AmatrixHD(pop_allele_freqs, genotypes));
+    return __result;
+END_RCPP
+}
+// bVectorDD
+IntegerVector bVectorDD(IntegerMatrix genotypes);
+RcppExport SEXP IsoRelate_bVectorDD(SEXP genotypesSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< IntegerMatrix >::type genotypes(genotypesSEXP);
+    __result = Rcpp::wrap(bVectorDD(genotypes));
+    return __result;
+END_RCPP
+}
+// AmatrixDD
+NumericMatrix AmatrixDD(NumericVector pop_allele_freqs, IntegerMatrix genotypes);
+RcppExport SEXP IsoRelate_AmatrixDD(SEXP pop_allele_freqsSEXP, SEXP genotypesSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericVector >::type pop_allele_freqs(pop_allele_freqsSEXP);
+    Rcpp::traits::input_parameter< IntegerMatrix >::type genotypes(genotypesSEXP);
+    __result = Rcpp::wrap(AmatrixDD(pop_allele_freqs, genotypes));
+    return __result;
+END_RCPP
+}
+// IBDMatrix
+IntegerMatrix IBDMatrix(CharacterVector chromosomes, NumericVector positions_bp, int number_pairs, IntegerVector ibd_pairs_colnumbers, CharacterVector ibd_chromosomes, NumericVector ibd_start_bp, NumericVector ibd_stop_bp);
+RcppExport SEXP IsoRelate_IBDMatrix(SEXP chromosomesSEXP, SEXP positions_bpSEXP, SEXP number_pairsSEXP, SEXP ibd_pairs_colnumbersSEXP, SEXP ibd_chromosomesSEXP, SEXP ibd_start_bpSEXP, SEXP ibd_stop_bpSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< CharacterVector >::type chromosomes(chromosomesSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type positions_bp(positions_bpSEXP);
+    Rcpp::traits::input_parameter< int >::type number_pairs(number_pairsSEXP);
+    Rcpp::traits::input_parameter< IntegerVector >::type ibd_pairs_colnumbers(ibd_pairs_colnumbersSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type ibd_chromosomes(ibd_chromosomesSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type ibd_start_bp(ibd_start_bpSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type ibd_stop_bp(ibd_stop_bpSEXP);
+    __result = Rcpp::wrap(IBDMatrix(chromosomes, positions_bp, number_pairs, ibd_pairs_colnumbers, ibd_chromosomes, ibd_start_bp, ibd_stop_bp));
+    return __result;
+END_RCPP
+}
+// calculatePopAlleleFreq
+NumericVector calculatePopAlleleFreq(IntegerMatrix genotypes, IntegerVector moi);
+RcppExport SEXP IsoRelate_calculatePopAlleleFreq(SEXP genotypesSEXP, SEXP moiSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< IntegerMatrix >::type genotypes(genotypesSEXP);
+    Rcpp::traits::input_parameter< IntegerVector >::type moi(moiSEXP);
+    __result = Rcpp::wrap(calculatePopAlleleFreq(genotypes, moi));
+    return __result;
+END_RCPP
+}
+// calculateMissingness
+NumericVector calculateMissingness(IntegerMatrix genotypes);
+RcppExport SEXP IsoRelate_calculateMissingness(SEXP genotypesSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< IntegerMatrix >::type genotypes(genotypesSEXP);
+    __result = Rcpp::wrap(calculateMissingness(genotypes));
+    return __result;
+END_RCPP
+}
+// groupPairs
+CharacterMatrix groupPairs(CharacterVector group);
+RcppExport SEXP IsoRelate_groupPairs(SEXP groupSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< CharacterVector >::type group(groupSEXP);
+    __result = Rcpp::wrap(groupPairs(group));
+    return __result;
+END_RCPP
+}
+// isolatePairs
+CharacterMatrix isolatePairs(CharacterVector fid, CharacterVector iid);
+RcppExport SEXP IsoRelate_isolatePairs(SEXP fidSEXP, SEXP iidSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< CharacterVector >::type fid(fidSEXP);
+    Rcpp::traits::input_parameter< CharacterVector >::type iid(iidSEXP);
+    __result = Rcpp::wrap(isolatePairs(fid, iid));
+    return __result;
+END_RCPP
+}
+// haplotypeToGenotype
+IntegerMatrix haplotypeToGenotype(IntegerMatrix haplotypes, IntegerVector moi);
+RcppExport SEXP IsoRelate_haplotypeToGenotype(SEXP haplotypesSEXP, SEXP moiSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< IntegerMatrix >::type haplotypes(haplotypesSEXP);
+    Rcpp::traits::input_parameter< IntegerVector >::type moi(moiSEXP);
+    __result = Rcpp::wrap(haplotypeToGenotype(haplotypes, moi));
+    return __result;
+END_RCPP
+}
+// IBDLabel
+IntegerVector IBDLabel(IntegerVector snp_id, const int number_snps);
+RcppExport SEXP IsoRelate_IBDLabel(SEXP snp_idSEXP, SEXP number_snpsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< IntegerVector >::type snp_id(snp_idSEXP);
+    Rcpp::traits::input_parameter< const int >::type number_snps(number_snpsSEXP);
+    __result = Rcpp::wrap(IBDLabel(snp_id, number_snps));
+    return __result;
+END_RCPP
+}
+// roundDecimal_w
+double roundDecimal_w(double number, int digits);
+RcppExport SEXP IsoRelate_roundDecimal_w(SEXP numberSEXP, SEXP digitsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< double >::type number(numberSEXP);
+    Rcpp::traits::input_parameter< int >::type digits(digitsSEXP);
+    __result = Rcpp::wrap(roundDecimal_w(number, digits));
+    return __result;
+END_RCPP
+}
+// BAFemprobs
+NumericVector BAFemprobs(NumericVector BAFvalue, NumericVector meanBAF0, NumericVector sdBAF0, int state0, double pfb);
+RcppExport SEXP IsoRelate_BAFemprobs(SEXP BAFvalueSEXP, SEXP meanBAF0SEXP, SEXP sdBAF0SEXP, SEXP state0SEXP, SEXP pfbSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericVector >::type BAFvalue(BAFvalueSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type meanBAF0(meanBAF0SEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type sdBAF0(sdBAF0SEXP);
+    Rcpp::traits::input_parameter< int >::type state0(state0SEXP);
+    Rcpp::traits::input_parameter< double >::type pfb(pfbSEXP);
+    __result = Rcpp::wrap(BAFemprobs(BAFvalue, meanBAF0, sdBAF0, state0, pfb));
+    return __result;
+END_RCPP
+}
+// calculate_em_probs
+NumericMatrix calculate_em_probs(NumericVector BAFmatrix, NumericVector alleleFreq, NumericMatrix BAFmean, NumericMatrix BAFsd, IntegerVector positionBP, IntegerMatrix bin);
+RcppExport SEXP IsoRelate_calculate_em_probs(SEXP BAFmatrixSEXP, SEXP alleleFreqSEXP, SEXP BAFmeanSEXP, SEXP BAFsdSEXP, SEXP positionBPSEXP, SEXP binSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericVector >::type BAFmatrix(BAFmatrixSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type alleleFreq(alleleFreqSEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type BAFmean(BAFmeanSEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type BAFsd(BAFsdSEXP);
+    Rcpp::traits::input_parameter< IntegerVector >::type positionBP(positionBPSEXP);
+    Rcpp::traits::input_parameter< IntegerMatrix >::type bin(binSEXP);
+    __result = Rcpp::wrap(calculate_em_probs(BAFmatrix, alleleFreq, BAFmean, BAFsd, positionBP, bin));
+    return __result;
+END_RCPP
+}
+// transMatrix
+NumericMatrix transMatrix(double dist, NumericMatrix transParam);
+RcppExport SEXP IsoRelate_transMatrix(SEXP distSEXP, SEXP transParamSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< double >::type dist(distSEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type transParam(transParamSEXP);
+    __result = Rcpp::wrap(transMatrix(dist, transParam));
+    return __result;
+END_RCPP
+}
+// calculate_alpha_w
+NumericMatrix calculate_alpha_w(NumericMatrix emissionProbs, NumericVector initalProbs, NumericVector positionBP, NumericMatrix transParam);
+RcppExport SEXP IsoRelate_calculate_alpha_w(SEXP emissionProbsSEXP, SEXP initalProbsSEXP, SEXP positionBPSEXP, SEXP transParamSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericMatrix >::type emissionProbs(emissionProbsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type initalProbs(initalProbsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type positionBP(positionBPSEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type transParam(transParamSEXP);
+    __result = Rcpp::wrap(calculate_alpha_w(emissionProbs, initalProbs, positionBP, transParam));
+    return __result;
+END_RCPP
+}
+// calculate_scale_w
+NumericVector calculate_scale_w(NumericMatrix emissionProbs, NumericVector initalProbs, NumericVector positionBP, NumericMatrix transParam);
+RcppExport SEXP IsoRelate_calculate_scale_w(SEXP emissionProbsSEXP, SEXP initalProbsSEXP, SEXP positionBPSEXP, SEXP transParamSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericMatrix >::type emissionProbs(emissionProbsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type initalProbs(initalProbsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type positionBP(positionBPSEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type transParam(transParamSEXP);
+    __result = Rcpp::wrap(calculate_scale_w(emissionProbs, initalProbs, positionBP, transParam));
+    return __result;
+END_RCPP
+}
+// calculate_beta_w
+NumericMatrix calculate_beta_w(NumericMatrix emissionProbs, NumericVector initalProbs, NumericVector positionBP, NumericMatrix transParam, NumericVector scale);
+RcppExport SEXP IsoRelate_calculate_beta_w(SEXP emissionProbsSEXP, SEXP initalProbsSEXP, SEXP positionBPSEXP, SEXP transParamSEXP, SEXP scaleSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericMatrix >::type emissionProbs(emissionProbsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type initalProbs(initalProbsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type positionBP(positionBPSEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type transParam(transParamSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type scale(scaleSEXP);
+    __result = Rcpp::wrap(calculate_beta_w(emissionProbs, initalProbs, positionBP, transParam, scale));
+    return __result;
+END_RCPP
+}
+// calculate_gamma_w
+NumericMatrix calculate_gamma_w(NumericMatrix alpha, NumericMatrix beta);
+RcppExport SEXP IsoRelate_calculate_gamma_w(SEXP alphaSEXP, SEXP betaSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericMatrix >::type alpha(alphaSEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type beta(betaSEXP);
+    __result = Rcpp::wrap(calculate_gamma_w(alpha, beta));
+    return __result;
+END_RCPP
+}
+// calculate_viterbi_w
+IntegerVector calculate_viterbi_w(NumericMatrix emissionProbs, NumericVector initalProbs, NumericVector positionBP, NumericMatrix transParam);
+RcppExport SEXP IsoRelate_calculate_viterbi_w(SEXP emissionProbsSEXP, SEXP initalProbsSEXP, SEXP positionBPSEXP, SEXP transParamSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericMatrix >::type emissionProbs(emissionProbsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type initalProbs(initalProbsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type positionBP(positionBPSEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type transParam(transParamSEXP);
+    __result = Rcpp::wrap(calculate_viterbi_w(emissionProbs, initalProbs, positionBP, transParam));
+    return __result;
+END_RCPP
+}
+// calculate_xi
+NumericMatrix calculate_xi(NumericMatrix emissionProbs, NumericVector positionBP, NumericMatrix transParam, NumericMatrix alpha, NumericMatrix beta);
+RcppExport SEXP IsoRelate_calculate_xi(SEXP emissionProbsSEXP, SEXP positionBPSEXP, SEXP transParamSEXP, SEXP alphaSEXP, SEXP betaSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericMatrix >::type emissionProbs(emissionProbsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type positionBP(positionBPSEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type transParam(transParamSEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type alpha(alphaSEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type beta(betaSEXP);
+    __result = Rcpp::wrap(calculate_xi(emissionProbs, positionBP, transParam, alpha, beta));
+    return __result;
+END_RCPP
+}
+// reest_transition
+NumericMatrix reest_transition(NumericMatrix xi, NumericMatrix gamma);
+RcppExport SEXP IsoRelate_reest_transition(SEXP xiSEXP, SEXP gammaSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericMatrix >::type xi(xiSEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type gamma(gammaSEXP);
+    __result = Rcpp::wrap(reest_transition(xi, gamma));
+    return __result;
+END_RCPP
+}
+// calculate_logLikelihood_w
+double calculate_logLikelihood_w(NumericVector scale);
+RcppExport SEXP IsoRelate_calculate_logLikelihood_w(SEXP scaleSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericVector >::type scale(scaleSEXP);
+    __result = Rcpp::wrap(calculate_logLikelihood_w(scale));
+    return __result;
+END_RCPP
+}
+// calculate_BaumWelch
+NumericMatrix calculate_BaumWelch(NumericMatrix emissionProbs, NumericVector initalProbs, NumericVector positionBP, NumericMatrix transParam);
+RcppExport SEXP IsoRelate_calculate_BaumWelch(SEXP emissionProbsSEXP, SEXP initalProbsSEXP, SEXP positionBPSEXP, SEXP transParamSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericMatrix >::type emissionProbs(emissionProbsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type initalProbs(initalProbsSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type positionBP(positionBPSEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type transParam(transParamSEXP);
+    __result = Rcpp::wrap(calculate_BaumWelch(emissionProbs, initalProbs, positionBP, transParam));
     return __result;
 END_RCPP
 }
