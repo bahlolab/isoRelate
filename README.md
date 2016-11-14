@@ -3,13 +3,15 @@
 
 ## Features
 
-* Allows inclusion of isolates with multiple infection
-* Estimates proportion of genome shared IBD between pairs of isolates
+* Estimates the proportion of genome shared IBD between pairs of isolates
 * Detects genomic regions that are identical by descent (IBD) between pairs of isolates
-* Plots IBD segments for simple interpretation of results
+* Allows IBD detection in isolates with multiple infections
+* Identifies genomic loci under positive selection
+* Creates networks of related isolates
+* Includes multiple graphical functions to explore the results
 
 
-## How to install XIBD
+## How to install isoRelate
 
 isoRelate is currently available to install as a development version from Github:
 
@@ -22,11 +24,11 @@ devtools::install_github("bahlolab/isoRelate")
 ```
 
 
-## How to use XIBD
+## How to use isoRelate
 
 See the introduction vignette for details.
 
 
 ## Reference
 
-Manuscript currently underway
+A manuscript currently underway.
