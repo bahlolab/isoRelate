@@ -302,13 +302,13 @@ isolatePairs <- function(fid, iid) {
 }
 
 #' Call Genotypes from Haplotype Data
-#' 
+#'
 #' \code{haplotypeToGenotype} transforms PLINK haplotype data into genotype data of the form -1, 0, 1 and 2 representing missing genotypes,
 #' homozygous reference, heterozygous and homozygous alternative respectively. Haploid isolates are coded as diploid although will not have
 #' heterozygous genotypes.
-#' 
+#'
 #' @param haplotypes An integer matrix of haplotype data in PLINK format. A allele is denoted 1, B allele is denoted 2 and missing data is denoted 0
-#' @param moi An integer vector of multiplicity of infection (MOI) estimates for each isoalte. Isolate MOI estimates should be ordered such that value \code{n} of 
+#' @param moi An integer vector of multiplicity of infection (MOI) estimates for each isoalte. Isolate MOI estimates should be ordered such that value \code{n} of
 #' \code{moi} corresponds to column \code{n} of \code{haplotypes}.
 #' @return A matrix with genotype calls where columns correspond to isolates and rows correspond to SNPs
 haplotypeToGenotype <- function(haplotypes, moi) {

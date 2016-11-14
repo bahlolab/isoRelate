@@ -9,7 +9,7 @@ haplotypeToGenotype(haplotypes, moi)
 \arguments{
 \item{haplotypes}{An integer matrix of haplotype data in PLINK format. A allele is denoted 1, B allele is denoted 2 and missing data is denoted 0}
 
-\item{moi}{An integer vector of multiplicity of infection (MOI) estimates for each isoalte. Isolate MOI estimates should be ordered such that value \code{n} of 
+\item{moi}{An integer vector of multiplicity of infection (MOI) estimates for each isoalte. Isolate MOI estimates should be ordered such that value \code{n} of
 \code{moi} corresponds to column \code{n} of \code{haplotypes}.}
 }
 \value{

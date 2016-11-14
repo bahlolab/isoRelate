@@ -1,13 +1,20 @@
 Package: isoRelate
-Type: Package
-Title: What the Package Does (Title Case)
+Title: Detects Relatedness Between and Within Isolates
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
+Author: Lyndal Henden <henden.l@wehi.edu.au>
 Description: More about what it does (maybe more than one line)
+Depends:
+    R (>= 3.2.1)
 License: What license is it under?
 LazyData: TRUE
-Imports:
-    Rcpp (>= 0.12.5)
-LinkingTo: Rcpp
 RoxygenNote: 5.0.1
+LinkingTo: Rcpp
+Imports:
+    Rcpp (>= 0.12.5),
+    data.table,
+    doParallel,
+    foreach,
+    ggplot2
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr
