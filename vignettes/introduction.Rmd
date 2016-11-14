@@ -117,8 +117,8 @@ my_genotypes <- getGenotypes(ped.map = png_pedmap,
                              isolate.max.missing = 0.1,
                              snp.max.missing = 0.1,
                              chromosomes = NULL,
-                             input.map.distance = "M",
-                             reference.map.distance = "M") # change to "cM"
+                             input.map.distance = "cM",
+                             reference.map.distance = "cM")
 
 ```
 
