@@ -41,10 +41,10 @@ A PED file is a white-space (space or tab) delimited file with the first six col
 6. Phenotype (1=unaffected, 2=affected, 0=unknown)
 
 The IDs are alphanumeric: the combination of family and isolate ID should uniquely identify a sample.
-Columns 7 onwards (white-space delimited) are the isolate genotypes where the A and B alleles are coded as 1 and 2 respectively and missing genotypes are coded as 0. 
+Columns 7 onwards (white-space delimited) are the isolate genotypes for biallelic SNPs where the A and B alleles are coded as 1 and 2 respectively and missing genotypes are coded as 0. 
 All SNPs  must have two alleles specified and each allele should be in a separate column.
 For single infections, genotypes should be specified as homozygous. 
-  Either Both alleles should be missing (i.e. 0) or neither. Column labels are not required.
+Either Both alleles should be missing (i.e. 0) or neither. Column labels are not required.
 The paternal ID, maternal ID and phenotype columns are not used by isoRelate, however are required for completeness of the pedigree.
 Examples of informative family IDs are the sample collection site or country, however family IDs can be the same as the isolate IDs.
 
