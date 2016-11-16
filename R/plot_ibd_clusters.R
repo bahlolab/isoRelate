@@ -34,6 +34,7 @@
 #' This layout can be used as the input for the parameter \code{layout} to avoid different network configurations each time \code{plotClusters()}
 #' is run on the same network.
 #' @importFrom igraph graph.data.frame is.igraph E E<- V V<- layout_with_fr fastgreedy.community components
+#' @importFrom ggnetwork ggnetwork
 #' @export
 plotIBDclusters <- function(ped.genotypes, clusters, groups = NULL, vertex.color = NULL, vertex.frame.color = "white",
                          vertex.size = 4, vertex.name = FALSE, edge.color = "gray60", edge.width = 0.8, mark.border = "white",
