@@ -147,25 +147,31 @@ head(my_parameters)
 Following parameter estimation we can detect IBD segments.
 
 
-```{r, message = FALSE}
+```{r, message = FALSE, eval = FALSE}
 
 # infer IBD
 my_ibd <- getIBDsegments(ped.genotypes = my_genotypes,
                          parameters = my_parameters, 
-                         number.cores = 5, 
+                         number.cores = 1, 
                          minimum.snps = 20, 
                          minimum.length.bp = 50000,
                          error = 0.001)
 
 head(my_ibd)
-
-# get a summary of IBD segments
-getIBDsummary(ped.genotypes = my_genotypes, 
-              ibd.segments = my_ibd) 
                           
 ```    
 
 We have set thresholds on the minimum number of SNPs and length of IBD segments reported in order to reduce false positive IBD calls that are most likely due to population linkage disequilibrium from extremely distant relatedness.
+
+We can get a brief summary of the IBD segments as follows.
+
+```{r, message = FALSE}
+
+# get a summary of IBD segments
+getIBDsummary(ped.genotypes = my_genotypes, 
+              ibd.segments = my_ibd) 
+
+``` 
 
 
 ### Exploring IBD Results

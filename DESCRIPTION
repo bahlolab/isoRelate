@@ -2,6 +2,7 @@ Package: isoRelate
 Title: Detects Relatedness Between and Within Isolates
 Version: 0.1.0
 Author: Lyndal Henden <henden.l@wehi.edu.au>
+Maintainer: Lyndal Henden <henden.l@wehi.edu.au>
 Description: More about what it does (maybe more than one line)
 Depends:
     R (>= 3.2.1)
@@ -14,7 +15,9 @@ Imports:
     data.table,
     doParallel,
     foreach,
-    ggplot2
+    ggplot2,
+    igraph,
+    ggnetwork
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr
