@@ -35,10 +35,10 @@
 #' \item iR statistic (type \code{"numeric"})
 #' }
 #' where each row describes a unique SNP.
-#' The column "Population" is filled with 1's by default, while "Subpopulation" contains the group ID’s from  \code{groups},
+#' The column 'Population' is filled with ones by default, while 'Subpopulation' contains the group ID’s from  \code{groups},
 #' where the proportion of pairs IBD has been calculated for all pairs of isolates belonging to the same group as well as all pairs of
 #' isolates where each isolate belongs to a different group.
-#' If \code{groups=NULL} then "Subpopulation" will be filled with 1’s also.
+#' If \code{groups=NULL} then 'Subpopulation' will be filled with zeros also.
 #' The population columns have been included for plotting purposes.
 #' The data frame is headed \code{chr, snp_id, pos_M, pos_bp, pop, subpop} and \code{iR} respectively.
 #' @export

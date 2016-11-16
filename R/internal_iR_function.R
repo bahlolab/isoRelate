@@ -2,7 +2,7 @@
 #'
 #' \code{iRfunction()} calculates the iR statistic used to assess the significance of excess IBD sharing at loci
 #' in the genome. The final statistic, -log10 (P-values), is returned for each SNP.
-#' @param locus.matrix A data frame containing binary IBD values. See \code{\link{getLocusMatrix}} for more details.
+#' @param locus.matrix A data frame containing binary IBD values. See \code{\link{getIBDMatrix}} for more details.
 #' @param frequency A vector of population allele frequencies for each SNP.
 
 iRfunction <- function(locus.matrix, frequency, plot_qq = FALSE) {

@@ -134,7 +134,7 @@ Next we estimate the model parameters. These parameters can be useful as an init
 
 # estimate parameters
 my_parameters <- getIBDparameters(ped.genotypes = my_genotypes, 
-                                   number.cores = 5)
+                                   number.cores = 1)
 
 head(my_parameters)
                           

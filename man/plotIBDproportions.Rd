@@ -14,7 +14,7 @@ plotIBDproportions(ibd.proportions, interval = NULL,
 }
 \arguments{
 \item{ibd.proportions}{A data frame containing the proportion of pairs IBD at each SNP.
-See the returned \code{Value} in \code{\link{getIBDproportions}} for more details.
+See the returned \code{Value} in \code{\link{getIBDproportion}} for more details.
 If multiple subpopulations are specified (column name "subpop") then the proportions for each subpopulation will be plotted,
 either in a single facet or over multiple facets. See \url{http://docs.ggplot2.org/current/facet_grid.html} on faceting.
 If multiple populations (column name "pop") are specified then the proportions for each population will be plotted on a separate
