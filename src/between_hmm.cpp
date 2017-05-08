@@ -587,7 +587,7 @@ IntegerVector calculateViterbi(const int number_states, NumericVector initial_pr
   NumericVector delta_a(number_snps);
   NumericMatrix delta(number_snps, number_states);
   NumericMatrix psi(number_snps, number_states);
-  double emission_prob;
+  double emission_prob, log_trans;
   const int T = number_snps-1;
 
   // Initialisation
