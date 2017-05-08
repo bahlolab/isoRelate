@@ -80,7 +80,11 @@ getIBDiclusters <- function(ped.genotypes, ibd.segments, interval = NULL, prop=0
   }
   ibd.interval <- ibd.chr[ibd.overlap == 1,]
   if (nrow(ibd.interval) == 0) stop ("no IBD segments detected over interval")
-
+  
+  # remove duplicate isolates (from IBD=1 and IBD=2 inferred over same interval)
+  ibd.pairs <- paste(ibd.interval[,"fid1"],ibd.interval[,"iid1"],ibd.interval[,"fid2"],ibd.interval[,"iid2"],sep="/")
+  ibd.interval <- ibd.interval[!duplicated(ibd.pairs),]
+  
   # create a subset data frame
   ibd.melt <- data.frame(from = paste(ibd.interval[,"fid1"],ibd.interval[,"iid1"],sep="/"),
                          to = paste(ibd.interval[,"fid2"],ibd.interval[,"iid2"],sep="/"),
