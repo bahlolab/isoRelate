@@ -602,13 +602,19 @@ IntegerVector calculateViterbi(const int number_states, NumericVector initial_pr
     for(int j = 0; j<number_states; ++j){
       for(int i = 0; i<number_states; ++i){
         if(gender_1 == 2 && gender_2 == 2){
-          delta_a[i] = delta(t-1,i) + log(transitionProbDD(initial_prob[0],initial_prob[1],initial_prob[2],meiosis,positions_cM[t]-positions_cM[t-1],j,i)) ;
+          log_trans = log(transitionProbDD(initial_prob[0],initial_prob[1],initial_prob[2],meiosis,positions_cM[t]-positions_cM[t-1],j,i)) ;
+          if (log_trans < -100000) log_trans = log(0.000001) ;
+          delta_a[i] = delta(t-1,i) +  log_trans ;
         }
         if((gender_1 == 1 && gender_2 == 2) || (gender_1 == 2 && gender_2 == 1)){
-          delta_a[i] = delta(t-1,i) + log(transitionProbHD(initial_prob[0],meiosis,positions_cM[t]-positions_cM[t-1],j,i)) ;
+          log_trans = log(transitionProbHD(initial_prob[0],meiosis,positions_cM[t]-positions_cM[t-1],j,i)) ;
+          if (log_trans < -100000) log_trans = log(0.000001) ;
+          delta_a[i] = delta(t-1,i) +  log_trans ;
         }
         if(gender_1 == 1 && gender_2 == 1){
-          delta_a[i] = delta(t-1,i) + log(transitionProbHH(initial_prob[0],meiosis,positions_cM[t]-positions_cM[t-1],j,i)) ;
+          log_trans = log(transitionProbHH(initial_prob[0],meiosis,positions_cM[t]-positions_cM[t-1],j,i)) ;
+          if (log_trans < -100000) log_trans = log(0.000001) ;
+          delta_a[i] = delta(t-1,i) +  log_trans ;
         }
       }
       emission_prob = emissionProbMissingGeno(pop_allele_freqs[t], genotypes(t,0), genotypes(t,1), error, gender_1, gender_2, j) ;
