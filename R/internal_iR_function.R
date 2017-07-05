@@ -38,5 +38,5 @@ iRfunction <- function(locus.matrix, frequency, plot_qq = FALSE) {
     qy <- quantile(stat_norm_sq,seq(0,1,0.0001))
     plot(qx,qy,main=country); abline(a=0,b=1,col="grey66")
   }
-  return(log10_p_value)
+  return(cbind(stat_norm_sq, log10_p_value))
 }
