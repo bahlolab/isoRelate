@@ -440,3 +440,42 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+
+static const R_CallMethodDef CallEntries[] = {
+    {"isoRelate_roundDecimal", (DL_FUNC) &isoRelate_roundDecimal, 2},
+    {"isoRelate_emissionProbHH", (DL_FUNC) &isoRelate_emissionProbHH, 4},
+    {"isoRelate_emissionProbHD", (DL_FUNC) &isoRelate_emissionProbHD, 6},
+    {"isoRelate_emissionProbDD", (DL_FUNC) &isoRelate_emissionProbDD, 4},
+    {"isoRelate_transitionProbHH", (DL_FUNC) &isoRelate_transitionProbHH, 5},
+    {"isoRelate_transitionProbHD", (DL_FUNC) &isoRelate_transitionProbHD, 5},
+    {"isoRelate_transitionProbDD", (DL_FUNC) &isoRelate_transitionProbDD, 7},
+    {"isoRelate_genotypeErrorH", (DL_FUNC) &isoRelate_genotypeErrorH, 3},
+    {"isoRelate_genotypeErrorD", (DL_FUNC) &isoRelate_genotypeErrorD, 3},
+    {"isoRelate_trueGenotypes", (DL_FUNC) &isoRelate_trueGenotypes, 2},
+    {"isoRelate_emissionProbMissingGeno", (DL_FUNC) &isoRelate_emissionProbMissingGeno, 7},
+    {"isoRelate_calculateAlpha", (DL_FUNC) &isoRelate_calculateAlpha, 10},
+    {"isoRelate_calculateScale", (DL_FUNC) &isoRelate_calculateScale, 10},
+    {"isoRelate_calculateBeta", (DL_FUNC) &isoRelate_calculateBeta, 11},
+    {"isoRelate_calculateViterbi", (DL_FUNC) &isoRelate_calculateViterbi, 10},
+    {"isoRelate_calculateGamma", (DL_FUNC) &isoRelate_calculateGamma, 10},
+    {"isoRelate_calculateLogLikelihood", (DL_FUNC) &isoRelate_calculateLogLikelihood, 10},
+    {"isoRelate_bVectorHH", (DL_FUNC) &isoRelate_bVectorHH, 1},
+    {"isoRelate_AmatrixHH", (DL_FUNC) &isoRelate_AmatrixHH, 2},
+    {"isoRelate_bVectorHD", (DL_FUNC) &isoRelate_bVectorHD, 1},
+    {"isoRelate_AmatrixHD", (DL_FUNC) &isoRelate_AmatrixHD, 2},
+    {"isoRelate_bVectorDD", (DL_FUNC) &isoRelate_bVectorDD, 1},
+    {"isoRelate_AmatrixDD", (DL_FUNC) &isoRelate_AmatrixDD, 2},
+    {"isoRelate_IBDMatrix", (DL_FUNC) &isoRelate_IBDMatrix, 7},
+    {"isoRelate_calculatePopAlleleFreq", (DL_FUNC) &isoRelate_calculatePopAlleleFreq, 2},
+    {"isoRelate_calculateMissingness", (DL_FUNC) &isoRelate_calculateMissingness, 1},
+    {"isoRelate_groupPairs", (DL_FUNC) &isoRelate_groupPairs, 1},
+    {"isoRelate_isolatePairs", (DL_FUNC) &isoRelate_isolatePairs, 2},
+    {"isoRelate_haplotypeToGenotype", (DL_FUNC) &isoRelate_haplotypeToGenotype, 2},
+    {"isoRelate_IBDLabel", (DL_FUNC) &isoRelate_IBDLabel, 2},
+    {NULL, NULL, 0}
+};
+
+RcppExport void R_init_isoRelate(DllInfo *dll) {
+    R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+    R_useDynamicSymbols(dll, FALSE);
+}

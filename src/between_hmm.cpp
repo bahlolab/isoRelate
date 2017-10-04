@@ -603,17 +603,17 @@ IntegerVector calculateViterbi(const int number_states, NumericVector initial_pr
       for(int i = 0; i<number_states; ++i){
         if(gender_1 == 2 && gender_2 == 2){
           log_trans = log(transitionProbDD(initial_prob[0],initial_prob[1],initial_prob[2],meiosis,positions_cM[t]-positions_cM[t-1],j,i)) ;
-          if (log_trans < -100000) log_trans = log(0.000001) ;
+          //if (log_trans < -100000) log_trans = log(0.000001) ; // trying to fix underflow errors when log_trans --> -infinity
           delta_a[i] = delta(t-1,i) +  log_trans ;
         }
         if((gender_1 == 1 && gender_2 == 2) || (gender_1 == 2 && gender_2 == 1)){
           log_trans = log(transitionProbHD(initial_prob[0],meiosis,positions_cM[t]-positions_cM[t-1],j,i)) ;
-          if (log_trans < -100000) log_trans = log(0.000001) ;
+          //if (log_trans < -100000) log_trans = log(0.000001) ;
           delta_a[i] = delta(t-1,i) +  log_trans ;
         }
         if(gender_1 == 1 && gender_2 == 1){
           log_trans = log(transitionProbHH(initial_prob[0],meiosis,positions_cM[t]-positions_cM[t-1],j,i)) ;
-          if (log_trans < -100000) log_trans = log(0.000001) ;
+          //if (log_trans < -100000) log_trans = log(0.000001) ;
           delta_a[i] = delta(t-1,i) +  log_trans ;
         }
       }

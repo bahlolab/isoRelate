@@ -199,17 +199,21 @@ getIBDsegments <- function(ped.genotypes, parameters, number.cores = 1, minimum.
   #ibd.segments[[2]] <- ibd.segments[[2]]/nrow(isolate.pairs)
   rownames(ibd.segments) <- NULL
   ibd.segments <- data.frame(ibd.segments)
-  for(i in 1:7)
-    ibd.segments[,i] <- as.character(ibd.segments[,i])
-  for(i in 8:15)
-    ibd.segments[,i] <- as.numeric(as.character(ibd.segments[,i]))
-  colnames(ibd.segments) <- c("fid1","iid1","fid2","iid2","chr","start_snp","end_snp","start_position_bp",
-                              "end_position_bp", "start_position_M", "end_position_M", "number_snps", "length_bp",
-                              "length_M", "ibd_status")
-
-  number.pairs.ibd <- length(unique(paste(ibd.segments[,1],ibd.segments[,2],ibd.segments[,3],ibd.segments[,4])))
-  cat(paste(number.pairs.ibd,"pairs inferred IBD\n"))
-  cat(paste(nrow(ibd.segments),"IBD segments detected\n"))
+  if (nrow(ibd.segments) > 0) {
+    for(i in 1:7)
+      ibd.segments[,i] <- as.character(ibd.segments[,i])
+    for(i in 8:15)
+      ibd.segments[,i] <- as.numeric(as.character(ibd.segments[,i]))
+    colnames(ibd.segments) <- c("fid1","iid1","fid2","iid2","chr","start_snp","end_snp","start_position_bp",
+                                "end_position_bp", "start_position_M", "end_position_M", "number_snps", "length_bp",
+                                "length_M", "ibd_status")
+    number.pairs.ibd <- length(unique(paste(ibd.segments[,1],ibd.segments[,2],ibd.segments[,3],ibd.segments[,4])))
+    cat(paste(number.pairs.ibd,"pairs inferred IBD\n"))
+    cat(paste(nrow(ibd.segments),"IBD segments detected\n"))
+  } else {
+    cat("0 pairs inferred IBD\n")
+    cat("0 IBD segments detected\n")
+  }
 
   return(ibd.segments)
 }
