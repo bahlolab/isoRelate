@@ -1,6 +1,6 @@
 #' Plot iR Statistics
 #'
-#' \code{plotIBDiR()} plots the -log10 (P-values) used to assess the significance of excess IBD sharing.
+#' \code{plotIBDiR()} plots the -log10 (p-values) used to assess the significance of excess IBD sharing.
 #'
 #' @param ibd.iR A data frame containing the iR summary statistics for each SNP.
 #' See the returned \code{Value} in \code{\link{getIBDiR}} for more details.
@@ -58,10 +58,10 @@ plotIBDiR <- function(ibd.iR, interval = NULL, annotation.genes = NULL, annotati
 
   # check locus matrix
   if (!is.data.frame(ibd.iR)) stop ("'ibd.iR' has incorrect format - must be a data.frame")
-  if (ncol(ibd.iR) != 7)
-    stop ("'ibd.iR' has incorrect format - must be a data.frame with 7 columns: chr, snp_id, pos_M, pos_bp, pop, subpop and iR")
-  if (any(colnames(ibd.iR) != c("chr", "snp_id", "pos_M", "pos_bp", "pop", "subpop", "iR")))
-    stop ("'ibd.iR' has incorrect format - must be a data.frame with 7 columns: chr, snp_id, pos_M, pos_bp, pop, subpop and iR")
+  if (ncol(ibd.iR) != 8)
+    stop ("'ibd.iR' has incorrect format - must be a data.frame with 8 columns: chr, snp_id, pos_M, pos_bp, pop, subpop, iR and log10_pvalue")
+  if (any(colnames(ibd.iR) != c("chr", "snp_id", "pos_M", "pos_bp", "pop", "subpop", "iR", "log10_pvalue")))
+    stop ("'ibd.iR' has incorrect format - must be a data.frame with 8 columns: chr, snp_id, pos_M, pos_bp, pop, subpop, iR and log10_pvalue")
   pops <- as.character(unique(ibd.iR[,"pop"]))
   if (length(unique(pops)) > 1) warning ("can only plot one population at a time - plotting pop=",unique(pops)[1]," only")
   ibd.iR <- ibd.iR[ibd.iR[,"pop"] == unique(pops)[1],]
@@ -179,7 +179,7 @@ plotIBDiR <- function(ibd.iR, interval = NULL, annotation.genes = NULL, annotati
       col.line <- point.color
     # too few colours specified:
     if (length(point.color) < length(subpops)) {
-      stop (paste0("'point.color' has incorrect format - must have at ",length(subpops)," colors specified"))
+      stop (paste0("'point.color' has incorrect format - must have at least ",length(subpops)," colors specified"))
     }
     # too many colours specified:
     if (length(point.color) > length(subpops)) {
@@ -304,13 +304,13 @@ plotIBDiR <- function(ibd.iR, interval = NULL, annotation.genes = NULL, annotati
   ibd.iR[,"pos_bp"] <- as.numeric(ibd.iR[,"pos_bp"])
   ibd.iR[,"pop"] <- as.character(ibd.iR[,"pop"])
   ibd.iR[,"subpop"] <- as.character(ibd.iR[,"subpop"])
-  ibd.iR[,"iR"] <- as.numeric(ibd.iR[,"iR"])
+  ibd.iR[,"log10_pvalue"] <- as.numeric(ibd.iR[,"log10_pvalue"])
 
   # plot:
 
   # setting up ggplot
   ggp <- ggplot()
-  ggp <- ggp + geom_point(data = ibd.iR, aes(pos_bp, iR, col = subpop), size=point.size)
+  ggp <- ggp + geom_point(data = ibd.iR, aes(pos_bp, log10_pvalue, col = subpop), size=point.size)
   ggp <- ggp + theme_bw()
   ggp <- ggp + ylab("-log10(P-value)")
   ggp <- ggp + theme(panel.grid.minor = element_blank(),
@@ -348,23 +348,23 @@ plotIBDiR <- function(ibd.iR, interval = NULL, annotation.genes = NULL, annotati
   # annotation.genes:
   if (!is.null(annotation.genes)) {
     if(nrow(annotation.genes.overlap) != 0) {
-      #min.y <- -0.05*max(ibd.iR[,"iR"])
-      #max.y <- -0.01*max(ibd.iR[,"iR"])
-      gene.hight <- 0.05*(max(ibd.iR[,"iR"]) - min(ibd.iR[,"iR"]))
-      max.y <- min(ibd.iR[,"iR"]) - gene.hight*0.5
+      #min.y <- -0.05*max(ibd.iR[,"log10_pvalue"])
+      #max.y <- -0.01*max(ibd.iR[,"log10_pvalue"])
+      gene.hight <- 0.05*(max(ibd.iR[,"log10_pvalue"]) - min(ibd.iR[,"log10_pvalue"]))
+      max.y <- min(ibd.iR[,"log10_pvalue"]) - gene.hight*0.5
       min.y <- max.y - gene.hight
       pos.strand <- annotation.genes.overlap[annotation.genes.overlap[,"strand"] == "+",]
       neg.strand <- annotation.genes.overlap[annotation.genes.overlap[,"strand"] != "+",]
       ggp <- ggp + geom_rect(data=pos.strand, aes(xmin = start, xmax = end), ymin = min.y, ymax = max.y, alpha = 0.9, fill = annotation.genes.color[1])
       ggp <- ggp + geom_rect(data=neg.strand, aes(xmin = start, xmax = end), ymin = min.y, ymax = max.y, alpha = 0.9, fill = annotation.genes.color[2])
-      ggp <- ggp + ylim(min.y, max(ibd.iR[,"iR"])) # overrides facets="free"
+      ggp <- ggp + ylim(min.y, max(ibd.iR[,"log10_pvalue"])) # overrides facets="free"
     }
   }
 
   # highlight.genes:
   if (!is.null(highlight.genes)) {
     if(nrow(highlight.genes.overlap) != 0) {
-      lab.pos <- min(ibd.iR[,"iR"])*0.05
+      lab.pos <- min(ibd.iR[,"log10_pvalue"])*0.05
       ggp <- ggp + geom_rect(data=highlight.genes.overlap, aes(xmin = start, xmax = end), ymin = -Inf, ymax = Inf, fill = highlight.genes.color, alpha = highlight.genes.alpha)
       ggp <- ggp + geom_vline(data=highlight.genes.overlap, aes(xintercept = start), colour = highlight.genes.color, linetype = "solid", alpha = highlight.genes.alpha)
       if (highlight.genes.labels)

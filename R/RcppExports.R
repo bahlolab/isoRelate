@@ -5,7 +5,7 @@
 #' @param number A number to round
 #' @param number The number of digits to round to
 roundDecimal <- function(number, digits) {
-    .Call('isoRelate_roundDecimal', PACKAGE = 'isoRelate', number, digits)
+    .Call('_isoRelate_roundDecimal', PACKAGE = 'isoRelate', number, digits)
 }
 
 #' The emission probabilities for 2 haploid chromosomes
@@ -14,7 +14,7 @@ roundDecimal <- function(number, digits) {
 #' @param genotype_2 The genotype for isolate 2 from the pair for SNP i
 #' @param ibd The IBD state
 emissionProbHH <- function(pop_allele_freq, genotype_1, genotype_2, ibd) {
-    .Call('isoRelate_emissionProbHH', PACKAGE = 'isoRelate', pop_allele_freq, genotype_1, genotype_2, ibd)
+    .Call('_isoRelate_emissionProbHH', PACKAGE = 'isoRelate', pop_allele_freq, genotype_1, genotype_2, ibd)
 }
 
 #' The emission probabilities for 1 haploid chromosome and 1 diploid chromosome
@@ -25,7 +25,7 @@ emissionProbHH <- function(pop_allele_freq, genotype_1, genotype_2, ibd) {
 #' @param male_column The haploid isolate from the pair. Either 1 or 2
 #' @param female_column The diploid isolate from the pair. Either 1 or 2
 emissionProbHD <- function(pop_allele_freq, genotype_1, genotype_2, ibd, male_column, female_column) {
-    .Call('isoRelate_emissionProbHD', PACKAGE = 'isoRelate', pop_allele_freq, genotype_1, genotype_2, ibd, male_column, female_column)
+    .Call('_isoRelate_emissionProbHD', PACKAGE = 'isoRelate', pop_allele_freq, genotype_1, genotype_2, ibd, male_column, female_column)
 }
 
 #' The emission probabilities for 2 diploid chromosomes
@@ -34,7 +34,7 @@ emissionProbHD <- function(pop_allele_freq, genotype_1, genotype_2, ibd, male_co
 #' @param genotype_2 The genotype for isolate 2 from the pair for SNP i
 #' @param ibd The IBD state
 emissionProbDD <- function(pop_allele_freq, genotype_1, genotype_2, ibd) {
-    .Call('isoRelate_emissionProbDD', PACKAGE = 'isoRelate', pop_allele_freq, genotype_1, genotype_2, ibd)
+    .Call('_isoRelate_emissionProbDD', PACKAGE = 'isoRelate', pop_allele_freq, genotype_1, genotype_2, ibd)
 }
 
 #' The transition probabilities for 2 haploid chromosomes
@@ -44,7 +44,7 @@ emissionProbDD <- function(pop_allele_freq, genotype_1, genotype_2, ibd) {
 #' @param ibd_current The IBD state of SNP j
 #' @param ibd_previous The IBD state of SNP i
 transitionProbHH <- function(omega_0, meiosis, dist_cM, ibd_current, ibd_previous) {
-    .Call('isoRelate_transitionProbHH', PACKAGE = 'isoRelate', omega_0, meiosis, dist_cM, ibd_current, ibd_previous)
+    .Call('_isoRelate_transitionProbHH', PACKAGE = 'isoRelate', omega_0, meiosis, dist_cM, ibd_current, ibd_previous)
 }
 
 #' The transition probabilities for 1 haploid and 1 diploid chromosome
@@ -54,7 +54,7 @@ transitionProbHH <- function(omega_0, meiosis, dist_cM, ibd_current, ibd_previou
 #' @param ibd_current The IBD state of SNP j
 #' @param ibd_previous The IBD state of SNP i
 transitionProbHD <- function(omega_0, meiosis, dist_cM, ibd_current, ibd_previous) {
-    .Call('isoRelate_transitionProbHD', PACKAGE = 'isoRelate', omega_0, meiosis, dist_cM, ibd_current, ibd_previous)
+    .Call('_isoRelate_transitionProbHD', PACKAGE = 'isoRelate', omega_0, meiosis, dist_cM, ibd_current, ibd_previous)
 }
 
 #' The transition probabilities for 2 diploid chromosomes
@@ -64,7 +64,7 @@ transitionProbHD <- function(omega_0, meiosis, dist_cM, ibd_current, ibd_previou
 #' @param ibd_current The IBD state of SNP j
 #' @param ibd_previous The IBD state of SNP i
 transitionProbDD <- function(omega_0, omega_1, omega_2, meiosis, dist_cM, ibd_current, ibd_previous) {
-    .Call('isoRelate_transitionProbDD', PACKAGE = 'isoRelate', omega_0, omega_1, omega_2, meiosis, dist_cM, ibd_current, ibd_previous)
+    .Call('_isoRelate_transitionProbDD', PACKAGE = 'isoRelate', omega_0, omega_1, omega_2, meiosis, dist_cM, ibd_current, ibd_previous)
 }
 
 #' The genotyping error probability for 1 haploid chromosome
@@ -72,7 +72,7 @@ transitionProbDD <- function(omega_0, omega_1, omega_2, meiosis, dist_cM, ibd_cu
 #' @param observed The observed genotype
 #' @param error The genotype error rate
 genotypeErrorH <- function(truth, observed, error) {
-    .Call('isoRelate_genotypeErrorH', PACKAGE = 'isoRelate', truth, observed, error)
+    .Call('_isoRelate_genotypeErrorH', PACKAGE = 'isoRelate', truth, observed, error)
 }
 
 #' The genotyping error probability for 1 diploid chromosome
@@ -80,14 +80,14 @@ genotypeErrorH <- function(truth, observed, error) {
 #' @param observed The observed genotype
 #' @param error The genotype error rate
 genotypeErrorD <- function(truth, observed, error) {
-    .Call('isoRelate_genotypeErrorD', PACKAGE = 'isoRelate', truth, observed, error)
+    .Call('_isoRelate_genotypeErrorD', PACKAGE = 'isoRelate', truth, observed, error)
 }
 
 #' Matrices of all possible genotype combinations between pairs, given MOI
 #' @param gender_1 The MOI estimate of isolate 1
 #' @param gender_2 The MOI estimate of isolate 2
 trueGenotypes <- function(gender_1, gender_2) {
-    .Call('isoRelate_trueGenotypes', PACKAGE = 'isoRelate', gender_1, gender_2)
+    .Call('_isoRelate_trueGenotypes', PACKAGE = 'isoRelate', gender_1, gender_2)
 }
 
 #' Calculating the emission probability sumation when missing genotype calls present
@@ -99,7 +99,7 @@ trueGenotypes <- function(gender_1, gender_2) {
 #' @param gender_2 The MOI estimate of isolate 2
 #' @param ibd_j The IBD state
 emissionProbMissingGeno <- function(pop_allele_freq, genotype_1, genotype_2, error, gender_1, gender_2, ibd_j) {
-    .Call('isoRelate_emissionProbMissingGeno', PACKAGE = 'isoRelate', pop_allele_freq, genotype_1, genotype_2, error, gender_1, gender_2, ibd_j)
+    .Call('_isoRelate_emissionProbMissingGeno', PACKAGE = 'isoRelate', pop_allele_freq, genotype_1, genotype_2, error, gender_1, gender_2, ibd_j)
 }
 
 #' Calculate alpha
@@ -114,7 +114,7 @@ emissionProbMissingGeno <- function(pop_allele_freq, genotype_1, genotype_2, err
 #' @param gender_1 Integer. The MOI estimate of isolate 1
 #' @param gender_2 Integer. The MOI estimate of isolate 2
 calculateAlpha <- function(number_states, initial_prob, meiosis, number_snps, genotypes, pop_allele_freqs, positions_cM, error, gender_1, gender_2) {
-    .Call('isoRelate_calculateAlpha', PACKAGE = 'isoRelate', number_states, initial_prob, meiosis, number_snps, genotypes, pop_allele_freqs, positions_cM, error, gender_1, gender_2)
+    .Call('_isoRelate_calculateAlpha', PACKAGE = 'isoRelate', number_states, initial_prob, meiosis, number_snps, genotypes, pop_allele_freqs, positions_cM, error, gender_1, gender_2)
 }
 
 #' Calculate scale
@@ -129,7 +129,7 @@ calculateAlpha <- function(number_states, initial_prob, meiosis, number_snps, ge
 #' @param gender_1 Integer. The MOI estimate of isolate 1
 #' @param gender_2 Integer. The MOI estimate of isolate 2
 calculateScale <- function(number_states, initial_prob, meiosis, number_snps, genotypes, pop_allele_freqs, positions_cM, error, gender_1, gender_2) {
-    .Call('isoRelate_calculateScale', PACKAGE = 'isoRelate', number_states, initial_prob, meiosis, number_snps, genotypes, pop_allele_freqs, positions_cM, error, gender_1, gender_2)
+    .Call('_isoRelate_calculateScale', PACKAGE = 'isoRelate', number_states, initial_prob, meiosis, number_snps, genotypes, pop_allele_freqs, positions_cM, error, gender_1, gender_2)
 }
 
 #' Calculate beta
@@ -145,7 +145,7 @@ calculateScale <- function(number_states, initial_prob, meiosis, number_snps, ge
 #' @param gender_1 Integer. The MOI estimate of isolate 1
 #' @param gender_2 Integer. The MOI estimate of isolate 2
 calculateBeta <- function(number_states, initial_prob, meiosis, number_snps, genotypes, pop_allele_freqs, positions_cM, scale, error, gender_1, gender_2) {
-    .Call('isoRelate_calculateBeta', PACKAGE = 'isoRelate', number_states, initial_prob, meiosis, number_snps, genotypes, pop_allele_freqs, positions_cM, scale, error, gender_1, gender_2)
+    .Call('_isoRelate_calculateBeta', PACKAGE = 'isoRelate', number_states, initial_prob, meiosis, number_snps, genotypes, pop_allele_freqs, positions_cM, scale, error, gender_1, gender_2)
 }
 
 #' Calculate the Viterbi sequence
@@ -160,7 +160,7 @@ calculateBeta <- function(number_states, initial_prob, meiosis, number_snps, gen
 #' @param gender_1 Integer. The MOI estimate of isolate 1
 #' @param gender_2 Integer. The MOI estimate of isolate 2
 calculateViterbi <- function(number_states, initial_prob, meiosis, number_snps, genotypes, pop_allele_freqs, positions_cM, error, gender_1, gender_2) {
-    .Call('isoRelate_calculateViterbi', PACKAGE = 'isoRelate', number_states, initial_prob, meiosis, number_snps, genotypes, pop_allele_freqs, positions_cM, error, gender_1, gender_2)
+    .Call('_isoRelate_calculateViterbi', PACKAGE = 'isoRelate', number_states, initial_prob, meiosis, number_snps, genotypes, pop_allele_freqs, positions_cM, error, gender_1, gender_2)
 }
 
 #' Calculate gamma
@@ -175,7 +175,7 @@ calculateViterbi <- function(number_states, initial_prob, meiosis, number_snps, 
 #' @param gender_1 Integer. The MOI estimate of isolate 1
 #' @param gender_2 Integer. The MOI estimate of isolate 2
 calculateGamma <- function(number_states, initial_prob, meiosis, number_snps, genotypes, pop_allele_freqs, positions_cM, error, gender_1, gender_2) {
-    .Call('isoRelate_calculateGamma', PACKAGE = 'isoRelate', number_states, initial_prob, meiosis, number_snps, genotypes, pop_allele_freqs, positions_cM, error, gender_1, gender_2)
+    .Call('_isoRelate_calculateGamma', PACKAGE = 'isoRelate', number_states, initial_prob, meiosis, number_snps, genotypes, pop_allele_freqs, positions_cM, error, gender_1, gender_2)
 }
 
 #' Calculate the log-likelihood of the data
@@ -190,46 +190,46 @@ calculateGamma <- function(number_states, initial_prob, meiosis, number_snps, ge
 #' @param gender_1 Integer. The MOI estimate of isolate 1
 #' @param gender_2 Integer. The MOI estimate of isolate 2
 calculateLogLikelihood <- function(number_states, initial_prob, meiosis, number_snps, genotypes, pop_allele_freqs, positions_cM, error, gender_1, gender_2) {
-    .Call('isoRelate_calculateLogLikelihood', PACKAGE = 'isoRelate', number_states, initial_prob, meiosis, number_snps, genotypes, pop_allele_freqs, positions_cM, error, gender_1, gender_2)
+    .Call('_isoRelate_calculateLogLikelihood', PACKAGE = 'isoRelate', number_states, initial_prob, meiosis, number_snps, genotypes, pop_allele_freqs, positions_cM, error, gender_1, gender_2)
 }
 
 #' The vector b in the equation Ax=b for 2 haploid chromosomes
 #' @param genotypes An integer matrix of genotype calls for a pair of isolates. Each coloumn represents and isolate and each row represents a SNP.
 bVectorHH <- function(genotypes) {
-    .Call('isoRelate_bVectorHH', PACKAGE = 'isoRelate', genotypes)
+    .Call('_isoRelate_bVectorHH', PACKAGE = 'isoRelate', genotypes)
 }
 
 #' The matrix A in the equation Ax=b for 2 haploid chromosomes
 #' @param pop_allele_freqs A numeric vector of population allele frequencies for each SNP
 #' @param genotypes An integer matrix of genotype calls for a pair of isolates. Each coloumn represents and isolate and each row represents a SNP.
 AmatrixHH <- function(pop_allele_freqs, genotypes) {
-    .Call('isoRelate_AmatrixHH', PACKAGE = 'isoRelate', pop_allele_freqs, genotypes)
+    .Call('_isoRelate_AmatrixHH', PACKAGE = 'isoRelate', pop_allele_freqs, genotypes)
 }
 
 #' The vector b in the equation Ax=b for 1 haploid chromosome and 1 diploid chromosome
 #' @param genotypes An integer matrix of genotype calls for a pair of isolates. Each coloumn represents and isolate and each row represents a SNP.
 bVectorHD <- function(genotypes) {
-    .Call('isoRelate_bVectorHD', PACKAGE = 'isoRelate', genotypes)
+    .Call('_isoRelate_bVectorHD', PACKAGE = 'isoRelate', genotypes)
 }
 
 #' The matrix A in the equation Ax=b for 1 haploid and 1 diploid chromosome
 #' @param pop_allele_freqs A numeric vector of population allele frequencies for each SNP
 #' @param genotypes An integer matrix of genotype calls for a pair of isolates. Each coloumn represents and isolate and each row represents a SNP.
 AmatrixHD <- function(pop_allele_freqs, genotypes) {
-    .Call('isoRelate_AmatrixHD', PACKAGE = 'isoRelate', pop_allele_freqs, genotypes)
+    .Call('_isoRelate_AmatrixHD', PACKAGE = 'isoRelate', pop_allele_freqs, genotypes)
 }
 
 #' The vector b in the equation Ax=b for 2 diploid chromosomes
 #' @param genotypes An integer matrix of genotype calls for a pair of isolates. Each coloumn represents and isolate and each row represents a SNP.
 bVectorDD <- function(genotypes) {
-    .Call('isoRelate_bVectorDD', PACKAGE = 'isoRelate', genotypes)
+    .Call('_isoRelate_bVectorDD', PACKAGE = 'isoRelate', genotypes)
 }
 
 #' The matrix A in the equation Ax=b for 2 diploid chromosomes
 #' @param pop_allele_freqs A numeric vector of population allele frequencies for each SNP
 #' @param genotypes An integer matrix of genotype calls for a pair of isolates. Each coloumn represents and isolate and each row represents a SNP.
 AmatrixDD <- function(pop_allele_freqs, genotypes) {
-    .Call('isoRelate_AmatrixDD', PACKAGE = 'isoRelate', pop_allele_freqs, genotypes)
+    .Call('_isoRelate_AmatrixDD', PACKAGE = 'isoRelate', pop_allele_freqs, genotypes)
 }
 
 #' Binary Matrix of IBD
@@ -248,7 +248,7 @@ AmatrixDD <- function(pop_allele_freqs, genotypes) {
 #' @param ibd_stop_bp A numeric vector containing the base-pair position for the end of each detected IBD segment
 #' @export
 IBDMatrix <- function(chromosomes, positions_bp, number_pairs, ibd_pairs_colnumbers, ibd_chromosomes, ibd_start_bp, ibd_stop_bp) {
-    .Call('isoRelate_IBDMatrix', PACKAGE = 'isoRelate', chromosomes, positions_bp, number_pairs, ibd_pairs_colnumbers, ibd_chromosomes, ibd_start_bp, ibd_stop_bp)
+    .Call('_isoRelate_IBDMatrix', PACKAGE = 'isoRelate', chromosomes, positions_bp, number_pairs, ibd_pairs_colnumbers, ibd_chromosomes, ibd_start_bp, ibd_stop_bp)
 }
 
 #' Calculate Allele Frequencies for SNPs from Genotype Data
@@ -262,7 +262,7 @@ IBDMatrix <- function(chromosomes, positions_bp, number_pairs, ibd_pairs_colnumb
 #' \code{moi} corresponds to column \code{n} of \code{genotypes}.
 #' @export
 calculatePopAlleleFreq <- function(genotypes, moi) {
-    .Call('isoRelate_calculatePopAlleleFreq', PACKAGE = 'isoRelate', genotypes, moi)
+    .Call('_isoRelate_calculatePopAlleleFreq', PACKAGE = 'isoRelate', genotypes, moi)
 }
 
 #' Calculate Missingness Proportions
@@ -275,7 +275,7 @@ calculatePopAlleleFreq <- function(genotypes, moi) {
 #' @return A vector of length \code{n} where \code{n} is the number of columns in \code{genotypes}. 
 #' @export
 calculateMissingness <- function(genotypes) {
-    .Call('isoRelate_calculateMissingness', PACKAGE = 'isoRelate', genotypes)
+    .Call('_isoRelate_calculateMissingness', PACKAGE = 'isoRelate', genotypes)
 }
 
 #' Group Combinations for Analysis
@@ -286,7 +286,7 @@ calculateMissingness <- function(genotypes) {
 #' @param group A character vector of all family IDs
 #' @export
 groupPairs <- function(group) {
-    .Call('isoRelate_groupPairs', PACKAGE = 'isoRelate', group)
+    .Call('_isoRelate_groupPairs', PACKAGE = 'isoRelate', group)
 }
 
 #' Pair Combinations for Analysis
@@ -298,7 +298,7 @@ groupPairs <- function(group) {
 #' @param iid A character vector of all individual ID
 #' @export
 isolatePairs <- function(fid, iid) {
-    .Call('isoRelate_isolatePairs', PACKAGE = 'isoRelate', fid, iid)
+    .Call('_isoRelate_isolatePairs', PACKAGE = 'isoRelate', fid, iid)
 }
 
 #' Call Genotypes from Haplotype Data
@@ -312,7 +312,7 @@ isolatePairs <- function(fid, iid) {
 #' \code{moi} corresponds to column \code{n} of \code{haplotypes}.
 #' @return A matrix with genotype calls where columns correspond to isolates and rows correspond to SNPs
 haplotypeToGenotype <- function(haplotypes, moi) {
-    .Call('isoRelate_haplotypeToGenotype', PACKAGE = 'isoRelate', haplotypes, moi)
+    .Call('_isoRelate_haplotypeToGenotype', PACKAGE = 'isoRelate', haplotypes, moi)
 }
 
 #' Internal Function
@@ -323,6 +323,6 @@ haplotypeToGenotype <- function(haplotypes, moi) {
 #' @param snp_id A numeric vector of SNP identifiers for IBD segments on the chromosome of interest.
 #' @param number_snps integer. The number of IBD SNPs for the chromosome of interest.
 IBDLabel <- function(snp_id, number_snps) {
-    .Call('isoRelate_IBDLabel', PACKAGE = 'isoRelate', snp_id, number_snps)
+    .Call('_isoRelate_IBDLabel', PACKAGE = 'isoRelate', snp_id, number_snps)
 }
 

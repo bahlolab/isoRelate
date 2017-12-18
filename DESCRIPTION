@@ -3,10 +3,14 @@ Title: Detects Relatedness Between and Within Isolates
 Version: 0.1.0
 Author: Lyndal Henden <henden.l@wehi.edu.au>
 Maintainer: Lyndal Henden <henden.l@wehi.edu.au>
-Description: More about what it does (maybe more than one line)
+Description: isoRelate detects genomic regions that are identical
+	by descent (IBD) between pairs of isolates using a single nucleotide
+	polymorphism (SNP) data. It is designed for haploid species and can 
+	be used with multiclonal infections. isoRelate also provides functions 
+	for plotting results.
 Depends:
     R (>= 3.2.1)
-License: What license is it under?
+License: GPL-3 + file LICENSE
 LazyData: TRUE
 RoxygenNote: 5.0.1
 LinkingTo: Rcpp
