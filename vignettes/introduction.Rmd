@@ -391,6 +391,8 @@ This is an artifact of the R package used to generate the network, `igraph`.
 If the user wishes to keep the network layout the same in multiple subsequent figures then set `return.layout = TRUE` and use the returned layout
 in subsequent `plotIBDclusters()` runs with `layout = my_layout`.
 
+We note that the `i.network` is output as the second object in the list  `my_i_clusters`. If the user wishes to perform quantitative analyses using this network, there are many functions in the `i.graph` package to do so. Please see the `i.graph` documentation for more details on this.
+
 We can also explore networks of isolates sharing a large proportion of their genome IBD. 
 Such isolates may represent duplicate samples or individuals who have identical infections.
 
