@@ -38,4 +38,3 @@ the following columns:
 map start and end
 of IBD segments in bp, cM and SNP identifiers; and lengths of IBD segments in bp, cM and SNPs.
 }
-

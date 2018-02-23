@@ -22,4 +22,3 @@ PED/MAP file. This data, and more, is available from
 \url{https://www.malariagen.net/projects/pf3k}.
 }
 \keyword{datasets}
-

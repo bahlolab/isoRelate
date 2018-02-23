@@ -30,4 +30,3 @@ The IBD segments inferred using isoRelate with the
 parameter settings as in the Vignette.
 }
 \keyword{datasets}
-

@@ -20,4 +20,3 @@ The number of meiosis separating the pair of isoaltes.
 calculateMeiosis() estimates the number of meiosis separating a pair of isolates given the global IBD pop_allele_freqs estimates.
 This method is described in Purcell et al (2007).
 }
-

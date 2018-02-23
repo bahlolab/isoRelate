@@ -15,4 +15,3 @@ iRfunction(locus.matrix, frequency, plot_qq = FALSE)
 \code{iRfunction()} calculates the iR statistic used to assess the significance of excess IBD sharing at loci
 in the genome. The final statistic, -log10 (P-values), is returned for each SNP.
 }
-

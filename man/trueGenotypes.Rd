@@ -14,4 +14,3 @@ trueGenotypes(gender_1, gender_2)
 \description{
 Matrices of all possible genotype combinations between pairs, given MOI
 }
-

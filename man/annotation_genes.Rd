@@ -22,4 +22,3 @@ Gene annotations for the reference genome 3D7 were downloaded from
 release PlasmoDB-28, last modified 23/03/2016.
 }
 \keyword{datasets}
-

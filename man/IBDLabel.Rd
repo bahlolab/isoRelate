@@ -15,4 +15,3 @@ IBDLabel(snp_id, number_snps)
 \code{IBDLabel} is a function used to label unique IBD segments in a pair of isolates for a particular chromosome by determining 
 breakpoints in IBD vs non-IBD regions. IBD segments are labelled in sequential order genome wide.
 }
-

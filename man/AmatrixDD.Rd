@@ -14,4 +14,3 @@ AmatrixDD(pop_allele_freqs, genotypes)
 \description{
 The matrix A in the equation Ax=b for 2 diploid chromosomes
 }
-

@@ -20,4 +20,3 @@ A matrix with genotype calls where columns correspond to isolates and rows corre
 homozygous reference, heterozygous and homozygous alternative respectively. Haploid isolates are coded as diploid although will not have
 heterozygous genotypes.
 }
-

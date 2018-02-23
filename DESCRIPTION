@@ -12,7 +12,7 @@ Depends:
     R (>= 3.2.1)
 License: GPL-3 + file LICENSE
 LazyData: TRUE
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1.9000
 LinkingTo: Rcpp
 Imports:
     Rcpp (>= 0.12.5),

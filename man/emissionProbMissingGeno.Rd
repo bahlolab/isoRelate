@@ -25,4 +25,3 @@ emissionProbMissingGeno(pop_allele_freq, genotype_1, genotype_2, error,
 \description{
 Calculating the emission probability sumation when missing genotype calls present
 }
-

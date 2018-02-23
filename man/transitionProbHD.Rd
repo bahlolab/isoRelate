@@ -20,4 +20,3 @@ transitionProbHD(omega_0, meiosis, dist_cM, ibd_current, ibd_previous)
 \description{
 The transition probabilities for 1 haploid and 1 diploid chromosome
 }
-

@@ -38,4 +38,3 @@ If hierarchical clustering has been performed then the clusters may not be disjo
 Isolates that are not IBD over the interval are not included in the network or output. The networks are created
 using the R package \code{igraph}.
 }
-

@@ -15,4 +15,3 @@ A character vector of length=\code{number.colours} containing a colour specturm.
 \description{
 \code{getColourPaletteMajor()} generates a spectrum colour palette with a specified number of colours.
 }
-

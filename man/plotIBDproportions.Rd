@@ -81,4 +81,3 @@ If \code{subpop.facet=TRUE} and there are multiple populations then subpopulatio
 \description{
 \code{plotIBDproportions()} plots the proportion of pairs IBD for each SNP across the genome.
 }
-

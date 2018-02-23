@@ -14,4 +14,3 @@ AmatrixHD(pop_allele_freqs, genotypes)
 \description{
 The matrix A in the equation Ax=b for 1 haploid and 1 diploid chromosome
 }
-

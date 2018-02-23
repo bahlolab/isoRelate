@@ -28,4 +28,3 @@ Creates a binary matrix of IBD (1) and non-IBD (0) with each row representing a 
 and each column representing a unique pair. The number of rows is equal to the total 
 number of SNPs and the number of columns is equal to the number of pairs.
 }
-

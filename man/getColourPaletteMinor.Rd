@@ -15,4 +15,3 @@ A character vector of length=\code{number.colours} containing colour shades, exc
 \description{
 \code{getColourPaletteMinor()} generates a specified number of shades of a given colour.
 }
-

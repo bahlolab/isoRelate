@@ -13,4 +13,3 @@ groupPairs(group)
 Creates a data frame containing family IDs and isolate IDs for each pair to be analysed. Each row
 corresponds to a unique pair.
 }
-

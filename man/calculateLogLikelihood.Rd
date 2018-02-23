@@ -31,4 +31,3 @@ calculateLogLikelihood(number_states, initial_prob, meiosis, number_snps,
 \description{
 Calculate the log-likelihood of the data
 }
-

@@ -12,15 +12,12 @@ vignette: >
 isoRelate performs pairwise relatedness mapping on haploid isolates using a first order continuous time hidden Markov model (HMM).
 Some isolates may have multiple infections, whereby the infected individual is carrying multiple genetically distinct strains of the species.
 Such isolates are said to have multiplicity of infection (MOI) greater than 1, and isoRelate allows for these isolates by
-analyzing them as if they were diploid, rather than haploid.
-This assumes that isolates with MOI > 1 in fact have MOI = 2, which may be inaccurate for some species,
-however this is a reasonable assumption for the malaria causing parasite _Plasmodium falciparum_.
-
+analyzing them using a diploid model, rather than a haploid model.
 
 This document outlines the data format and key functions used by isoRelate for relatedness mapping.
 
 
-**Caution should be taken when using isoRelate with small reference datasets; reference populations that do not match the input population or cohorts of mixed populations.**
+**Caution should be taken when using isoRelate with small reference datasets, reference populations that do not match the input population or cohorts of mixed populations.**
 
 
 ## Data Format
@@ -69,7 +66,7 @@ isoRelate calculates SNP allele frequencies from either the input dataset or a r
 where the reference dataset is in PED/MAP format.
 If a reference dataset is not specified then allele frequencies will be calculated from the input dataset.
 
-**Caution should be taken when using isoRelate with small reference datasets; reference populations that do not match the input population or cohorts of mixed populations.**
+**Caution should be taken when using isoRelate with small reference datasets, reference populations that do not match the input population or cohorts of mixed populations.**
 
 
 ## Key Functions
@@ -79,6 +76,7 @@ Function | Description
 getGenotypes | reformat the genotypes in the PED/MAP file and perform data filtering
 getIBDparameters | estimate IBD parameters between pairs of isolates
 getIBDsegments | detect IBD segments between pairs of isolates
+getIBDposterior | calculate the posterior probability of IBD sharing per isolate pair
 getIBDsummary | print a summary of the IBD segments detected
 getIBDmatrix | create a binary matrix of IBD/non-IBD for all SNP and pairs
 getIBDproportions | calculate the proportion of pairs IBD at each SNP
@@ -130,15 +128,22 @@ One isolate has been removed because more than 10% of SNPs have missing genotype
 
 Next we estimate the model parameters. These parameters can be useful as an initial measure of relatedness.
 
-```{r, message = FALSE}
+```{r, message = FALSE, eval = TRUE, results = "hide"}
 
 # estimate parameters
 my_parameters <- getIBDparameters(ped.genotypes = my_genotypes, 
                                    number.cores = 1)
 
 head(my_parameters)
-                          
-```                      
+                         
+```  
+
+```{r, message = FALSE, eval = TRUE, echo = FALSE}
+
+head(my_parameters)
+                         
+```  
+
 
 
 ### Detect IBD Segments
@@ -161,6 +166,13 @@ head(my_ibd)
                           
 ```    
 
+```{r, message = FALSE, eval = TRUE, echo = FALSE}
+
+head(my_ibd)
+                         
+```  
+
+
 We have set thresholds on the minimum number of SNPs and length of IBD segments reported in order to reduce false positive IBD calls that are most likely due to population linkage disequilibrium from extremely distant relatedness.
 
 We can get a brief summary of the IBD segments as follows.
@@ -172,6 +184,29 @@ getIBDsummary(ped.genotypes = my_genotypes,
               ibd.segments = my_ibd) 
 
 ``` 
+
+IBD segments are found using the Viterbi algorithm, which finds the single most likely sequence of IBD states that could have generated the observed genotypic data. An alternative method to this is to calculate the posterior probability of IBD sharing, which calculates the probability of sharing 0, 1 or 2 alleles IBD at each SNP, given the genotypic data. Thus, in addition to the Viterbi algorithm, we provide a function to generate the average posterior probability of IBD sharing for each isolate pair, which is calculated as; 
+
+$$avePostPr = \frac{PostPr(IBD = 1)}{2} + PostPr(IBD = 2).$$
+**Please note, the output from the following function has number of rows equal to the number of SNPs and number of columns equal to the number of pairwise comparisons. As such, it will be very large when there are many isolates in the analysis and is likely to take some time to run. Additionally, the output may exceed R's memory limit and, in some instances, can cause R to unexpectedly crash.**
+
+```{r, message = FALSE, eval = TRUE, results = "hide"}
+
+# calculate the posterior probability of IBD sharing
+my_posterior <- getIBDposterior(ped.genotypes = my_genotypes,
+                         parameters = my_parameters, 
+                         number.cores = 1, 
+                         error = 0.001)
+
+head(my_posterior[,1:10])
+                          
+```   
+
+```{r, message = FALSE, eval = TRUE, echo = FALSE}
+
+head(my_posterior[,1:10])
+                         
+```  
 
 
 ### Exploring IBD Results

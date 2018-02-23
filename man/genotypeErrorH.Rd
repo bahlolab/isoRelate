@@ -16,4 +16,3 @@ genotypeErrorH(truth, observed, error)
 \description{
 The genotyping error probability for 1 haploid chromosome
 }
-

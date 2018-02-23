@@ -12,4 +12,3 @@ bVectorDD(genotypes)
 \description{
 The vector b in the equation Ax=b for 2 diploid chromosomes
 }
-

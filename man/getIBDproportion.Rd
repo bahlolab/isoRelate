@@ -47,4 +47,3 @@ The data frame is headed \code{chr, snp_id, pos_M, pos_bp, pop, subpop} and \cod
 \description{
 \code{getIBDproportion()} calculates the proportion of pairs inferred IBD at each SNP.
 }
-

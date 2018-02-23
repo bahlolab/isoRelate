@@ -14,4 +14,3 @@ getOverlap(region.1, region.2)
 \description{
 function to find IBD that overlap interval
 }
-

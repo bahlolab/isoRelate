@@ -91,4 +91,3 @@ including removal of SNPs and isolates with high proportions of missing data and
 allele frequencies. It also calculates SNP allele frequencies from either the
 input dataset or a specified reference dataset.
 }
-

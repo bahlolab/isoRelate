@@ -21,4 +21,3 @@ transitionProbDD(omega_0, omega_1, omega_2, meiosis, dist_cM, ibd_current,
 \description{
 The transition probabilities for 2 diploid chromosomes
 }
-

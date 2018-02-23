@@ -22,8 +22,8 @@ IntegerMatrix haplotypeToGenotype(IntegerMatrix haplotypes, IntegerVector moi){
       if(haplotypes(i,j) == 1 && haplotypes(i,j+1) == 1) genotypes(j/2,i) = 0;
       if(haplotypes(i,j) == 2 && haplotypes(i,j+1) == 2) genotypes(j/2,i) = 2;
       if(haplotypes(i,j) == 0 && haplotypes(i,j+1) == 0) genotypes(j/2,i) = -1;
-      if(moi[i] == 1 & ((haplotypes(i,j) == 1 && haplotypes(i,j+1) == 2) || (haplotypes(i,j) == 2 && haplotypes(i,j+1) == 1))) genotypes(j/2,i) = -1;
-      if(moi[i] == 2 & ((haplotypes(i,j) == 1 && haplotypes(i,j+1) == 2) || (haplotypes(i,j) == 2 && haplotypes(i,j+1) == 1))) genotypes(j/2,i) = 1;
+      if((moi[i] == 1) && ((haplotypes(i,j) == 1 && haplotypes(i,j+1) == 2) || (haplotypes(i,j) == 2 && haplotypes(i,j+1) == 1))) genotypes(j/2,i) = -1;
+      if((moi[i] == 2) && ((haplotypes(i,j) == 1 && haplotypes(i,j+1) == 2) || (haplotypes(i,j) == 2 && haplotypes(i,j+1) == 1))) genotypes(j/2,i) = 1;
       if(haplotypes(i,j) != 0 && haplotypes(i,j) != 1 && haplotypes(i,j) != 2) genotypes(j/2,i) = -1;
       if(haplotypes(i,j+1) != 0 && haplotypes(i,j+1) != 1 && haplotypes(i,j+1) != 2) genotypes(j/2,i) = -1;
     }

@@ -16,4 +16,3 @@ See the \code{Value} description in \code{link{getIBDsegments}} for more details
 \description{
 \code{getIBDsummary()} prints a brief summary of the detected IBD segments to the console.
 }
-

@@ -18,4 +18,3 @@ A list with 2 objects containing merged lists from \code{A} and \code{B}    abov
 \code{merge_lists()} is a function used to merge summary IBD results for multiple pairs when running the IBD analysis on
 multiple cores
 }
-

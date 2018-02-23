@@ -18,4 +18,3 @@ emissionProbHH(pop_allele_freq, genotype_1, genotype_2, ibd)
 \description{
 The emission probabilities for 2 haploid chromosomes
 }
-

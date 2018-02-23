@@ -36,6 +36,7 @@ A data frame the following 7 columns:
 \item Population (type \code{"character"} or \code{"numeric"})
 \item Subpopulation (type \code{"character"} or \code{"numeric"})
 \item iR statistic (type \code{"numeric"})
+\item -log10 p vlaue (type \code{"numeric"})
 }
 where each row describes a unique SNP.
 The column 'Population' is filled with ones by default, while 'Subpopulation' contains the group ID’s from  \code{groups},
@@ -43,7 +44,7 @@ where the proportion of pairs IBD has been calculated for all pairs of isolates 
 isolates where each isolate belongs to a different group.
 If \code{groups=NULL} then 'Subpopulation' will be filled with zeros also.
 The population columns have been included for plotting purposes.
-The data frame is headed \code{chr, snp_id, pos_M, pos_bp, pop, subpop} and \code{iR} respectively.
+The data frame is headed \code{chr, snp_id, pos_M, pos_bp, pop, subpop, iR} and \code{log10_pvalue} respectively.
 }
 \description{
 \code{getIBDiR()} calculates a summary statistic for each SNP that can be used to assess the significance of excess IBD sharing at genomic loci,
@@ -55,4 +56,3 @@ SNPs with iR values greater than some threshold (i.e. –log10 (P-values) > –l
 \code{getIBDiR} can return \code{NA} iR statistics for a number of reasons, including trying to generate iR statistics when there are no IBD pairs
 or when all pairs are IBD, or when only several isolates are analyzed.
 }
-

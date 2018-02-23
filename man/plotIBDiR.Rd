@@ -75,6 +75,5 @@ The default is \code{point.color=NULL} which will use isoRelate default colors.}
 See \url{http://docs.ggplot2.org/current/facet_grid.htmlfacet.scales} for more information on this parameter. The default is \code{facet.scales="fixed"}}
 }
 \description{
-\code{plotIBDiR()} plots the -log10 (P-values) used to assess the significance of excess IBD sharing.
+\code{plotIBDiR()} plots the -log10 (p-values) used to assess the significance of excess IBD sharing.
 }
-

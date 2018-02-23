@@ -23,4 +23,3 @@ emissionProbHD(pop_allele_freq, genotype_1, genotype_2, ibd, male_column,
 \description{
 The emission probabilities for 1 haploid chromosome and 1 diploid chromosome
 }
-

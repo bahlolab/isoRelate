@@ -17,4 +17,3 @@ Calculates the proportion of missing data for each SNPs or each isolate where mi
 Missing values are calculated for each column of \code{genotypes} (where columns are isolates and rows are SNPs),
 however \code{genotypes} can be transposed to calculate missingness proportions for SNPs.
 }
-

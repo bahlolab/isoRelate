@@ -33,4 +33,3 @@ calculateBeta(number_states, initial_prob, meiosis, number_snps, genotypes,
 \description{
 Calculate beta
 }
-

@@ -21,4 +21,3 @@ A vector of 4 values representing the number of meiosis and the probabilities of
 \description{
 IBDparameters() calculates IBD probabilities then estimates the number of meiosis for an isolate pair.
 }
-

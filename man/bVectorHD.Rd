@@ -12,4 +12,3 @@ bVectorHD(genotypes)
 \description{
 The vector b in the equation Ax=b for 1 haploid chromosome and 1 diploid chromosome
 }
-

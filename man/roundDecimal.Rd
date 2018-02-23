@@ -14,4 +14,3 @@ roundDecimal(number, digits)
 \description{
 Round digits to specified decimal places
 }
-

@@ -17,4 +17,3 @@ represents a unique SNP.}
 \description{
 \code{calculatePopAlleleFreq} calculates reference allele frequencies for each SNP given genotype data.
 }
-

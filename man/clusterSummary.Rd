@@ -12,4 +12,3 @@ clusterSummary(cluster.list)
 \description{
 A function that prints summary information of clusters
 }
-

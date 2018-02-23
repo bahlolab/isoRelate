@@ -12,4 +12,3 @@ areColors(x)
 \description{
 \code{areColors()} checks if colour names are valid
 }
-
