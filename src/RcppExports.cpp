@@ -441,37 +441,6 @@ BEGIN_RCPP
 END_RCPP
 }
 
-RcppExport SEXP isoRelate_AmatrixDD(SEXP, SEXP);
-RcppExport SEXP isoRelate_AmatrixHD(SEXP, SEXP);
-RcppExport SEXP isoRelate_AmatrixHH(SEXP, SEXP);
-RcppExport SEXP isoRelate_bVectorDD(SEXP);
-RcppExport SEXP isoRelate_bVectorHD(SEXP);
-RcppExport SEXP isoRelate_bVectorHH(SEXP);
-RcppExport SEXP isoRelate_calculateAlpha(SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP);
-RcppExport SEXP isoRelate_calculateBeta(SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP);
-RcppExport SEXP isoRelate_calculateGamma(SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP);
-RcppExport SEXP isoRelate_calculateLogLikelihood(SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP);
-RcppExport SEXP isoRelate_calculateMissingness(SEXP);
-RcppExport SEXP isoRelate_calculatePopAlleleFreq(SEXP, SEXP);
-RcppExport SEXP isoRelate_calculateScale(SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP);
-RcppExport SEXP isoRelate_calculateViterbi(SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP);
-RcppExport SEXP isoRelate_emissionProbDD(SEXP, SEXP, SEXP, SEXP);
-RcppExport SEXP isoRelate_emissionProbHD(SEXP, SEXP, SEXP, SEXP, SEXP, SEXP);
-RcppExport SEXP isoRelate_emissionProbHH(SEXP, SEXP, SEXP, SEXP);
-RcppExport SEXP isoRelate_emissionProbMissingGeno(SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP);
-RcppExport SEXP isoRelate_genotypeErrorD(SEXP, SEXP, SEXP);
-RcppExport SEXP isoRelate_genotypeErrorH(SEXP, SEXP, SEXP);
-RcppExport SEXP isoRelate_groupPairs(SEXP);
-RcppExport SEXP isoRelate_haplotypeToGenotype(SEXP, SEXP);
-RcppExport SEXP isoRelate_IBDLabel(SEXP, SEXP);
-RcppExport SEXP isoRelate_IBDMatrix(SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP);
-RcppExport SEXP isoRelate_isolatePairs(SEXP, SEXP);
-RcppExport SEXP isoRelate_roundDecimal(SEXP, SEXP);
-RcppExport SEXP isoRelate_transitionProbDD(SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP);
-RcppExport SEXP isoRelate_transitionProbHD(SEXP, SEXP, SEXP, SEXP, SEXP);
-RcppExport SEXP isoRelate_transitionProbHH(SEXP, SEXP, SEXP, SEXP, SEXP);
-RcppExport SEXP isoRelate_trueGenotypes(SEXP, SEXP);
-
 static const R_CallMethodDef CallEntries[] = {
     {"_isoRelate_roundDecimal", (DL_FUNC) &_isoRelate_roundDecimal, 2},
     {"_isoRelate_emissionProbHH", (DL_FUNC) &_isoRelate_emissionProbHH, 4},
@@ -503,36 +472,6 @@ static const R_CallMethodDef CallEntries[] = {
     {"_isoRelate_isolatePairs", (DL_FUNC) &_isoRelate_isolatePairs, 2},
     {"_isoRelate_haplotypeToGenotype", (DL_FUNC) &_isoRelate_haplotypeToGenotype, 2},
     {"_isoRelate_IBDLabel", (DL_FUNC) &_isoRelate_IBDLabel, 2},
-    {"isoRelate_AmatrixDD",               (DL_FUNC) &isoRelate_AmatrixDD,                2},
-    {"isoRelate_AmatrixHD",               (DL_FUNC) &isoRelate_AmatrixHD,                2},
-    {"isoRelate_AmatrixHH",               (DL_FUNC) &isoRelate_AmatrixHH,                2},
-    {"isoRelate_bVectorDD",               (DL_FUNC) &isoRelate_bVectorDD,                1},
-    {"isoRelate_bVectorHD",               (DL_FUNC) &isoRelate_bVectorHD,                1},
-    {"isoRelate_bVectorHH",               (DL_FUNC) &isoRelate_bVectorHH,                1},
-    {"isoRelate_calculateAlpha",          (DL_FUNC) &isoRelate_calculateAlpha,          10},
-    {"isoRelate_calculateBeta",           (DL_FUNC) &isoRelate_calculateBeta,           11},
-    {"isoRelate_calculateGamma",          (DL_FUNC) &isoRelate_calculateGamma,          10},
-    {"isoRelate_calculateLogLikelihood",  (DL_FUNC) &isoRelate_calculateLogLikelihood,  10},
-    {"isoRelate_calculateMissingness",    (DL_FUNC) &isoRelate_calculateMissingness,     1},
-    {"isoRelate_calculatePopAlleleFreq",  (DL_FUNC) &isoRelate_calculatePopAlleleFreq,   2},
-    {"isoRelate_calculateScale",          (DL_FUNC) &isoRelate_calculateScale,          10},
-    {"isoRelate_calculateViterbi",        (DL_FUNC) &isoRelate_calculateViterbi,        10},
-    {"isoRelate_emissionProbDD",          (DL_FUNC) &isoRelate_emissionProbDD,           4},
-    {"isoRelate_emissionProbHD",          (DL_FUNC) &isoRelate_emissionProbHD,           6},
-    {"isoRelate_emissionProbHH",          (DL_FUNC) &isoRelate_emissionProbHH,           4},
-    {"isoRelate_emissionProbMissingGeno", (DL_FUNC) &isoRelate_emissionProbMissingGeno,  7},
-    {"isoRelate_genotypeErrorD",          (DL_FUNC) &isoRelate_genotypeErrorD,           3},
-    {"isoRelate_genotypeErrorH",          (DL_FUNC) &isoRelate_genotypeErrorH,           3},
-    {"isoRelate_groupPairs",              (DL_FUNC) &isoRelate_groupPairs,               1},
-    {"isoRelate_haplotypeToGenotype",     (DL_FUNC) &isoRelate_haplotypeToGenotype,      2},
-    {"isoRelate_IBDLabel",                (DL_FUNC) &isoRelate_IBDLabel,                 2},
-    {"isoRelate_IBDMatrix",               (DL_FUNC) &isoRelate_IBDMatrix,                7},
-    {"isoRelate_isolatePairs",            (DL_FUNC) &isoRelate_isolatePairs,             2},
-    {"isoRelate_roundDecimal",            (DL_FUNC) &isoRelate_roundDecimal,             2},
-    {"isoRelate_transitionProbDD",        (DL_FUNC) &isoRelate_transitionProbDD,         7},
-    {"isoRelate_transitionProbHD",        (DL_FUNC) &isoRelate_transitionProbHD,         5},
-    {"isoRelate_transitionProbHH",        (DL_FUNC) &isoRelate_transitionProbHH,         5},
-    {"isoRelate_trueGenotypes",           (DL_FUNC) &isoRelate_trueGenotypes,            2},
     {NULL, NULL, 0}
 };
 
