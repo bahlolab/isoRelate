@@ -34,4 +34,4 @@ See the introduction vignette for details.
 
 ## Reference
 
-A manuscript currently underway.
+Henden L, Lee S, Mueller I, Barry A, Bahlo M. 2016. Detecting selection signals in *Plasmodium falciparum* using identity-by-descent analysis. *bioRxiv*. doi: http://dx.doi.org/10.1101/088039
