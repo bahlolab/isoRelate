@@ -9,7 +9,7 @@ using namespace Rcpp;
 
 //' Round digits to specified decimal places
 //' @param number A number to round
-//' @param number The number of digits to round to
+//' @param digits The number of digits to round to
 // [[Rcpp::export]]
 double roundDecimal(double number, int digits){
   double new_number;
@@ -166,6 +166,8 @@ double transitionProbHD(double omega_0, int meiosis, double dist_cM, int ibd_cur
 
 //' The transition probabilities for 2 diploid chromosomes
 //' @param omega_0 The probability of sharing 0 alleles IBD
+//' @param omega_1 The probability of sharing 1 allele IBD
+//' @param omega_2 The probability of sharing 2 alleles IBD
 //' @param meiosis The number of meiosis separating the two isoaltes
 //' @param dist_cM The genetic map distance (cM) between SNP i and SNP j
 //' @param ibd_current The IBD state of SNP j

@@ -4,10 +4,10 @@
 \alias{iRfunction}
 \title{Internal Function}
 \usage{
-iRfunction(locus.matrix, frequency, plot_qq = FALSE)
+iRfunction(locus.matrix, frequency)
 }
 \arguments{
-\item{locus.matrix}{A data frame containing binary IBD values. See \code{\link{getIBDMatrix}} for more details.}
+\item{locus.matrix}{A data frame containing binary IBD values. See \code{\link{getIBDmatrix}} for more details.}
 
 \item{frequency}{A vector of population allele frequencies for each SNP.}
 }

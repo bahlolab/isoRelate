@@ -9,7 +9,7 @@ roundDecimal(number, digits)
 \arguments{
 \item{number}{A number to round}
 
-\item{number}{The number of digits to round to}
+\item{digits}{The number of digits to round to}
 }
 \description{
 Round digits to specified decimal places

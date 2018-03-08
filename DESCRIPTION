@@ -10,7 +10,7 @@ Description: isoRelate detects genomic regions that are identical
 	for plotting results.
 Depends:
     R (>= 3.2.1)
-License: GPL-3 + file LICENSE
+License: MIT + file LICENSE
 LazyData: TRUE
 RoxygenNote: 6.0.1.9000
 LinkingTo: Rcpp
@@ -19,9 +19,13 @@ Imports:
     data.table,
     doParallel,
     foreach,
-    ggplot2,
+    ggplot2 (>= 2.1.0),
     igraph,
-    ggnetwork
+    ggnetwork,
+    grDevices,
+    graphics,
+    utils,
+    stats
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr

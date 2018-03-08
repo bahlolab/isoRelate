@@ -39,10 +39,10 @@ A data frame the following 7 columns:
 \item -log10 p vlaue (type \code{"numeric"})
 }
 where each row describes a unique SNP.
-The column 'Population' is filled with ones by default, while 'Subpopulation' contains the group ID’s from  \code{groups},
+The column \code{Population} is filled with 1s by default, while \code{Subpopulation} contains the group IDs from \code{groups},
 where the proportion of pairs IBD has been calculated for all pairs of isolates belonging to the same group as well as all pairs of
 isolates where each isolate belongs to a different group.
-If \code{groups=NULL} then 'Subpopulation' will be filled with zeros also.
+If \code{groups=NULL} then \code{Subpopulation} will be filled with 0s also.
 The population columns have been included for plotting purposes.
 The data frame is headed \code{chr, snp_id, pos_M, pos_bp, pop, subpop, iR} and \code{log10_pvalue} respectively.
 }
@@ -51,8 +51,8 @@ The data frame is headed \code{chr, snp_id, pos_M, pos_bp, pop, subpop, iR} and 
 thus identifying regions under positive selection.
 First relatedness between isolates and SNP allele frequencies are accounted for, then normalization procedures are applied where we assume
 our transformed summary statistic follows a chi-squared distribution with 1 degree of freedom.
-This allows the calculation of –log10 (P-values) which we denote as the iR statistic.
-SNPs with iR values greater than some threshold (i.e. –log10 (P-values) > –log10 (0.05)) provide evidence of positive selection.
+This allows the calculation of -log10 (P-values) which we denote as the iR statistic.
+SNPs with iR values greater than some threshold (i.e. -log10 (P-values) > -log10 (0.05)) provide evidence of positive selection.
 \code{getIBDiR} can return \code{NA} iR statistics for a number of reasons, including trying to generate iR statistics when there are no IBD pairs
 or when all pairs are IBD, or when only several isolates are analyzed.
 }

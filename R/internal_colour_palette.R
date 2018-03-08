@@ -3,6 +3,7 @@
 #' \code{getColourPaletteMajor()} generates a spectrum colour palette with a specified number of colours.
 #' @param number.colours numeric. The number of colours to return.
 #' @return A character vector of length=\code{number.colours} containing a colour specturm.
+#' @importFrom grDevices colorRampPalette
 getColourPaletteMajor <- function(number.colours) {
   if (number.colours == 1 )
     return("#69B4FF")
@@ -23,8 +24,10 @@ getColourPaletteMajor <- function(number.colours) {
 }
 
 #' \code{getColourPaletteMinor()} generates a specified number of shades of a given colour.
+#' @param major.colour character. The colour name or code.
 #' @param number.colours numeric. The number of colours to return.
 #' @return A character vector of length=\code{number.colours} containing colour shades, excluding white.
+#' @importFrom grDevices colorRampPalette
 getColourPaletteMinor <- function(major.colour, number.colours) {
   my.palette.1 <- colorRampPalette(c(major.colour, "white"))
   my.palette.2 <- my.palette.1(number.colours+1)

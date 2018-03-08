@@ -28,9 +28,9 @@
 #' \item Proportion of pairs IBD (type \code{"integer"})
 #' }
 #' where each row describes a unique SNP.
-#' The column "Population" is filled with 1's by default, while "Subpopulation" contains the group ID’s from  \code{groups},
+#' The column \code{Population} is filled with 1s by default, while \code{Subpopulation} contains the group IDs from \code{groups},
 #' where the proportion of pairs IBD has been calculated for all isolates belonging to the same group as well as all isolates from different groups.
-#' If \code{groups=NULL} then "Subpopulation" will be filled with 1’s also.
+#' If \code{groups=NULL} then \code{Subpopulation} will be filled with 1s also.
 #' The population columns have been included for plotting purposes.
 #' The data frame is headed \code{chr, snp_id, pos_M, pos_bp, pop, subpop} and \code{prop_ibd} respectively.
 #' @export

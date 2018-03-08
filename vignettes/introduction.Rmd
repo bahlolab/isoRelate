@@ -190,7 +190,7 @@ IBD segments are found using the Viterbi algorithm, which finds the single most 
 $$avePostPr = \frac{PostPr(IBD = 1)}{2} + PostPr(IBD = 2).$$
 **Please note, the output from the following function has number of rows equal to the number of SNPs and number of columns equal to the number of pairwise comparisons. As such, it will be very large when there are many isolates in the analysis and is likely to take some time to run. Additionally, the output may exceed R's memory limit and, in some instances, can cause R to unexpectedly crash.**
 
-```{r, message = FALSE, eval = TRUE, results = "hide"}
+```{r, message = FALSE, eval = FALSE}
 
 # calculate the posterior probability of IBD sharing
 my_posterior <- getIBDposterior(ped.genotypes = my_genotypes,
@@ -201,12 +201,6 @@ my_posterior <- getIBDposterior(ped.genotypes = my_genotypes,
 head(my_posterior[,1:10])
                           
 ```   
-
-```{r, message = FALSE, eval = TRUE, echo = FALSE}
-
-head(my_posterior[,1:10])
-                         
-```  
 
 
 ### Exploring IBD Results

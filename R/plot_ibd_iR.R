@@ -282,7 +282,7 @@ plotIBDiR <- function(ibd.iR, interval = NULL, annotation.genes = NULL, annotati
                                                   ibd.iR.temp[,"pos_bp"] <= interval.stop,]
     if (nrow(ibd.iR) == 0) stop("no SNPs in 'interval'")
     pop.subpop.2 <- as.character(unique(paste(ibd.iR[,"pop"],ibd.iR[,"subpop"],sep="/")))
-    if (length(pop.subpop.2) != length(pop.subpop)) stop ("some subpops have no SNPs over interval")
+    if (length(pop.subpop.2) != length(subpops)) stop ("some subpops have no SNPs over interval")
   }
 
   # remove subpops with all NAs

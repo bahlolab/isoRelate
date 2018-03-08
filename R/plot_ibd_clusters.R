@@ -23,7 +23,7 @@
 #' @param vertex.size Numeric value indicating the size of the vertices in the network. Default is \code{vertex.size=4}.
 #' @param vertex.name Logical. Whether to add isolate names to the vertices. Default is \code{vertex.name=FALSE}.
 #' @param edge.color Character string or numeric value. A single color to be used for all edges. Default is \code{edge.color="gray60"}.
-#' @param edge.wide Numeric. A single value indicating the width of the edges. Default is \code{edge.width=0.8}.
+#' @param edge.width Numeric. A single value indicating the width of the edges. Default is \code{edge.width=0.8}.
 #' @param mark.border Character string or numeric value. A single color to be used for all borders in hierarchical clustering groups. Default is \code{mark.border="white"}.
 #' @param mark.col Character string or numeric value. A single color to be used to fill hierarchical clustering groupings. Default is \code{mark.col="gray94"}.
 #' @param add.legend Logical. Whether to include a legend in the plot. Default is \code{add.legend=TRUE}.
@@ -35,6 +35,7 @@
 #' is run on the same network.
 #' @importFrom igraph graph.data.frame is.igraph E E<- V V<- layout_with_fr fastgreedy.community components
 #' @importFrom ggnetwork ggnetwork
+#' @importFrom graphics plot legend
 #' @export
 plotIBDclusters <- function(ped.genotypes, clusters, groups = NULL, vertex.color = NULL, vertex.frame.color = "white",
                          vertex.size = 4, vertex.name = FALSE, edge.color = "gray60", edge.width = 0.8, mark.border = "white",

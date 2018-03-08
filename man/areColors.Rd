@@ -7,7 +7,7 @@
 areColors(x)
 }
 \arguments{
-\item{X}{vector of length 1 or higher containing numeric or character values for colours}
+\item{x}{vector of length 1 or higher containing numeric or character values for colours}
 }
 \description{
 \code{areColors()} checks if colour names are valid

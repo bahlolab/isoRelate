@@ -31,6 +31,8 @@
 #' where each row describes a unique IBD segment. The data frame is headed \code{fid1, iid1, fid2, iid2, chr, start_snp, end_snp,
 #' start_position_bp, end_position_bp, start_position_M, end_position_M, number_snps, length_bp, length_M} and \code{ibd_status} respectively.
 #' @importFrom foreach "%dopar%"
+#' @importFrom utils setTxtProgressBar txtProgressBar
+#' @importFrom stats quantile
 #' @export
 getIBDsegments <- function(ped.genotypes, parameters, number.cores = 1, minimum.snps = 20, minimum.length.bp = 50000, error = 0.001){
 
@@ -118,13 +120,13 @@ getIBDsegments <- function(ped.genotypes, parameters, number.cores = 1, minimum.
 
     # get IBD segments for subgroups of pairs
     #ibd.segments <- foreach::foreach(pair=1:nrow(isolate.pairs),  .combine='merge_lists') %dopar% {
-    ibd.segments.0 <- foreach::foreach(pair=pair.group, .combine='rbind') %dopar% {
+    ibd.segments.0 <- foreach::foreach(pair.i=pair.group, .combine='rbind') %dopar% {
 
       # select pair
-      fid.1    <- as.character(isolate.pairs[pair,1])
-      iid.1    <- as.character(isolate.pairs[pair,2])
-      fid.2    <- as.character(isolate.pairs[pair,3])
-      iid.2    <- as.character(isolate.pairs[pair,4])
+      fid.1    <- as.character(isolate.pairs[pair.i,1])
+      iid.1    <- as.character(isolate.pairs[pair.i,2])
+      fid.2    <- as.character(isolate.pairs[pair.i,3])
+      iid.2    <- as.character(isolate.pairs[pair.i,4])
       gender.1 <- pedigree[pedigree[,"fid"] == fid.1 & pedigree[,"iid"] == iid.1,"moi"]
       gender.2 <- pedigree[pedigree[,"fid"] == fid.2 & pedigree[,"iid"] == iid.2,"moi"]
 

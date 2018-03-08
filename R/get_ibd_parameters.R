@@ -18,6 +18,8 @@
 #' }
 #' where each row describes a unique pair of isolates. The data frame is headed \code{fid1, iid1, fid2, iid2, m, ibd0, ibd1} and \code{ibd2} respectively.
 #' @importFrom foreach "%dopar%"
+#' @importFrom utils setTxtProgressBar txtProgressBar
+#' @importFrom stats quantile
 #' @export
 getIBDparameters <- function(ped.genotypes, number.cores = 1){
 
@@ -74,11 +76,11 @@ getIBDparameters <- function(ped.genotypes, number.cores = 1){
       pair.group <- start:nrow(isolate.pairs)
 
     # get IBD parameters for subgroups of pairs
-    ibd.estimates.0 <- foreach::foreach(pair=pair.group, .combine='rbind') %dopar% {
-      fid.1    <- as.character(isolate.pairs[pair,1])
-      iid.1    <- as.character(isolate.pairs[pair,2])
-      fid.2    <- as.character(isolate.pairs[pair,3])
-      iid.2    <- as.character(isolate.pairs[pair,4])
+    ibd.estimates.0 <- foreach::foreach(pair.i=pair.group, .combine='rbind') %dopar% {
+      fid.1    <- as.character(isolate.pairs[pair.i,1])
+      iid.1    <- as.character(isolate.pairs[pair.i,2])
+      fid.2    <- as.character(isolate.pairs[pair.i,3])
+      iid.2    <- as.character(isolate.pairs[pair.i,4])
       gender.1 <- pedigree[pedigree[,"fid"] == fid.1 & pedigree[,"iid"] == iid.1,"moi"]
       gender.2 <- pedigree[pedigree[,"fid"] == fid.2 & pedigree[,"iid"] == iid.2,"moi"]
       pair.genotypes   <- cbind(genotypes[,paste(fid.1,iid.1,sep="/")], genotypes[,paste(fid.2,iid.2,sep="/")])

@@ -7,6 +7,8 @@
 getColourPaletteMinor(major.colour, number.colours)
 }
 \arguments{
+\item{major.colour}{character. The colour name or code.}
+
 \item{number.colours}{numeric. The number of colours to return.}
 }
 \value{

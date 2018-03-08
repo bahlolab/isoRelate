@@ -18,6 +18,8 @@
 #' Columns 5 onwards contain the posterior probabilities for each pair of isolates, where a single column corresponds to one pair of isolates.
 #' These columns are labeled with merged family IDs and isolate IDs separated by a slash symbol (/).
 #' @importFrom foreach "%dopar%"
+#' @importFrom utils setTxtProgressBar txtProgressBar
+#' @importFrom stats quantile
 #' @export
 getIBDposterior <- function(ped.genotypes, parameters, number.cores = 1, error = 0.001){
 
@@ -89,13 +91,13 @@ getIBDposterior <- function(ped.genotypes, parameters, number.cores = 1, error =
       pair.group <- start:nrow(isolate.pairs)
 
     # get IBD segments for subgroups of pairs
-    posterior.prob.0 <- foreach::foreach(pair=pair.group, .combine='cbind') %dopar% {
+    posterior.prob.0 <- foreach::foreach(pair.i=pair.group, .combine='cbind') %dopar% {
 
       # select pair
-      fid.1    <- as.character(isolate.pairs[pair,1])
-      iid.1    <- as.character(isolate.pairs[pair,2])
-      fid.2    <- as.character(isolate.pairs[pair,3])
-      iid.2    <- as.character(isolate.pairs[pair,4])
+      fid.1    <- as.character(isolate.pairs[pair.i,1])
+      iid.1    <- as.character(isolate.pairs[pair.i,2])
+      fid.2    <- as.character(isolate.pairs[pair.i,3])
+      iid.2    <- as.character(isolate.pairs[pair.i,4])
       gender.1 <- pedigree[pedigree[,"fid"] == fid.1 & pedigree[,"iid"] == iid.1,"moi"]
       gender.2 <- pedigree[pedigree[,"fid"] == fid.2 & pedigree[,"iid"] == iid.2,"moi"]
 

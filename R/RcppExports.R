@@ -3,7 +3,7 @@
 
 #' Round digits to specified decimal places
 #' @param number A number to round
-#' @param number The number of digits to round to
+#' @param digits The number of digits to round to
 roundDecimal <- function(number, digits) {
     .Call('_isoRelate_roundDecimal', PACKAGE = 'isoRelate', number, digits)
 }
@@ -59,6 +59,8 @@ transitionProbHD <- function(omega_0, meiosis, dist_cM, ibd_current, ibd_previou
 
 #' The transition probabilities for 2 diploid chromosomes
 #' @param omega_0 The probability of sharing 0 alleles IBD
+#' @param omega_1 The probability of sharing 1 allele IBD
+#' @param omega_2 The probability of sharing 2 alleles IBD
 #' @param meiosis The number of meiosis separating the two isoaltes
 #' @param dist_cM The genetic map distance (cM) between SNP i and SNP j
 #' @param ibd_current The IBD state of SNP j

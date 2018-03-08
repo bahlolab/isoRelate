@@ -38,6 +38,8 @@ If \code{groups} is specified then \code{vertex.color} should contain the same n
 
 \item{edge.color}{Character string or numeric value. A single color to be used for all edges. Default is \code{edge.color="gray60"}.}
 
+\item{edge.width}{Numeric. A single value indicating the width of the edges. Default is \code{edge.width=0.8}.}
+
 \item{mark.border}{Character string or numeric value. A single color to be used for all borders in hierarchical clustering groups. Default is \code{mark.border="white"}.}
 
 \item{mark.col}{Character string or numeric value. A single color to be used to fill hierarchical clustering groupings. Default is \code{mark.col="gray94"}.}
@@ -53,8 +55,6 @@ If \code{groups} is specified then \code{vertex.color} should contain the same n
 \item{return.layout}{Logical. Whether or not to return the layout matrix (vertex positions) in the network.
 This layout can be used as the input for the parameter \code{layout} to avoid different network configurations each time \code{plotClusters()}
 is run on the same network.}
-
-\item{edge.wide}{Numeric. A single value indicating the width of the edges. Default is \code{edge.width=0.8}.}
 }
 \description{
 \code{plotIBDclusters()} Produces a figure of an isoRelate cluster network, where unique isolates are represented by vertices and a line is
