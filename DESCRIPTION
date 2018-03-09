@@ -21,6 +21,7 @@ Imports:
     foreach,
     ggplot2 (>= 2.1.0),
     igraph,
+    intergraph,
     ggnetwork,
     grDevices,
     graphics,

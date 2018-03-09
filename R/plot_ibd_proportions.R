@@ -325,7 +325,7 @@ plotIBDproportions <- function(ibd.proportions, interval = NULL, annotation.gene
 
   # setting up ggplot
   ggp <- ggplot()
-  ggp <- ggp + geom_line(data = ibd.proportions, aes(pos_bp, prop_ibd, col = pop.subpop))
+  ggp <- ggp + geom_line(data = ibd.proportions, aes_string("pos_bp", "prop_ibd", color = "pop.subpop"))
   ggp <- ggp + theme_bw()
   ggp <- ggp + ylab("Proportion of Pairs IBD")
   ggp <- ggp + theme(panel.grid.minor = element_blank(),
@@ -333,7 +333,7 @@ plotIBDproportions <- function(ibd.proportions, interval = NULL, annotation.gene
                               legend.title = element_blank())
 
   if (add.rug)
-    ggp <- ggp + geom_rug(data=ibd.proportions, aes(x = pos_bp), size = 0.1, colour = "gray30")
+    ggp <- ggp + geom_rug(data=ibd.proportions, aes_string(x = "pos_bp"), size = 0.1, colour = "gray30")
   if (!is.null(plot.title))
     ggp <- ggp + ggtitle(plot.title)
   if (!add.legend)
@@ -372,8 +372,8 @@ plotIBDproportions <- function(ibd.proportions, interval = NULL, annotation.gene
       min.y <- max.y - gene.hight
       pos.strand <- annotation.genes.overlap[annotation.genes.overlap[,"strand"] == "+",]
       neg.strand <- annotation.genes.overlap[annotation.genes.overlap[,"strand"] != "+",]
-      ggp <- ggp + geom_rect(data=pos.strand, aes(xmin = start, xmax = end), ymin = min.y, ymax = max.y, alpha = 0.9, fill = annotation.genes.color[1])
-      ggp <- ggp + geom_rect(data=neg.strand, aes(xmin = start, xmax = end), ymin = min.y, ymax = max.y, alpha = 0.9, fill = annotation.genes.color[2])
+      ggp <- ggp + geom_rect(data=pos.strand, aes_string(xmin = "start", xmax = "end"), ymin = min.y, ymax = max.y, alpha = 0.9, fill = annotation.genes.color[1])
+      ggp <- ggp + geom_rect(data=neg.strand, aes_string(xmin = "start", xmax = "end"), ymin = min.y, ymax = max.y, alpha = 0.9, fill = annotation.genes.color[2])
       ggp <- ggp + ylim(min.y, max(ibd.proportions[,"prop_ibd"])) # overrides facets="free"
     }
   }
@@ -382,10 +382,10 @@ plotIBDproportions <- function(ibd.proportions, interval = NULL, annotation.gene
   if (!is.null(highlight.genes)) {
     if(nrow(highlight.genes.overlap) != 0) {
       lab.pos <- min(ibd.proportions[,"prop_ibd"])*0.05
-      ggp <- ggp + geom_rect(data=highlight.genes.overlap, aes(xmin = start, xmax = end), ymin = -Inf, ymax = Inf, fill = highlight.genes.color, alpha = highlight.genes.alpha)
-      ggp <- ggp + geom_vline(data=highlight.genes.overlap, aes(xintercept = start), colour = highlight.genes.color, linetype = "solid", alpha = highlight.genes.alpha)
+      ggp <- ggp + geom_rect(data=highlight.genes.overlap, aes_string(xmin = "start", xmax = "end"), ymin = -Inf, ymax = Inf, fill = highlight.genes.color, alpha = highlight.genes.alpha)
+      ggp <- ggp + geom_vline(data=highlight.genes.overlap, aes_string(xintercept = "start"), colour = highlight.genes.color, linetype = "solid", alpha = highlight.genes.alpha)
       if (highlight.genes.labels)
-        ggp <- ggp + geom_text(data=highlight.genes.overlap, aes(x = start, label = name), y = lab.pos, colour = "gray20", angle = 90, hjust = -0.1, vjust = -0.2, size = 3, alpha = 0.6)
+        ggp <- ggp + geom_text(data=highlight.genes.overlap, aes_string(x = "start", label = "name"), y = lab.pos, colour = "gray20", angle = 90, hjust = -0.1, vjust = -0.2, size = 3, alpha = 0.6)
     }
   }
 
