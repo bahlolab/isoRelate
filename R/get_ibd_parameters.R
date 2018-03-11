@@ -1,3 +1,5 @@
+#' to prevent notes
+globalVariables("pair.i")
 #' Parameter Estimation
 #'
 #' \code{getIBDparameters()} estimates the number of meiosis and the probabilities of sharing 0, 1 and 2 alleles IBD between all pairwise

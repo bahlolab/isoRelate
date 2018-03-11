@@ -8,7 +8,7 @@ plotIBDsegments(ped.genotypes, ibd.segments, interval = NULL,
   annotation.genes = NULL, annotation.genes.color = NULL,
   highlight.genes = NULL, highlight.genes.labels = TRUE,
   highlight.genes.color = NULL, highlight.genes.alpha = 0.1,
-  segment.hight = 0.5, segment.color = NULL, number.per.page = NULL,
+  segment.height = 0.5, segment.color = NULL, number.per.page = NULL,
   fid.label = TRUE, iid.label = TRUE, ylabel.size = 9, add.rug = FALSE,
   plot.title = NULL, add.legend = TRUE)
 }
@@ -55,7 +55,7 @@ with respective labels. The default is {highlight.genes=NULL}.}
 
 \item{highlight.genes.alpha}{Numeric. A single value between 0 and 1 indicating the gene color transparency. The default is \code{highlight.genes.alpha=0.1}.}
 
-\item{segment.hight}{A numeric value giving the hight of IBD segment blocks, such that 0 < segment.hight <= 1. The default is \code{segment.hight=0.5}.}
+\item{segment.height}{A numeric value giving the hight of IBD segment blocks, such that 0 < segment.height <= 1. The default is \code{segment.height=0.5}.}
 
 \item{segment.color}{A vector of characters or numeric values denoting the color of the segments to be plotted.
 Two colors must be specified, one for segments with 1 allele IBD and one for segments with 2 alleles IBD.}

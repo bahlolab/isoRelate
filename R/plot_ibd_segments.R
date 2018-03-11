@@ -35,7 +35,7 @@
 #' @param highlight.genes.labels Logical. Whether to include gene names as labels in the figure. The default is \code{highlight.genes.labels=FALSE}.
 #' @param highlight.genes.color Character string or numeric value. A single color that will be used to highlight a region/gene. The default is \code{highlight.genes.color=NULL}.
 #' @param highlight.genes.alpha Numeric. A single value between 0 and 1 indicating the gene color transparency. The default is \code{highlight.genes.alpha=0.1}.
-#' @param segment.hight A numeric value giving the hight of IBD segment blocks, such that 0 < segment.hight <= 1. The default is \code{segment.hight=0.5}.
+#' @param segment.height A numeric value giving the hight of IBD segment blocks, such that 0 < segment.height <= 1. The default is \code{segment.height=0.5}.
 #' @param segment.color A vector of characters or numeric values denoting the color of the segments to be plotted.
 #' Two colors must be specified, one for segments with 1 allele IBD and one for segments with 2 alleles IBD.
 #' @param number.per.page A numeric value indicating the maximum number of IBD pairs to plot in a single graphics window. The default is
@@ -53,7 +53,7 @@
 #' @export
 plotIBDsegments <- function (ped.genotypes, ibd.segments, interval = NULL, annotation.genes = NULL, annotation.genes.color = NULL,
                              highlight.genes = NULL, highlight.genes.labels = TRUE, highlight.genes.color = NULL,
-                             highlight.genes.alpha = 0.1, segment.hight = 0.5, segment.color = NULL, number.per.page = NULL,
+                             highlight.genes.alpha = 0.1, segment.height = 0.5, segment.color = NULL, number.per.page = NULL,
                              fid.label = TRUE, iid.label = TRUE, ylabel.size = 9, add.rug = FALSE, plot.title = NULL, add.legend = TRUE) {
 
   # check format of input data
@@ -159,11 +159,11 @@ plotIBDsegments <- function (ped.genotypes, ibd.segments, interval = NULL, annot
   if (length(highlight.genes.alpha) != 1) stop ("'highlight.genes.alpha' has incorrect format - must be a single numeric value")
   if (highlight.genes.alpha > 1 | highlight.genes.alpha <= 0) stop ("'highlight.genes.alpha' has incorrect format - must be a single numeric value between (0,1]")
 
-  # check segment.hight
-  if (!is.vector(segment.hight)) stop ("'segment.hight' has incorrect format - must be a single numeric value")
-  if (!is.numeric(segment.hight)) stop ("'segment.hight' has incorrect format - must be a single numeric value")
-  if (length(segment.hight) != 1) stop ("'segment.hight' has incorrect format - must be a single numeric value")
-  if (segment.hight > 1 | segment.hight <= 0) stop ("'segment.hight' has incorrect format - must be a single numeric value between (0,1]")
+  # check segment.height
+  if (!is.vector(segment.height)) stop ("'segment.height' has incorrect format - must be a single numeric value")
+  if (!is.numeric(segment.height)) stop ("'segment.height' has incorrect format - must be a single numeric value")
+  if (length(segment.height) != 1) stop ("'segment.height' has incorrect format - must be a single numeric value")
+  if (segment.height > 1 | segment.height <= 0) stop ("'segment.height' has incorrect format - must be a single numeric value between (0,1]")
 
   # check number.per.page
   if (!is.null(number.per.page)) {
@@ -364,11 +364,11 @@ plotIBDsegments <- function (ped.genotypes, ibd.segments, interval = NULL, annot
                        axis.title.y = element_blank(),
                        axis.text.y = element_text(size=ylabel.size))
     if (add.legend) {
-      ggp <- ggp + geom_rect(data=ibd.page, aes(xmin = start_position_bp, xmax = end_position_bp, ymin = pair.id, ymax = pair.id+segment.hight,
-                                                fill = ifelse(ibd_status == 1,segment.color[1],segment.color[2])), alpha=0.8)
+      ggp <- ggp + geom_rect(data=ibd.page, aes_(xmin = ~start_position_bp, xmax = ~end_position_bp, ymin = ~pair.id, ymax = ~pair.id+segment.height,
+                                                fill = ~as.factor(ibd_status), alpha=0.8))
       ggp <- ggp + scale_fill_manual("", values = c(segment.color[1], segment.color[2]), labels=c("IBD = 1", "IBD = 2"))
     } else
-      ggp <- ggp + geom_rect(data=ibd.page, aes(xmin = start_position_bp, xmax = end_position_bp, ymin = pair.id, ymax = pair.id+segment.hight),
+      ggp <- ggp + geom_rect(data=ibd.page, aes_(xmin = ~start_position_bp, xmax = ~end_position_bp, ymin = ~pair.id, ymax = ~pair.id+segment.height),
                                             fill = ifelse(ibd.page[,"ibd_status"] == 1, segment.color[1], segment.color[2]), alpha=0.8)
     if (add.rug & length(newpos) != 0)
       ggp <- ggp + geom_rug(aes(x = newpos), size = 0.1, colour = "gray30")
@@ -397,8 +397,8 @@ plotIBDsegments <- function (ped.genotypes, ibd.segments, interval = NULL, annot
         min.y <- max.y - gene.hight
         pos.strand <- annotation.genes.overlap[annotation.genes.overlap[,"strand"] == "+",]
         neg.strand <- annotation.genes.overlap[annotation.genes.overlap[,"strand"] != "+",]
-        ggp <- ggp + geom_rect(data=pos.strand, aes(xmin = start, xmax = end), ymin = min.y, ymax = max.y, alpha = 0.9, fill = annotation.genes.color[1])
-        ggp <- ggp + geom_rect(data=neg.strand, aes(xmin = start, xmax = end), ymin = min.y, ymax = max.y, alpha = 0.9, fill = annotation.genes.color[2])
+        ggp <- ggp + geom_rect(data=pos.strand, aes_string(xmin = "start", xmax = "end"), ymin = min.y, ymax = max.y, alpha = 0.9, fill = annotation.genes.color[1])
+        ggp <- ggp + geom_rect(data=neg.strand, aes_string(xmin = "start", xmax = "end"), ymin = min.y, ymax = max.y, alpha = 0.9, fill = annotation.genes.color[2])
         #ggp <- ggp + ylim(min.y, max(ibd.page[,"pair.id"])) # overrides facets="free"
       }
     }
@@ -407,16 +407,16 @@ plotIBDsegments <- function (ped.genotypes, ibd.segments, interval = NULL, annot
     if (!is.null(highlight.genes)) {
       if(nrow(highlight.genes.overlap) != 0) {
         lab.pos <- min(ibd.page[,"pair.id"])*0.05
-        ggp <- ggp + geom_rect(data=highlight.genes.overlap, aes(xmin = start, xmax = end), ymin = -Inf, ymax = Inf, fill = highlight.genes.color, alpha = highlight.genes.alpha)
-        ggp <- ggp + geom_vline(data=highlight.genes.overlap, aes(xintercept = start), colour = highlight.genes.color, linetype = "solid", alpha = highlight.genes.alpha)
+        ggp <- ggp + geom_rect(data=highlight.genes.overlap, aes_string(xmin = "start", xmax = "end"), ymin = -Inf, ymax = Inf, fill = highlight.genes.color, alpha = highlight.genes.alpha)
+        ggp <- ggp + geom_vline(data=highlight.genes.overlap, aes_string(xintercept = "start"), colour = highlight.genes.color, linetype = "solid", alpha = highlight.genes.alpha)
         if (highlight.genes.labels)
-          ggp <- ggp + geom_text(data=highlight.genes.overlap, aes(x = start, label = name), y = lab.pos, colour = "gray20", angle = 90, hjust = -0.1, vjust = -0.2, size = 3, alpha = 0.6)
+          ggp <- ggp + geom_text(data=highlight.genes.overlap, aes_string(x = "start", label = "name"), y = lab.pos, colour = "gray20", angle = 90, hjust = -0.1, vjust = -0.2, size = 3, alpha = 0.6)
       }
     }
 
     # y-axis labels & limits
     y.labs <- ibd.page[!duplicated(ibd.page[,"pair.id"]),]
-    y.breaks <- y.labs[,"pair.id"] + segment.hight/2
+    y.breaks <- y.labs[,"pair.id"] + segment.height/2
     if (fid.label & iid.label){
       y.labels <- paste(y.labs[,"fid1"], y.labs[,"iid1"], y.labs[,"fid2"], y.labs[,"iid2"],sep="/")
     }

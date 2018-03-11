@@ -310,7 +310,7 @@ plotIBDiR <- function(ibd.iR, interval = NULL, annotation.genes = NULL, annotati
 
   # setting up ggplot
   ggp <- ggplot()
-  ggp <- ggp + geom_point(data = ibd.iR, aes(pos_bp, log10_pvalue, col = subpop), size=point.size)
+  ggp <- ggp + geom_point(data = ibd.iR, aes_string("pos_bp", "log10_pvalue", color = "subpop"), size=point.size)
   ggp <- ggp + theme_bw()
   ggp <- ggp + ylab("-log10(P-value)")
   ggp <- ggp + theme(panel.grid.minor = element_blank(),
@@ -318,7 +318,7 @@ plotIBDiR <- function(ibd.iR, interval = NULL, annotation.genes = NULL, annotati
                               legend.title = element_blank())
 
   if (add.rug)
-    ggp <- ggp + geom_rug(data=ibd.iR, aes(x = pos_bp), size = 0.1, colour = "gray30")
+    ggp <- ggp + geom_rug(data=ibd.iR, aes_string(x = "pos_bp"), size = 0.1, colour = "gray30")
   if (!is.null(plot.title))
     ggp <- ggp + ggtitle(plot.title)
   if (!add.legend)
@@ -355,8 +355,8 @@ plotIBDiR <- function(ibd.iR, interval = NULL, annotation.genes = NULL, annotati
       min.y <- max.y - gene.hight
       pos.strand <- annotation.genes.overlap[annotation.genes.overlap[,"strand"] == "+",]
       neg.strand <- annotation.genes.overlap[annotation.genes.overlap[,"strand"] != "+",]
-      ggp <- ggp + geom_rect(data=pos.strand, aes(xmin = start, xmax = end), ymin = min.y, ymax = max.y, alpha = 0.9, fill = annotation.genes.color[1])
-      ggp <- ggp + geom_rect(data=neg.strand, aes(xmin = start, xmax = end), ymin = min.y, ymax = max.y, alpha = 0.9, fill = annotation.genes.color[2])
+      ggp <- ggp + geom_rect(data=pos.strand, aes_string(xmin = "start", xmax = "end"), ymin = min.y, ymax = max.y, alpha = 0.9, fill = annotation.genes.color[1])
+      ggp <- ggp + geom_rect(data=neg.strand, aes_string(xmin = "start", xmax = "end"), ymin = min.y, ymax = max.y, alpha = 0.9, fill = annotation.genes.color[2])
       ggp <- ggp + ylim(min.y, max(ibd.iR[,"log10_pvalue"])) # overrides facets="free"
     }
   }
@@ -365,10 +365,10 @@ plotIBDiR <- function(ibd.iR, interval = NULL, annotation.genes = NULL, annotati
   if (!is.null(highlight.genes)) {
     if(nrow(highlight.genes.overlap) != 0) {
       lab.pos <- min(ibd.iR[,"log10_pvalue"])*0.05
-      ggp <- ggp + geom_rect(data=highlight.genes.overlap, aes(xmin = start, xmax = end), ymin = -Inf, ymax = Inf, fill = highlight.genes.color, alpha = highlight.genes.alpha)
-      ggp <- ggp + geom_vline(data=highlight.genes.overlap, aes(xintercept = start), colour = highlight.genes.color, linetype = "solid", alpha = highlight.genes.alpha)
+      ggp <- ggp + geom_rect(data=highlight.genes.overlap, aes_string(xmin = "start", xmax = "end"), ymin = -Inf, ymax = Inf, fill = highlight.genes.color, alpha = highlight.genes.alpha)
+      ggp <- ggp + geom_vline(data=highlight.genes.overlap, aes_string(xintercept = "start"), colour = highlight.genes.color, linetype = "solid", alpha = highlight.genes.alpha)
       if (highlight.genes.labels)
-        ggp <- ggp + geom_text(data=highlight.genes.overlap, aes(x = start, label = name), y = lab.pos, colour = "gray20", angle = 90, hjust = -0.1, vjust = -0.2, size = 3, alpha = 0.6)
+        ggp <- ggp + geom_text(data=highlight.genes.overlap, aes_string(x = "start", label = "name"), y = lab.pos, colour = "gray20", angle = 90, hjust = -0.1, vjust = -0.2, size = 3, alpha = 0.6)
     }
   }
 
