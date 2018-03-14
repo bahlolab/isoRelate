@@ -73,11 +73,14 @@ The default is \code{line.color=NULL} which will use isoRelate default colors.}
 \item{facet.label}{Logical. Whether to include facet labels if multiple populations/subpopulations (column names "pop" and "subpop") are specified.}
 
 \item{facet.scales}{A character string of either \code{"fixed"}, \code{"free"}, \code{"free_x"} or \code{"free_y"} specifying the facet axis-scales.
-See \url{http://docs.ggplot2.org/current/facet_grid.htmlfacet.scales} for more information on this parameter. The default is \code{facet.scales="fixed"}}
+The default is \code{facet.scales="fixed"}}
 
 \item{subpop.facet}{Logical. Whether to plot subpopulations in separate facets. The default is \code{subpop.facet=FALSE}.
 If \code{subpop.facet=TRUE} and there are multiple populations then subpopulations will **not** be drawn in separate facets.}
 }
 \description{
 \code{plotIBDproportions()} plots the proportion of pairs IBD for each SNP across the genome.
+}
+\seealso{
+\code{\link{getIBDproportion}}
 }

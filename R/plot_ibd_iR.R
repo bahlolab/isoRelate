@@ -48,9 +48,10 @@
 #' @param add.legend Logical. Whether a legend containing subpopulation information should be plotted. The default is \code{add.legend=FALSE}.
 #' @param facet.label Logical. Whether to include facet labels if multiple subpopulations (column name "subpop") are specified.
 #' @param facet.scales A character string of either \code{"fixed"}, \code{"free"}, \code{"free_x"} or \code{"free_y"} specifying the facet axis-scales.
-#' See \url{http://docs.ggplot2.org/current/facet_grid.htmlfacet.scales} for more information on this parameter. The default is \code{facet.scales="fixed"}
+#' The default is \code{facet.scales="fixed"}
 #' @import ggplot2
 #' @export
+#' @seealso \code{\link{getIBDiR}}
 plotIBDiR <- function(ibd.iR, interval = NULL, annotation.genes = NULL, annotation.genes.color = NULL,
                    highlight.genes = NULL, highlight.genes.labels = TRUE, highlight.genes.color = NULL, highlight.genes.alpha = 0.1,
                    point.size = 1, point.color = NULL, add.rug = FALSE, plot.title = NULL, add.legend = FALSE, facet.label = TRUE,

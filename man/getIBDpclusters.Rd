@@ -34,3 +34,6 @@ If hierarchical clustering has been performed then the clusters may not be disjo
 Isolates that do not share a minimum proportion IBD are not included in the network or output.
 The networks are created using R package \code{igraph}.
 }
+\seealso{
+\code{\link{getGenotypes}}, \code{\link{getIBDsegments}} and \code{\link{getIBDiclusters}}.
+}

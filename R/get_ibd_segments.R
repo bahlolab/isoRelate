@@ -34,6 +34,7 @@
 #' @importFrom utils setTxtProgressBar txtProgressBar
 #' @importFrom stats quantile
 #' @export
+#' @seealso \code{\link{getGenotypes}} and \code{\link{getIBDparameters}}.
 getIBDsegments <- function(ped.genotypes, parameters, number.cores = 1, minimum.snps = 20, minimum.length.bp = 50000, error = 0.001){
 
   # check format of input data

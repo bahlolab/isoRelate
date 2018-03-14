@@ -34,6 +34,7 @@
 #' The population columns have been included for plotting purposes.
 #' The data frame is headed \code{chr, snp_id, pos_M, pos_bp, pop, subpop} and \code{prop_ibd} respectively.
 #' @export
+#' @seealso \code{\link{getGenotypes}}, \code{\link{getIBDmatrix}} and \code{\link{getIBDiR}}.
 getIBDproportion <- function(ped.genotypes, ibd.matrix, groups = NULL){
 
   # check format of input data

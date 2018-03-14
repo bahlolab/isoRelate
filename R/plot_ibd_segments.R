@@ -51,6 +51,7 @@
 #' @param add.legend Logical. If \code{add.legend=TRUE}, a legend specifying the IBD status (1 allele IBD or 2 alleles IBD) will be included. The default is \code{add.legend=TRUE}.
 #' @import ggplot2
 #' @export
+#' @seealso \code{\link{getGenotypes}} and \code{\link{getIBDsegments}}.
 plotIBDsegments <- function (ped.genotypes, ibd.segments, interval = NULL, annotation.genes = NULL, annotation.genes.color = NULL,
                              highlight.genes = NULL, highlight.genes.labels = TRUE, highlight.genes.color = NULL,
                              highlight.genes.alpha = 0.1, segment.height = 0.5, segment.color = NULL, number.per.page = NULL,

@@ -26,7 +26,7 @@ This document outlines the data format and key functions used by isoRelate for r
 ### PED and MAP Files
 
 
-The input for isoRelate is unphased genotype data for SNPs in PLINK PED and MAP format (http://pngu.mgh.harvard.edu/~purcell/plink/data).
+The input for isoRelate is unphased genotype data for SNPs in PLINK PED and MAP format (http://www.cog-genomics.org/plink2).
 
 A PED file is a white-space (space or tab) delimited file with the first six columns
 
@@ -70,6 +70,10 @@ If a reference dataset is not specified then allele frequencies will be calculat
 
 
 ## Key Functions
+```{r, echo=FALSE}
+# load isoRelate library
+library(isoRelate)
+```
 
 Function | Description
 ------------------ | --------------------------------------------------

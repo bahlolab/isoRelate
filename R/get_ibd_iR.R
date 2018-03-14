@@ -43,6 +43,7 @@
 #' The population columns have been included for plotting purposes.
 #' The data frame is headed \code{chr, snp_id, pos_M, pos_bp, pop, subpop, iR} and \code{log10_pvalue} respectively.
 #' @export
+#' @seealso \code{\link{getGenotypes}}, \code{\link{getIBDmatrix}} and \code{\link{getIBDproportion}}.
 getIBDiR <- function(ped.genotypes, ibd.matrix, groups = NULL){
 
   # check format of input data

@@ -72,8 +72,11 @@ The default is \code{point.color=NULL} which will use isoRelate default colors.}
 \item{facet.label}{Logical. Whether to include facet labels if multiple subpopulations (column name "subpop") are specified.}
 
 \item{facet.scales}{A character string of either \code{"fixed"}, \code{"free"}, \code{"free_x"} or \code{"free_y"} specifying the facet axis-scales.
-See \url{http://docs.ggplot2.org/current/facet_grid.htmlfacet.scales} for more information on this parameter. The default is \code{facet.scales="fixed"}}
+The default is \code{facet.scales="fixed"}}
 }
 \description{
 \code{plotIBDiR()} plots the -log10 (p-values) used to assess the significance of excess IBD sharing.
+}
+\seealso{
+\code{\link{getIBDiR}}
 }

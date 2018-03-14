@@ -81,3 +81,6 @@ The default is \code{add.iid.name=TRUE}.}
 \description{
 \code{plotIBDsegments()} plots IBD segments for pairs across the genome. IBD segments are depicted by colored blocks.
 }
+\seealso{
+\code{\link{getGenotypes}} and \code{\link{getIBDsegments}}.
+}

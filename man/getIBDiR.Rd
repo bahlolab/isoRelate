@@ -56,3 +56,6 @@ SNPs with iR values greater than some threshold (i.e. -log10 (P-values) > -log10
 \code{getIBDiR} can return \code{NA} iR statistics for a number of reasons, including trying to generate iR statistics when there are no IBD pairs
 or when all pairs are IBD, or when only several isolates are analyzed.
 }
+\seealso{
+\code{\link{getGenotypes}}, \code{\link{getIBDmatrix}} and \code{\link{getIBDproportion}}.
+}

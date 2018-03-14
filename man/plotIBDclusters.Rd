@@ -61,3 +61,6 @@ is run on the same network.}
 drawn between two vertices if the isolates have been inferred IBD via the criteria specified in either \code{getIBDiclusters} or
 \code{getIBDpclusters}.The networks are created using the R package \code{igraph}.
 }
+\seealso{
+\code{\link{getGenotypes}}, \code{\link{getIBDpclusters}} and \code{\link{getIBDiclusters}}.
+}

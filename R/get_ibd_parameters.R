@@ -23,6 +23,7 @@ globalVariables("pair.i")
 #' @importFrom utils setTxtProgressBar txtProgressBar
 #' @importFrom stats quantile
 #' @export
+#' @seealso \code{\link{getGenotypes}} and \code{\link{getIBDsegments}}.
 getIBDparameters <- function(ped.genotypes, number.cores = 1){
 
   # check input ped and genotypes

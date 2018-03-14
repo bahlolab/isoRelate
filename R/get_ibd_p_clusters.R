@@ -21,6 +21,7 @@
 #' }
 #' @importFrom igraph graph.data.frame E E<- V V<- layout_with_fr fastgreedy.community components
 #' @export
+#' @seealso \code{\link{getGenotypes}}, \code{\link{getIBDsegments}} and \code{\link{getIBDiclusters}}.
 getIBDpclusters <- function(ped.genotypes, ibd.segments, prop=1, hi.clust = FALSE){
 
   # check format of input data

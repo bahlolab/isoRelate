@@ -30,3 +30,6 @@ where each row describes a unique pair of isolates. The data frame is headed \co
 \code{getIBDparameters()} estimates the number of meiosis and the probabilities of sharing 0, 1 and 2 alleles IBD between all pairwise
 combinations of isolates.
 }
+\seealso{
+\code{\link{getGenotypes}} and \code{\link{getIBDsegments}}.
+}

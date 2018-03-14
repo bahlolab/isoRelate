@@ -48,3 +48,6 @@ start_position_bp, end_position_bp, start_position_M, end_position_M, number_snp
 \description{
 \code{getIBDsegments()} detects genomic regions shared IBD between all pairwise combinations of isolates.
 }
+\seealso{
+\code{\link{getGenotypes}} and \code{\link{getIBDparameters}}.
+}

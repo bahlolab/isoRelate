@@ -37,6 +37,7 @@
 #' @importFrom ggnetwork ggnetwork
 #' @importFrom graphics plot legend
 #' @export
+#' @seealso \code{\link{getGenotypes}}, \code{\link{getIBDpclusters}} and \code{\link{getIBDiclusters}}.
 plotIBDclusters <- function(ped.genotypes, clusters, groups = NULL, vertex.color = NULL, vertex.frame.color = "white",
                          vertex.size = 4, vertex.name = FALSE, edge.color = "gray60", edge.width = 0.8, mark.border = "white",
                          mark.col = "gray94", add.legend = TRUE, legend.x = -1.5, legend.y = -0.25, layout = NULL, return.layout = FALSE){

@@ -16,6 +16,7 @@
 #' Columns 5 onwards contain the binary IBD information for each isolate pair, where a single column corresponds to a single pair.
 #' These columns are labeled with merged family IDs and isolate IDs separated by a slash symbol (/). For example fid1/iid1/fid2/iid2.
 #' @export
+#' @seealso \code{\link{getGenotypes}}, \code{\link{getIBDsegments}}, \code{\link{getIBDproportion}}, \code{\link{getIBDiR}}.
 getIBDmatrix <- function(ped.genotypes, ibd.segments){
 
   # check format of input data
