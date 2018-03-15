@@ -2,14 +2,8 @@ Package: isoRelate
 Title: Identity-by-Descent Inference of Haploid Recombining Organisms
 Version: 0.1.0
 Authors@R: person("Lyndal", "Henden", email = "lyndal_henden@hotmail.com", role = c("aut", "cre"))
-Author: Lyndal Henden <lyndal_henden@hotmail.com>
-Maintainer: Lyndal Henden <lyndal_henden@hotmail.com>
-Description: isoRelate detects genomic regions that are identical
-	by descent (IBD) between pairs of isolates using a single nucleotide
-	polymorphism (SNP) data. It is designed for haploid species and can 
-	be used with multiclonal infections. isoRelate also includes a statistic
-	that uses inferred IBD to identify genomic regions that have undergone recent positive
-	selection, as well as a number of functions for plotting results.
+Description: Pairwise identity by descent inference of haploid species using single nucleotide polymorphism data.
+    isoRelate can detect IBD in the presence of multi-clonal infections and also provides a function for identifying loci under recent positive selection. 
 Depends:
     R (>= 3.2.1)
 License: MIT + file LICENSE
