@@ -374,7 +374,7 @@ plotIBDsegments <- function (ped.genotypes, ibd.segments, interval = NULL, annot
     if (add.rug & length(newpos) != 0)
       ggp <- ggp + geom_rug(aes(x = newpos), size = 0.1, colour = "gray30")
     if (!is.null(plot.title))
-      ggp <- ggp + ggtitle(plot.title)
+      ggp <- ggp + ggtitle(plot.title) + theme(plot.title = element_text(hjust = 0.5))
 
     # interval:
     if (is.null(interval) & length(chromosomes) > 1) {

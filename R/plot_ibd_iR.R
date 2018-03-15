@@ -321,7 +321,7 @@ plotIBDiR <- function(ibd.iR, interval = NULL, annotation.genes = NULL, annotati
   if (add.rug)
     ggp <- ggp + geom_rug(data=ibd.iR, aes_string(x = "pos_bp"), size = 0.1, colour = "gray30")
   if (!is.null(plot.title))
-    ggp <- ggp + ggtitle(plot.title)
+    ggp <- ggp + ggtitle(plot.title) + theme(plot.title = element_text(hjust = 0.5))
   if (!add.legend)
     ggp <- ggp + theme(legend.position = "none")
 
