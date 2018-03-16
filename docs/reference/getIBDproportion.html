@@ -150,6 +150,33 @@ The data frame is headed <code>chr, snp_id, pos_M, pos_bp, pop, subpop</code> an
     <p><code><a href='getGenotypes.html'>getGenotypes</a></code>, <code><a href='getIBDmatrix.html'>getIBDmatrix</a></code> and <code><a href='getIBDiR.html'>getIBDiR</a></code>.</p>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'># generate a binary IBD matrix</span>
+<span class='no'>my_matrix</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='getIBDmatrix.html'>getIBDmatrix</a></span>(<span class='kw'>ped.genotypes</span> <span class='kw'>=</span> <span class='no'>png_genotypes</span>,
+                          <span class='kw'>ibd.segments</span> <span class='kw'>=</span> <span class='no'>png_ibd</span>)
+
+<span class='co'># calculate the proportion of pairs IBD at each SNP</span>
+<span class='no'>my_proportion</span> <span class='kw'>&lt;-</span> <span class='fu'>getIBDproportion</span>(<span class='kw'>ped.genotypes</span> <span class='kw'>=</span> <span class='no'>png_genotypes</span>,
+                                  <span class='kw'>ibd.matrix</span> <span class='kw'>=</span> <span class='no'>my_matrix</span>,
+                                  <span class='kw'>groups</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+
+<span class='co'># creating a stratification dataset</span>
+<span class='no'>my_groups</span> <span class='kw'>&lt;-</span> <span class='no'>png_genotypes</span><span class='kw'>[[</span><span class='fl'>1</span>]][,<span class='fl'>1</span>:<span class='fl'>3</span>]
+<span class='no'>my_groups</span>[<span class='fl'>1</span>:<span class='fl'>10</span>,<span class='st'>"pid"</span>] <span class='kw'>&lt;-</span> <span class='st'>"a"</span>
+<span class='no'>my_groups</span>[<span class='fl'>11</span>:<span class='fl'>25</span>,<span class='st'>"pid"</span>] <span class='kw'>&lt;-</span> <span class='st'>"b"</span>
+<span class='no'>my_groups</span>[<span class='fl'>26</span>:<span class='fl'>38</span>,<span class='st'>"pid"</span>] <span class='kw'>&lt;-</span> <span class='st'>"c"</span>
+
+<span class='no'>my_proportion</span> <span class='kw'>&lt;-</span> <span class='fu'>getIBDproportion</span>(<span class='kw'>ped.genotypes</span> <span class='kw'>=</span> <span class='no'>png_genotypes</span>,
+                                  <span class='kw'>ibd.matrix</span> <span class='kw'>=</span> <span class='no'>my_matrix</span>,
+                                  <span class='kw'>groups</span> <span class='kw'>=</span> <span class='no'>my_groups</span>)
+
+<span class='fu'>head</span>(<span class='no'>my_proportion</span>)</div><div class='output co'>#&gt;           chr            snp_id      pos_M pos_bp pop subpop   prop_ibd
+#&gt; 1 Pf3D7_01_v3 Pf3D7_01_v3:94976 0.05540867  94976   1    a.a 0.02222222
+#&gt; 2 Pf3D7_01_v3 Pf3D7_01_v3:95839 0.05591214  95839   1    a.a 0.02222222
+#&gt; 3 Pf3D7_01_v3 Pf3D7_01_v3:96128 0.05608074  96128   1    a.a 0.02222222
+#&gt; 4 Pf3D7_01_v3 Pf3D7_01_v3:96136 0.05608541  96136   1    a.a 0.02222222
+#&gt; 5 Pf3D7_01_v3 Pf3D7_01_v3:97100 0.05664780  97100   1    a.a 0.02222222
+#&gt; 6 Pf3D7_01_v3 Pf3D7_01_v3:99409 0.05799487  99409   1    a.a 0.02222222</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -159,7 +186,9 @@ The data frame is headed <code>chr, snp_id, pos_M, pos_bp, pop, subpop</code> an
       <li><a href="#value">Value</a></li>
 
       <li><a href="#see-also">See also</a></li>
-          </ul>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

@@ -166,6 +166,15 @@ The data frame is headed <code>chr, snp_id, pos_M, pos_bp, pop, subpop, iR</code
     <p><code><a href='getGenotypes.html'>getGenotypes</a></code>, <code><a href='getIBDmatrix.html'>getIBDmatrix</a></code> and <code><a href='getIBDproportion.html'>getIBDproportion</a></code>.</p>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'># generate a binary IBD matrix</span>
+<span class='no'>my_matrix</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='getIBDmatrix.html'>getIBDmatrix</a></span>(<span class='kw'>ped.genotypes</span> <span class='kw'>=</span> <span class='no'>png_genotypes</span>,
+                          <span class='kw'>ibd.segments</span> <span class='kw'>=</span> <span class='no'>png_ibd</span>)
+
+<span class='co'># calculate the significance of IBD sharing</span>
+<span class='no'>my_iR</span> <span class='kw'>&lt;-</span> <span class='fu'>getIBDiR</span>(<span class='kw'>ped.genotypes</span> <span class='kw'>=</span> <span class='no'>png_genotypes</span>,
+                  <span class='kw'>ibd.matrix</span> <span class='kw'>=</span> <span class='no'>my_matrix</span>,
+                  <span class='kw'>groups</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -175,7 +184,9 @@ The data frame is headed <code>chr, snp_id, pos_M, pos_bp, pop, subpop, iR</code
       <li><a href="#value">Value</a></li>
 
       <li><a href="#see-also">See also</a></li>
-          </ul>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

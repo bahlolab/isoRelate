@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Binary IBD Matrix — getIBDmatrix • isoRelate</title>
+<title>Filtered Genotypes For The Papua New Guinea Dataset — png_genotypes • isoRelate</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -27,10 +27,10 @@
 <script src="../pkgdown.js"></script>
   
   
-<meta property="og:title" content="Binary IBD Matrix — getIBDmatrix" />
+<meta property="og:title" content="Filtered Genotypes For The Papua New Guinea Dataset — png_genotypes" />
 
-<meta property="og:description" content="getIBDmatrix() produces a binary matrix of IBD (1) and non-IBD (0) results for each SNP and isolate pair combination.
-Each row identifies a unique SNP while each column identifies a unique isolate pair." />
+<meta property="og:description" content="Processed raw genotype data with the
+parameter settings as in the Vignette." />
 <meta name="twitter:card" content="summary" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -94,62 +94,45 @@ Each row identifies a unique SNP while each column identifies a unique isolate p
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Binary IBD Matrix</h1>
+    <h1>Filtered Genotypes For The Papua New Guinea Dataset</h1>
     </div>
 
     
-    <p><code>getIBDmatrix()</code> produces a binary matrix of IBD (1) and non-IBD (0) results for each SNP and isolate pair combination.
-Each row identifies a unique SNP while each column identifies a unique isolate pair.</p>
+    <p>Processed raw genotype data with the
+parameter settings as in the Vignette.</p>
     
 
-    <pre class="usage"><span class='fu'>getIBDmatrix</span>(<span class='no'>ped.genotypes</span>, <span class='no'>ibd.segments</span>)</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>ped.genotypes</th>
-      <td><p>A list containing 2 objects. See the <code>Value</code> description in <code><a href='getGenotypes.html'>getGenotypes</a></code> for more details on this input.</p></td>
-    </tr>
-    <tr>
-      <th>ibd.segments</th>
-      <td><p>A data frame containing the IBD segments detected by isoRelate.
-See the <code>Value</code> description in <code><a href='getIBDsegments.html'>getIBDsegments</a></code> for more details on this input.</p></td>
-    </tr>
-    </table>
-    
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+    <pre class="usage"><span class='no'>png_genotypes</span></pre>
+        
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with the first four columns:</p><ol>
-<li><p>Chromosome (type <code>"character"</code>, <code>"numeric"</code> or <code>"integer"</code>)</p></li>
-<li><p>SNP identifiers (type <code>"character"</code>)</p></li>
-<li><p>Genetic map distance (centi morgans, cM) (type <code>"numeric"</code>)</p></li>
-<li><p>Base-pair position (type <code>"integer"</code>)</p></li>
-</ol><p>where each row describes a unique SNP. Columns 1-4 are headed <code>chr, snp_id, pos_M</code> and <code>pos_bp</code> respectively.
-Columns 5 onwards contain the binary IBD information for each isolate pair, where a single column corresponds to a single pair.
-These columns are labeled with merged family IDs and isolate IDs separated by a slash symbol (/). For example fid1/iid1/fid2/iid2.</p>
-    
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <p><code><a href='getGenotypes.html'>getGenotypes</a></code>, <code><a href='getIBDsegments.html'>getIBDsegments</a></code>, <code><a href='getIBDproportion.html'>getIBDproportion</a></code>, <code><a href='getIBDiR.html'>getIBDiR</a></code>.</p>
+    <p>A list of two objects named <code>pedigree</code> and <code>genotypes</code>:</p><ol>
+<li><p><code>pedigree</code> is a data frame with the following information:</p><ol>
+<li><p>Family ID</p></li>
+<li><p>Isolate ID</p></li>
+<li><p>Paternal ID. This is not used by isoRelate and is set to zero.</p></li>
+<li><p>Maternal ID. This is not used by isoRelate and is set to zero.</p></li>
+<li><p>Multiplicity of infection - 1 for single infection and 2 for multiple infection</p></li>
+<li><p>Affection status of isolate. This is set to 2 and is ignored by isoRelate.</p></li>
+</ol></li>
+<li><p><code>genotypes</code> is a data frame with the first 5 columns:</p><ol>
+<li><p>Chromosome</p></li>
+<li><p>SNP identifier</p></li>
+<li><p>Genetic map distance</p></li>
+<li><p>Base-pair position</p></li>
+<li><p>Population allele frequency</p></li>
+</ol><p>where each row describes a single SNP. Columns 6 onwards contain the genotype data for each isolate, where a single column corresponds to a single isolate. These columns are
+labeled with merged family IDs and isolate IDs separated by a slash symbol (/).</p></li>
+</ol>
     
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># generate a binary IBD matrix</span>
-<span class='no'>my_matrix</span> <span class='kw'>&lt;-</span> <span class='fu'>getIBDmatrix</span>(<span class='kw'>ped.genotypes</span> <span class='kw'>=</span> <span class='no'>png_genotypes</span>,
-                          <span class='kw'>ibd.segments</span> <span class='kw'>=</span> <span class='no'>png_ibd</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#see-also">See also</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+      <li><a href="#format">Format</a></li>
+          </ul>
 
   </div>
 </div>

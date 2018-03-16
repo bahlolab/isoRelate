@@ -32,3 +32,15 @@ These columns are labeled with merged family IDs and isolate IDs separated by a 
 \description{
 \code{getIBDposterior()} calculates the posterior probabilities of IBD sharing between pairs of isolates.
 }
+\examples{
+\dontrun{
+# calculate the posterior probability of IBD sharing
+# note: this can take a while to run if there are many pairs
+my_posterior <- getIBDposterior(ped.genotypes = png_genotypes,
+                                parameters = png_parameters,
+                                number.cores = 1,
+                                error = 0.001)
+
+head(my_posterior[,1:10])
+}
+}

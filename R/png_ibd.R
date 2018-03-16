@@ -22,4 +22,4 @@
 #' \item{length_M}{Length of IBD segment in morgans}
 #' \item{ibd_status}{The number of alleles shared IBD (either 1 or 2)}
 #' }
-"my_ibd"
+"png_ibd"

@@ -209,6 +209,58 @@ If <code>subpop.facet=TRUE</code> and there are multiple populations then subpop
     <p><code><a href='getIBDproportion.html'>getIBDproportion</a></code></p>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'># generate a binary IBD matrix</span>
+<span class='no'>my_matrix</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='getIBDmatrix.html'>getIBDmatrix</a></span>(<span class='kw'>ped.genotypes</span> <span class='kw'>=</span> <span class='no'>png_genotypes</span>,
+                          <span class='kw'>ibd.segments</span> <span class='kw'>=</span> <span class='no'>png_ibd</span>)
+
+<span class='co'># calculate the proportion of pairs IBD at each SNP</span>
+<span class='no'>my_proportion</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='getIBDproportion.html'>getIBDproportion</a></span>(<span class='kw'>ped.genotypes</span> <span class='kw'>=</span> <span class='no'>png_genotypes</span>,
+                                  <span class='kw'>ibd.matrix</span> <span class='kw'>=</span> <span class='no'>my_matrix</span>,
+                                  <span class='kw'>groups</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+
+<span class='co'># plot the proportion of pairs IBD</span>
+<span class='fu'>plotIBDproportions</span>(<span class='kw'>ibd.proportions</span> <span class='kw'>=</span> <span class='no'>my_proportion</span>,
+                   <span class='kw'>interval</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+                   <span class='kw'>annotation.genes</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+                   <span class='kw'>annotation.genes.color</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+                   <span class='kw'>highlight.genes</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+                   <span class='kw'>highlight.genes.labels</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+                   <span class='kw'>highlight.genes.color</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+                   <span class='kw'>highlight.genes.alpha</span> <span class='kw'>=</span> <span class='fl'>0.1</span>,
+                   <span class='kw'>add.rug</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+                   <span class='kw'>plot.title</span> <span class='kw'>=</span> <span class='st'>"Proportion of pairs IBD in PNG"</span>,
+                   <span class='kw'>add.legend</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+                   <span class='kw'>line.color</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+                   <span class='kw'>facet.label</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+                   <span class='kw'>facet.scales</span> <span class='kw'>=</span> <span class='st'>"fixed"</span>,
+                   <span class='kw'>subpop.facet</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='img'><img src='plotIBDproportions-1.png' alt='' width='700' height='432.632880098887' /></div><div class='input'>
+<span class='co'># creating a stratification dataset</span>
+<span class='no'>my_groups</span> <span class='kw'>&lt;-</span> <span class='no'>png_genotypes</span><span class='kw'>[[</span><span class='fl'>1</span>]][,<span class='fl'>1</span>:<span class='fl'>3</span>]
+<span class='no'>my_groups</span>[<span class='fl'>1</span>:<span class='fl'>10</span>,<span class='st'>"pid"</span>] <span class='kw'>&lt;-</span> <span class='st'>"a"</span>
+<span class='no'>my_groups</span>[<span class='fl'>11</span>:<span class='fl'>25</span>,<span class='st'>"pid"</span>] <span class='kw'>&lt;-</span> <span class='st'>"b"</span>
+<span class='no'>my_groups</span>[<span class='fl'>26</span>:<span class='fl'>38</span>,<span class='st'>"pid"</span>] <span class='kw'>&lt;-</span> <span class='st'>"c"</span>
+
+<span class='no'>my_proportion</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='getIBDproportion.html'>getIBDproportion</a></span>(<span class='kw'>ped.genotypes</span> <span class='kw'>=</span> <span class='no'>png_genotypes</span>,
+                                  <span class='kw'>ibd.matrix</span> <span class='kw'>=</span> <span class='no'>my_matrix</span>,
+                                  <span class='kw'>groups</span> <span class='kw'>=</span> <span class='no'>my_groups</span>)
+
+<span class='co'># plot the proportion of pairs IBD</span>
+<span class='fu'>plotIBDproportions</span>(<span class='kw'>ibd.proportions</span> <span class='kw'>=</span> <span class='no'>my_proportion</span>,
+                   <span class='kw'>interval</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+                   <span class='kw'>annotation.genes</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+                   <span class='kw'>annotation.genes.color</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+                   <span class='kw'>highlight.genes</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+                   <span class='kw'>highlight.genes.labels</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+                   <span class='kw'>highlight.genes.color</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+                   <span class='kw'>highlight.genes.alpha</span> <span class='kw'>=</span> <span class='fl'>0.1</span>,
+                   <span class='kw'>line.color</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+                   <span class='kw'>add.rug</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+                   <span class='kw'>plot.title</span> <span class='kw'>=</span> <span class='st'>"Proportion of pairs IBD in PNG - with stratification"</span>,
+                   <span class='kw'>add.legend</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+                   <span class='kw'>facet.label</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+                   <span class='kw'>facet.scales</span> <span class='kw'>=</span> <span class='st'>"fixed"</span>,
+                   <span class='kw'>subpop.facet</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='img'><img src='plotIBDproportions-2.png' alt='' width='700' height='432.632880098887' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -216,7 +268,9 @@ If <code>subpop.facet=TRUE</code> and there are multiple populations then subpop
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#see-also">See also</a></li>
-          </ul>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

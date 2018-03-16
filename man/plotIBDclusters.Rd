@@ -61,6 +61,64 @@ is run on the same network.}
 drawn between two vertices if the isolates have been inferred IBD via the criteria specified in either \code{getIBDiclusters} or
 \code{getIBDpclusters}.The networks are created using the R package \code{igraph}.
 }
+\examples{
+# generate the isolates who are IBD over the Plasmodium falciparum CRT gene
+my_i_clusters <- getIBDiclusters(ped.genotypes = png_genotypes,
+                                 ibd.segments = png_ibd,
+                                 interval = c("Pf3D7_07_v3", 403222, 406317),
+                                 prop=0,
+                                 hi.clust = FALSE)
+
+str(my_i_clusters)
+
+# creating a stratification dataset
+my_groups <- png_genotypes[[1]][,1:3]
+my_groups[1:10,"pid"] <- "a"
+my_groups[11:25,"pid"] <- "b"
+my_groups[26:38,"pid"] <- "c"
+
+# plot the network of clusters
+plotIBDclusters(ped.genotypes = png_genotypes,
+                clusters = my_i_clusters,
+                groups = my_groups,
+                vertex.color = NULL,
+                vertex.frame.color = "white",
+                vertex.size = 4,
+                vertex.name = FALSE,
+                edge.color = "gray60",
+                edge.width = 0.8,
+                mark.border = "white",
+                mark.col = "gray94",
+                add.legend = TRUE,
+                legend.x = -1.5,
+                legend.y = -0.25,
+                layout = NULL,
+                return.layout = FALSE)
+
+# generate the isolates who share at least than 90\% of their genome IBD
+my_p_clusters <- getIBDpclusters(ped.genotypes = png_genotypes,
+                                 ibd.segments = png_ibd,
+                                 prop=0.9,
+                                 hi.clust = FALSE)
+
+# plot the network of clusters
+plotIBDclusters(ped.genotypes = png_genotypes,
+                clusters = my_p_clusters,
+                groups = my_groups,
+                vertex.color = NULL,
+                vertex.frame.color = "white",
+                vertex.size = 4,
+                vertex.name = FALSE,
+                edge.color = "gray60",
+                edge.width = 0.8,
+                mark.border = "white",
+                mark.col = "gray94",
+                add.legend = TRUE,
+                legend.x = -1.5,
+                legend.y = -0.25,
+                layout = NULL,
+                return.layout = FALSE)
+}
 \seealso{
 \code{\link{getGenotypes}}, \code{\link{getIBDpclusters}} and \code{\link{getIBDiclusters}}.
 }

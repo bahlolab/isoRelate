@@ -137,6 +137,17 @@ Columns 5 onwards contain the posterior probabilities for each pair of isolates,
 These columns are labeled with merged family IDs and isolate IDs separated by a slash symbol (/).</p>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='co'># calculate the posterior probability of IBD sharing</span>
+<span class='co'># note: this can take a while to run if there are many pairs</span>
+<span class='no'>my_posterior</span> <span class='kw'>&lt;-</span> <span class='fu'>getIBDposterior</span>(<span class='kw'>ped.genotypes</span> <span class='kw'>=</span> <span class='no'>png_genotypes</span>,
+                                <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='no'>png_parameters</span>,
+                                <span class='kw'>number.cores</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+                                <span class='kw'>error</span> <span class='kw'>=</span> <span class='fl'>0.001</span>)
+
+<span class='fu'>head</span>(<span class='no'>my_posterior</span>[,<span class='fl'>1</span>:<span class='fl'>10</span>])
+<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -144,7 +155,9 @@ These columns are labeled with merged family IDs and isolate IDs separated by a 
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
-          </ul>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

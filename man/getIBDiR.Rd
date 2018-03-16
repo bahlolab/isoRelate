@@ -56,6 +56,16 @@ SNPs with iR values greater than some threshold (i.e. -log10 (P-values) > -log10
 \code{getIBDiR} can return \code{NA} iR statistics for a number of reasons, including trying to generate iR statistics when there are no IBD pairs
 or when all pairs are IBD, or when only several isolates are analyzed.
 }
+\examples{
+# generate a binary IBD matrix
+my_matrix <- getIBDmatrix(ped.genotypes = png_genotypes,
+                          ibd.segments = png_ibd)
+
+# calculate the significance of IBD sharing
+my_iR <- getIBDiR(ped.genotypes = png_genotypes,
+                  ibd.matrix = my_matrix,
+                  groups = NULL)
+}
 \seealso{
 \code{\link{getGenotypes}}, \code{\link{getIBDmatrix}} and \code{\link{getIBDproportion}}.
 }

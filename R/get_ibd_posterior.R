@@ -21,6 +21,17 @@
 #' @importFrom utils setTxtProgressBar txtProgressBar
 #' @importFrom stats quantile
 #' @export
+#' @examples
+#' \dontrun{
+#' # calculate the posterior probability of IBD sharing
+#' # note: this can take a while to run if there are many pairs
+#' my_posterior <- getIBDposterior(ped.genotypes = png_genotypes,
+#'                                 parameters = png_parameters,
+#'                                 number.cores = 1,
+#'                                 error = 0.001)
+#'
+#' head(my_posterior[,1:10])
+#' }
 getIBDposterior <- function(ped.genotypes, parameters, number.cores = 1, error = 0.001){
 
   # check format of input data

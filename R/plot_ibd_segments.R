@@ -52,6 +52,46 @@
 #' @import ggplot2
 #' @export
 #' @seealso \code{\link{getGenotypes}} and \code{\link{getIBDsegments}}.
+#' @examples
+#' # plot IBD segments
+#' plotIBDsegments(ped.genotypes = png_genotypes,
+#'                 ibd.segments = png_ibd,
+#'                 interval = NULL,
+#'                 annotation.genes = NULL,
+#'                 annotation.genes.color = NULL,
+#'                 highlight.genes = NULL,
+#'                 highlight.genes.labels = FALSE,
+#'                 highlight.genes.color = NULL,
+#'                 highlight.genes.alpha = 0.1,
+#'                 segment.height = 0.6,
+#'                 number.per.page = NULL,
+#'                 fid.label = FALSE,
+#'                 iid.label = FALSE,
+#'                 ylabel.size = 9,
+#'                 add.rug = FALSE,
+#'                 plot.title = "Distribution of IBD segments in PNG",
+#'                 add.legend = TRUE,
+#'                 segment.color = NULL)
+#'
+#' # plot IBD segments over an interval: chromosome 7: 350000 - 550000
+#' plotIBDsegments(ped.genotypes = png_genotypes,
+#'                 ibd.segments = png_ibd,
+#'                 interval = c("Pf3D7_07_v3",350000,550000),
+#'                 annotation.genes = annotation_genes,
+#'                 annotation.genes.color = NULL,
+#'                 highlight.genes = highlight_genes,
+#'                 highlight.genes.labels = FALSE,
+#'                 highlight.genes.color = NULL,
+#'                 highlight.genes.alpha = 0.1,
+#'                 segment.height = 0.8,
+#'                 number.per.page = NULL,
+#'                 fid.label = FALSE,
+#'                 iid.label = FALSE,
+#'                 ylabel.size = 9,
+#'                 add.rug = TRUE,
+#'                 plot.title = "Distribution of IBD segments in PNG",
+#'                 add.legend = TRUE,
+#'                 segment.color = c("purple","green"))
 plotIBDsegments <- function (ped.genotypes, ibd.segments, interval = NULL, annotation.genes = NULL, annotation.genes.color = NULL,
                              highlight.genes = NULL, highlight.genes.labels = TRUE, highlight.genes.color = NULL,
                              highlight.genes.alpha = 0.1, segment.height = 0.5, segment.color = NULL, number.per.page = NULL,
@@ -349,6 +389,9 @@ plotIBDsegments <- function (ped.genotypes, ibd.segments, interval = NULL, annot
     ibd.interval.2[,"page.num"] <- 1
   }
 
+  # add segment colour
+  ibd.interval.2$segment.col <- ifelse(ibd.interval.2[,"ibd_status"] == 1, segment.color[1], segment.color[2])
+
   # plotting segments:
 
   for (i in unique(ibd.interval.2[,"page.num"])) {
@@ -364,13 +407,20 @@ plotIBDsegments <- function (ped.genotypes, ibd.segments, interval = NULL, annot
                        strip.text.y = element_text(angle = 360),
                        axis.title.y = element_blank(),
                        axis.text.y = element_text(size=ylabel.size))
-    if (add.legend) {
-      ggp <- ggp + geom_rect(data=ibd.page, aes_(xmin = ~start_position_bp, xmax = ~end_position_bp, ymin = ~pair.id, ymax = ~pair.id+segment.height,
-                                                fill = ~as.factor(ibd_status), alpha=0.8))
-      ggp <- ggp + scale_fill_manual("", values = c(segment.color[1], segment.color[2]), labels=c("IBD = 1", "IBD = 2"))
-    } else
-      ggp <- ggp + geom_rect(data=ibd.page, aes_(xmin = ~start_position_bp, xmax = ~end_position_bp, ymin = ~pair.id, ymax = ~pair.id+segment.height),
-                                            fill = ifelse(ibd.page[,"ibd_status"] == 1, segment.color[1], segment.color[2]), alpha=0.8)
+
+    ggp <- ggp + geom_rect(data = ibd.page,
+                           aes_(xmin = ~start_position_bp,
+                                xmax = ~end_position_bp,
+                                ymin = ~pair.id,
+                                ymax = ~pair.id+segment.height,
+                                fill = ~segment.col))
+    ggp <- ggp + scale_fill_manual("", values = c(segment.color[1], segment.color[2]), labels=c("IBD = 1", "IBD = 2"))
+
+    # add or remove legend
+    if (!add.legend) {
+      ggp <- ggp + theme(legend.position="none")
+    }
+
     if (add.rug & length(newpos) != 0)
       ggp <- ggp + geom_rug(aes(x = newpos), size = 0.1, colour = "gray30")
     if (!is.null(plot.title))

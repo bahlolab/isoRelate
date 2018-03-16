@@ -55,6 +55,59 @@
 #' @import ggplot2
 #' @export
 #' @seealso \code{\link{getIBDproportion}}
+#' @examples
+#' # generate a binary IBD matrix
+#' my_matrix <- getIBDmatrix(ped.genotypes = png_genotypes,
+#'                           ibd.segments = png_ibd)
+#'
+#' # calculate the proportion of pairs IBD at each SNP
+#' my_proportion <- getIBDproportion(ped.genotypes = png_genotypes,
+#'                                   ibd.matrix = my_matrix,
+#'                                   groups = NULL)
+#'
+#' # plot the proportion of pairs IBD
+#' plotIBDproportions(ibd.proportions = my_proportion,
+#'                    interval = NULL,
+#'                    annotation.genes = NULL,
+#'                    annotation.genes.color = NULL,
+#'                    highlight.genes = NULL,
+#'                    highlight.genes.labels = TRUE,
+#'                    highlight.genes.color = NULL,
+#'                    highlight.genes.alpha = 0.1,
+#'                    add.rug = FALSE,
+#'                    plot.title = "Proportion of pairs IBD in PNG",
+#'                    add.legend = FALSE,
+#'                    line.color = NULL,
+#'                    facet.label = TRUE,
+#'                    facet.scales = "fixed",
+#'                    subpop.facet = FALSE)
+#'
+#' # creating a stratification dataset
+#' my_groups <- png_genotypes[[1]][,1:3]
+#' my_groups[1:10,"pid"] <- "a"
+#' my_groups[11:25,"pid"] <- "b"
+#' my_groups[26:38,"pid"] <- "c"
+#'
+#' my_proportion <- getIBDproportion(ped.genotypes = png_genotypes,
+#'                                   ibd.matrix = my_matrix,
+#'                                   groups = my_groups)
+#'
+#' # plot the proportion of pairs IBD
+#' plotIBDproportions(ibd.proportions = my_proportion,
+#'                    interval = NULL,
+#'                    annotation.genes = NULL,
+#'                    annotation.genes.color = NULL,
+#'                    highlight.genes = NULL,
+#'                    highlight.genes.labels = FALSE,
+#'                    highlight.genes.color = NULL,
+#'                    highlight.genes.alpha = 0.1,
+#'                    line.color = NULL,
+#'                    add.rug = FALSE,
+#'                    plot.title = "Proportion of pairs IBD in PNG - with stratification",
+#'                    add.legend = FALSE,
+#'                    facet.label = TRUE,
+#'                    facet.scales = "fixed",
+#'                    subpop.facet = TRUE)
 plotIBDproportions <- function(ibd.proportions, interval = NULL, annotation.genes = NULL, annotation.genes.color = NULL,
                                highlight.genes = NULL, highlight.genes.labels = TRUE, highlight.genes.color = NULL, highlight.genes.alpha = 0.1,
                                line.color = NULL, add.rug = TRUE, plot.title = NULL, add.legend = TRUE,

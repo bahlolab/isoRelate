@@ -17,6 +17,10 @@
 #' These columns are labeled with merged family IDs and isolate IDs separated by a slash symbol (/). For example fid1/iid1/fid2/iid2.
 #' @export
 #' @seealso \code{\link{getGenotypes}}, \code{\link{getIBDsegments}}, \code{\link{getIBDproportion}}, \code{\link{getIBDiR}}.
+#' @examples
+#' # generate a binary IBD matrix
+#' my_matrix <- getIBDmatrix(ped.genotypes = png_genotypes,
+#'                           ibd.segments = png_ibd)
 getIBDmatrix <- function(ped.genotypes, ibd.segments){
 
   # check format of input data

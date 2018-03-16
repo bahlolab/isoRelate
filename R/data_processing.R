@@ -72,6 +72,19 @@
 #' }
 #' @export
 #' @seealso \code{\link{getIBDparameters}} and \code{\link{getIBDsegments}}.
+#' @examples
+#' # take a look at the data
+#' str(png_pedmap)
+#'
+#' # reformat and filter to call genotypes
+#' my_genotypes <- getGenotypes(ped.map = png_pedmap,
+#'                              reference.ped.map = NULL,
+#'                              maf = 0.01,
+#'                              isolate.max.missing = 0.1,
+#'                              snp.max.missing = 0.1,
+#'                              chromosomes = NULL,
+#'                              input.map.distance = "cM",
+#'                              reference.map.distance = "cM")
 getGenotypes <- function(ped.map, reference.ped.map = NULL, maf = 0.01, isolate.max.missing = 0.1, snp.max.missing = 0.1,
                          chromosomes = NULL, input.map.distance = "cM", reference.map.distance = "cM"){
 

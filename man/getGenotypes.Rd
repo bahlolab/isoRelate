@@ -91,6 +91,20 @@ including removal of SNPs and isolates with high proportions of missing data and
 allele frequencies. It also calculates SNP allele frequencies from either the
 input dataset or a specified reference dataset.
 }
+\examples{
+# take a look at the data
+str(png_pedmap)
+
+# reformat and filter to call genotypes
+my_genotypes <- getGenotypes(ped.map = png_pedmap,
+                             reference.ped.map = NULL,
+                             maf = 0.01,
+                             isolate.max.missing = 0.1,
+                             snp.max.missing = 0.1,
+                             chromosomes = NULL,
+                             input.map.distance = "cM",
+                             reference.map.distance = "cM")
+}
 \seealso{
 \code{\link{getIBDparameters}} and \code{\link{getIBDsegments}}.
 }

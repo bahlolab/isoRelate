@@ -28,6 +28,11 @@ These columns are labeled with merged family IDs and isolate IDs separated by a 
 \code{getIBDmatrix()} produces a binary matrix of IBD (1) and non-IBD (0) results for each SNP and isolate pair combination.
 Each row identifies a unique SNP while each column identifies a unique isolate pair.
 }
+\examples{
+# generate a binary IBD matrix
+my_matrix <- getIBDmatrix(ped.genotypes = png_genotypes,
+                          ibd.segments = png_ibd)
+}
 \seealso{
 \code{\link{getGenotypes}}, \code{\link{getIBDsegments}}, \code{\link{getIBDproportion}}, \code{\link{getIBDiR}}.
 }

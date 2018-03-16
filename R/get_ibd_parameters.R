@@ -24,6 +24,13 @@ globalVariables("pair.i")
 #' @importFrom stats quantile
 #' @export
 #' @seealso \code{\link{getGenotypes}} and \code{\link{getIBDsegments}}.
+#' @examples
+#' # following processing and filtering of genotype data,
+#' # we estimate the proportion of genome shared IBD
+#' my_parameters <- getIBDparameters(ped.genotypes = png_genotypes,
+#'                                   number.cores = 1)
+#'
+#' head(my_parameters)
 getIBDparameters <- function(ped.genotypes, number.cores = 1){
 
   # check input ped and genotypes

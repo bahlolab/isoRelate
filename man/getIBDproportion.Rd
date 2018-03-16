@@ -47,6 +47,28 @@ The data frame is headed \code{chr, snp_id, pos_M, pos_bp, pop, subpop} and \cod
 \description{
 \code{getIBDproportion()} calculates the proportion of pairs inferred IBD at each SNP.
 }
+\examples{
+# generate a binary IBD matrix
+my_matrix <- getIBDmatrix(ped.genotypes = png_genotypes,
+                          ibd.segments = png_ibd)
+
+# calculate the proportion of pairs IBD at each SNP
+my_proportion <- getIBDproportion(ped.genotypes = png_genotypes,
+                                  ibd.matrix = my_matrix,
+                                  groups = NULL)
+
+# creating a stratification dataset
+my_groups <- png_genotypes[[1]][,1:3]
+my_groups[1:10,"pid"] <- "a"
+my_groups[11:25,"pid"] <- "b"
+my_groups[26:38,"pid"] <- "c"
+
+my_proportion <- getIBDproportion(ped.genotypes = png_genotypes,
+                                  ibd.matrix = my_matrix,
+                                  groups = my_groups)
+
+head(my_proportion)
+}
 \seealso{
 \code{\link{getGenotypes}}, \code{\link{getIBDmatrix}} and \code{\link{getIBDiR}}.
 }

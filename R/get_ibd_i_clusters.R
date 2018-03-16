@@ -24,6 +24,15 @@
 #' @importFrom igraph graph.data.frame E E<- V V<- layout_with_fr fastgreedy.community components
 #' @export
 #' @seealso \code{\link{getGenotypes}}, \code{\link{getIBDsegments}} and \code{\link{getIBDpclusters}}.
+#' @examples
+#' # generate the isolates who are IBD over the Plasmodium falciparum CRT gene
+#' my_i_clusters <- getIBDiclusters(ped.genotypes = png_genotypes,
+#'                                  ibd.segments = png_ibd,
+#'                                  interval = c("Pf3D7_07_v3", 403222, 406317),
+#'                                  prop=0,
+#'                                  hi.clust = FALSE)
+#'
+#' str(my_i_clusters)
 getIBDiclusters <- function(ped.genotypes, ibd.segments, interval = NULL, prop=0, hi.clust = FALSE){
 
   # check format of input data

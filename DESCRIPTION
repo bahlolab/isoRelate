@@ -3,7 +3,8 @@ Title: Identity-by-Descent Inference of Haploid Recombining Organisms
 Version: 0.1.0
 Authors@R: person("Lyndal", "Henden", email = "lyndal_henden@hotmail.com", role = c("aut", "cre"))
 Description: Pairwise identity by descent inference of haploid species using single nucleotide polymorphism data.
-    isoRelate can detect IBD in the presence of multi-clonal infections and also provides a function for identifying loci under recent positive selection. 
+    isoRelate can detect IBD in the presence of multi-clonal infections and also provides a function for 
+    identifying loci under recent positive selection. Henden L, Lee S, Mueller I, Barry A, Bahlo M. (2018), doi:10.1101.088039.
 Depends:
     R (>= 3.2.1)
 License: MIT + file LICENSE

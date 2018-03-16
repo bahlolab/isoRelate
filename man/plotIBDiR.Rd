@@ -77,6 +77,33 @@ The default is \code{facet.scales="fixed"}}
 \description{
 \code{plotIBDiR()} plots the -log10 (p-values) used to assess the significance of excess IBD sharing.
 }
+\examples{
+# generate a binary IBD matrix
+my_matrix <- getIBDmatrix(ped.genotypes = png_genotypes,
+                          ibd.segments = png_ibd)
+
+# calculate the significance of IBD sharing
+my_iR <- getIBDiR(ped.genotypes = png_genotypes,
+                  ibd.matrix = my_matrix,
+                  groups = NULL)
+
+# plot the iR statistics
+plotIBDiR(ibd.iR = my_iR,
+          interval = NULL,
+          annotation.genes = NULL,
+          annotation.genes.color = NULL,
+          highlight.genes = NULL,
+          highlight.genes.labels = FALSE,
+          highlight.genes.color = NULL,
+          highlight.genes.alpha = 0.1,
+          point.size = 1,
+          point.color = NULL,
+          add.rug = FALSE,
+          plot.title = "Significance of IBD sharing",
+          add.legend = FALSE,
+          facet.label = TRUE,
+          facet.scales = "fixed")
+}
 \seealso{
 \code{\link{getIBDiR}}
 }

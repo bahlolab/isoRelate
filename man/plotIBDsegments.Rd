@@ -81,6 +81,47 @@ The default is \code{add.iid.name=TRUE}.}
 \description{
 \code{plotIBDsegments()} plots IBD segments for pairs across the genome. IBD segments are depicted by colored blocks.
 }
+\examples{
+# plot IBD segments
+plotIBDsegments(ped.genotypes = png_genotypes,
+                ibd.segments = png_ibd,
+                interval = NULL,
+                annotation.genes = NULL,
+                annotation.genes.color = NULL,
+                highlight.genes = NULL,
+                highlight.genes.labels = FALSE,
+                highlight.genes.color = NULL,
+                highlight.genes.alpha = 0.1,
+                segment.height = 0.6,
+                number.per.page = NULL,
+                fid.label = FALSE,
+                iid.label = FALSE,
+                ylabel.size = 9,
+                add.rug = FALSE,
+                plot.title = "Distribution of IBD segments in PNG",
+                add.legend = TRUE,
+                segment.color = NULL)
+
+# plot IBD segments over an interval: chromosome 7: 350000 - 550000
+plotIBDsegments(ped.genotypes = png_genotypes,
+                ibd.segments = png_ibd,
+                interval = c("Pf3D7_07_v3",350000,550000),
+                annotation.genes = annotation_genes,
+                annotation.genes.color = NULL,
+                highlight.genes = highlight_genes,
+                highlight.genes.labels = FALSE,
+                highlight.genes.color = NULL,
+                highlight.genes.alpha = 0.1,
+                segment.height = 0.8,
+                number.per.page = NULL,
+                fid.label = FALSE,
+                iid.label = FALSE,
+                ylabel.size = 9,
+                add.rug = TRUE,
+                plot.title = "Distribution of IBD segments in PNG",
+                add.legend = TRUE,
+                segment.color = c("purple","green"))
+}
 \seealso{
 \code{\link{getGenotypes}} and \code{\link{getIBDsegments}}.
 }

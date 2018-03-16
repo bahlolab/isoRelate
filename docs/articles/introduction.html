@@ -68,7 +68,7 @@
       <h1>isoRelate Introduction</h1>
                         <h4 class="author">Lyndal Henden</h4>
             
-            <h4 class="date">2018-03-15</h4>
+            <h4 class="date">2018-03-16</h4>
           </div>
 
     
@@ -426,7 +426,7 @@ my_posterior &lt;-<span class="st"> </span><span class="kw"><a href="../referenc
                 <span class="dt">ylabel.size =</span> <span class="dv">9</span>, 
                 <span class="dt">add.rug =</span> <span class="ot">FALSE</span>,
                 <span class="dt">plot.title =</span> <span class="st">"Distribution of IBD segments in PNG"</span>, 
-                <span class="dt">add.legend =</span> <span class="ot">FALSE</span>, 
+                <span class="dt">add.legend =</span> <span class="ot">TRUE</span>, 
                 <span class="dt">segment.color =</span> <span class="ot">NULL</span>)</code></pre></div>
 <p><img src="introduction_files/figure-html/unnamed-chunk-9-1.png" width="672"></p>
 <p>If there are many IBD pairs then it may be worthwhile specifying the maximum number of pairs to plot in a figure (<code>number.per.page</code>). This will split all IBD pairs into subgroups of IBD pairs of size <code>number.per.page</code>, then plot the IBD segments for each subgroup in a new figure. It is <strong>highly</strong> recommended to save the figures directly to a document (<code>my_ibd_segments.pdf</code>) as opposed to the R plot window if there are many IBD pairs.</p>
@@ -449,7 +449,7 @@ my_posterior &lt;-<span class="st"> </span><span class="kw"><a href="../referenc
                 <span class="dt">ylabel.size =</span> <span class="dv">9</span>,
                 <span class="dt">add.rug =</span> <span class="ot">TRUE</span>,
                 <span class="dt">plot.title =</span> <span class="st">"Distribution of IBD segments in PNG"</span>,
-                <span class="dt">add.legend =</span> <span class="ot">FALSE</span>,
+                <span class="dt">add.legend =</span> <span class="ot">TRUE</span>,
                 <span class="dt">segment.color =</span> <span class="kw">c</span>(<span class="st">"purple"</span>,<span class="st">"green"</span>))</code></pre></div>
 <pre><code>## Warning: Removed 1 rows containing missing values (geom_rect).</code></pre>
 <p><img src="introduction_files/figure-html/unnamed-chunk-10-1.png" width="672"></p>
@@ -556,43 +556,43 @@ my_i_clusters &lt;-<span class="st"> </span><span class="kw"><a href="../referen
 ##   ..$ :List of 1
 ##   .. ..$ PNG/PN0003-C:Class 'igraph.vs'  atomic [1:1] 2
 ##   .. .. .. ..- attr(*, "env")=&lt;weakref&gt; 
-##   .. .. .. ..- attr(*, "graph")= chr "0bb3b7d6-e2fb-4773-a7fd-134f8573569a"
+##   .. .. .. ..- attr(*, "graph")= chr "562b807c-244a-4b36-b421-14fd7583b924"
 ##   ..$ :List of 1
 ##   .. ..$ PNG/PN0005-C:Class 'igraph.vs'  atomic [1:2] 1 17
 ##   .. .. .. ..- attr(*, "env")=&lt;weakref&gt; 
-##   .. .. .. ..- attr(*, "graph")= chr "0bb3b7d6-e2fb-4773-a7fd-134f8573569a"
+##   .. .. .. ..- attr(*, "graph")= chr "562b807c-244a-4b36-b421-14fd7583b924"
 ##   ..$ :List of 1
 ##   .. ..$ PNG/PN0014-C:Class 'igraph.vs'  atomic [1:8] 5 6 8 9 10 11 13 18
 ##   .. .. .. ..- attr(*, "env")=&lt;weakref&gt; 
-##   .. .. .. ..- attr(*, "graph")= chr "0bb3b7d6-e2fb-4773-a7fd-134f8573569a"
+##   .. .. .. ..- attr(*, "graph")= chr "562b807c-244a-4b36-b421-14fd7583b924"
 ##   ..$ :List of 1
 ##   .. ..$ PNG/PN0022-C:Class 'igraph.vs'  atomic [1:1] 19
 ##   .. .. .. ..- attr(*, "env")=&lt;weakref&gt; 
-##   .. .. .. ..- attr(*, "graph")= chr "0bb3b7d6-e2fb-4773-a7fd-134f8573569a"
+##   .. .. .. ..- attr(*, "graph")= chr "562b807c-244a-4b36-b421-14fd7583b924"
 ##   ..$ :List of 1
 ##   .. ..$ PNG/PN0023-C:Class 'igraph.vs'  atomic [1:7] 3 6 8 9 10 11 13
 ##   .. .. .. ..- attr(*, "env")=&lt;weakref&gt; 
-##   .. .. .. ..- attr(*, "graph")= chr "0bb3b7d6-e2fb-4773-a7fd-134f8573569a"
+##   .. .. .. ..- attr(*, "graph")= chr "562b807c-244a-4b36-b421-14fd7583b924"
 ##   ..$ :List of 1
 ##   .. ..$ PNG/PN0031-C:Class 'igraph.vs'  atomic [1:7] 3 5 8 9 10 11 13
 ##   .. .. .. ..- attr(*, "env")=&lt;weakref&gt; 
-##   .. .. .. ..- attr(*, "graph")= chr "0bb3b7d6-e2fb-4773-a7fd-134f8573569a"
+##   .. .. .. ..- attr(*, "graph")= chr "562b807c-244a-4b36-b421-14fd7583b924"
 ##   ..$ :List of 1
 ##   .. ..$ PNG/PN0037-C:Class 'igraph.vs'  atomic [1:1] 20
 ##   .. .. .. ..- attr(*, "env")=&lt;weakref&gt; 
-##   .. .. .. ..- attr(*, "graph")= chr "0bb3b7d6-e2fb-4773-a7fd-134f8573569a"
+##   .. .. .. ..- attr(*, "graph")= chr "562b807c-244a-4b36-b421-14fd7583b924"
 ##   ..$ :List of 1
 ##   .. ..$ PNG/PN0040-C:Class 'igraph.vs'  atomic [1:8] 3 5 6 9 10 11 13 18
 ##   .. .. .. ..- attr(*, "env")=&lt;weakref&gt; 
-##   .. .. .. ..- attr(*, "graph")= chr "0bb3b7d6-e2fb-4773-a7fd-134f8573569a"
+##   .. .. .. ..- attr(*, "graph")= chr "562b807c-244a-4b36-b421-14fd7583b924"
 ##   ..$ :List of 1
 ##   .. ..$ PNG/PN0055-C:Class 'igraph.vs'  atomic [1:7] 3 5 6 8 10 11 13
 ##   .. .. .. ..- attr(*, "env")=&lt;weakref&gt; 
-##   .. .. .. ..- attr(*, "graph")= chr "0bb3b7d6-e2fb-4773-a7fd-134f8573569a"
+##   .. .. .. ..- attr(*, "graph")= chr "562b807c-244a-4b36-b421-14fd7583b924"
 ##   ..$ :List of 1
 ##   .. ..$ PNG/PN0055-Cx:Class 'igraph.vs'  atomic [1:7] 3 5 6 8 9 11 13
 ##   .. .. .. ..- attr(*, "env")=&lt;weakref&gt; 
-##   .. .. .. ..- attr(*, "graph")= chr "0bb3b7d6-e2fb-4773-a7fd-134f8573569a"
+##   .. .. .. ..- attr(*, "graph")= chr "562b807c-244a-4b36-b421-14fd7583b924"
 ##   ..- attr(*, "class")= chr "igraph"
 ##  $ hi.clust : logi FALSE</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># plot the network of clusters</span>

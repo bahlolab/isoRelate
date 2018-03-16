@@ -48,6 +48,20 @@ start_position_bp, end_position_bp, start_position_M, end_position_M, number_snp
 \description{
 \code{getIBDsegments()} detects genomic regions shared IBD between all pairwise combinations of isolates.
 }
+\examples{
+\dontrun{
+# prior to IBD detection, parameter estimates must be estimated.
+# Assuming this has been done, IBD inference is performed
+my_ibd <- getIBDsegments(ped.genotypes = png_genotypes,
+                        parameters = png_parameters,
+                        number.cores = 1,
+                        minimum.snps = 20,
+                        minimum.length.bp = 50000,
+                        error = 0.001)
+
+head(my_ibd)
+}
+}
 \seealso{
 \code{\link{getGenotypes}} and \code{\link{getIBDparameters}}.
 }

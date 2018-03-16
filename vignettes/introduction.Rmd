@@ -232,7 +232,7 @@ plotIBDsegments(ped.genotypes = my_genotypes,
                 ylabel.size = 9, 
                 add.rug = FALSE,
                 plot.title = "Distribution of IBD segments in PNG", 
-                add.legend = FALSE, 
+                add.legend = TRUE, 
                 segment.color = NULL)
                           
 ``` 
@@ -268,7 +268,7 @@ plotIBDsegments(ped.genotypes = my_genotypes,
                 ylabel.size = 9,
                 add.rug = TRUE,
                 plot.title = "Distribution of IBD segments in PNG",
-                add.legend = FALSE,
+                add.legend = TRUE,
                 segment.color = c("purple","green"))
 
                           
