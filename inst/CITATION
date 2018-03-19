@@ -1,0 +1,17 @@
+citHeader("To cite the 'isoRelate' package in publications use:")
+
+citEntry(
+  entry="Article",
+  title="Identity-by-descent analyses for measuring population
+  dynamics and selection in recombining pathogens",
+  journal="bioRxiv",
+  year="2018",
+  author=personList(as.person("L. Henden"),
+                    as.person("S. Lee"),
+                    as.person("I. Mueller"),
+                    as.person("A. Barry"),
+                    as.person("M. Bahlo")),
+  textVersion="Henden L, Lee S, Mueller I, Barry A, Bahlo M. (2018) Identity-by-descent
+  analyses for measuring population dynamics and selection in recombining
+  pathogens. bioRxiv doi: https://doi.org/10.1101/088039."
+)
