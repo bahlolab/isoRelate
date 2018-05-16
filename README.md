@@ -34,4 +34,4 @@ See the introduction vignette for details.
 
 ## Reference
 
-Henden L, Lee S, Mueller I, Barry A, Bahlo M. 2016. Identity-by-descent analyses for measuring population dynamics and selection in recombining pathogens. *bioRxiv*. doi: http://dx.doi.org/10.1101/088039
+Henden L, Lee S, Mueller I, Barry A, Bahlo M. 2016. Identity-by-descent analyses for measuring population dynamics and selection in recombining pathogens. *bioRxiv*. doi: https://doi.org/10.1101/088039
